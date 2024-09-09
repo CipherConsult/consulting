@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="https://cdn.tailwindcss.com"></script>
+
         <script>
             tailwind.config = {
                 theme: {
@@ -16,6 +17,28 @@
                 },
             };
         </script>
+        <!-- Calendly badge widget begin -->
+        <link
+            href="https://assets.calendly.com/assets/external/widget.css"
+            rel="stylesheet"
+        />
+        <script
+            src="https://assets.calendly.com/assets/external/widget.js"
+            type="text/javascript"
+            async
+        ></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                Calendly.initBadgeWidget({
+                    url: "https://calendly.com/aliyussajjads/30min",
+                    text: "Schedule time with me",
+                    color: "#dc7000",
+                    textColor: "#ffffff",
+                    branding: undefined,
+                });
+            };
+        </script>
+        <!-- Calendly badge widget end -->
         <style>
             /* Custom Background Styles */
             .hero-bg {
@@ -127,9 +150,11 @@
 
             <!-- Contact Details -->
             <div class="flex justify-center mt-12 w-full">
-                <div class="flex items-center space-x-8">
+                <div class="flex items-center justify-center space-x-8">
                     <!-- Social Media Icons -->
-                    <div class="flex space-x-4 borde">
+                    <div
+                        class="flex space-x-4 border-r-2 h-[102px] justify-center items-center px-12"
+                    >
                         <a href="#" class="text-gray-500 hover:text-gray-900"
                             ><img src="./svg/facebook.svg" alt=""
                         /></a>
@@ -145,13 +170,15 @@
                     </div>
 
                     <!-- Phone Contact -->
-                    <div class="flex items-center space-x-4">
+                    <div
+                        class="flex items-center space-x-4 border-r-2 h-[102px] px-12"
+                    >
                         <img src="./svg/phone.svg" alt="" />
                         <span class="text-gray-700">+2347085512480</span>
                     </div>
 
                     <!-- Location Placeholder Text -->
-                    <div class="flex items-center space-x-4">
+                    <div class="flex items-center space-x-4 h-[102px] px-12">
                         <img src="./svg/gps.svg" alt="" />
                         <span class="text-gray-700"
                             >but also the leap into electronic typesetting</span
@@ -161,110 +188,80 @@
             </div>
         </section>
 
-        <!-- Mission Section -->
         <section
-            class="flex justify-center space-x-32 items-center bg-[#F5F5F5] text-[#2B2B2B] my-36 h-[1063px]"
+            class="bg-[#F5F5F5] min-h-screen flex items-center justify-center px-4 py-12 my-32"
         >
-            <img
-                src="./img/car-img.png"
-                alt="Mission and Vision"
-                class="w-[512px] h-[847px] object-cover"
-            />
-            <div
-                class="flex flex-col justify-center space-y-32 w-[536px] h-[847px] overflow-hidden"
-            >
-                <section>
-                    <h2 class="text-2xl font-semibold mb-4 text-black">
-                        Mission
-                    </h2>
-                    <p class="mb-4">
-                        Driven by a commitment to empower and uplift Cipher
-                        Educational Consult Limited seeks to bridge the
-                        educational divide, particularly for those affected by
-                        insurgency in northeastern Nigeria. Our founders,
-                        intimately acquainted with the challenges, aspire to
-                        showcase the resilience and talent of the region to the
-                        world. At the heart of our mission is the Educational
-                        Sponsorship program deserving, designed to empower
-                        deserving students from northeastern Nigeria.
-                    </p>
-                </section>
-                <section>
-                    <h2 class="text-2xl font-semibold mb-4 text-black">
-                        Vision
-                    </h2>
-                    <p>
-                        Shaping Futures, Guiding You To Global Educational
-                        ExcellenceTo be a leading educational consultancy that
-                        transforms lives through education, creating pathways to
-                        success for students worldwide.
-                    </p>
-                </section>
-            </div>
-        </section>
+            <div class="p-8 w-[671px]">
+                <h2 class="text-3xl font-bold text-center mb-2">Say hello</h2>
+                <p class="text-gray-600 text-center mb-8">
+                    Looking forward to connecting with you!
+                </p>
 
-        <!-- Testimonials Section -->
-        <section id="testimonials" class="testimonials-bg py-16">
-            <div class="max-w-7xl mx-auto px-4">
-                <h2 class="text-3xl font-semibold mb-8 text-[#222222]">
-                    Why work with us
-                </h2>
-                <div class="flex space-x-4 overflow-visible my-12">
-                    <!-- Testimonial 1 -->
-                    <div
-                        class="bg-white p-8 rounded-lg flex-shrink-0 w-[378px] h-[348px] space-y-8 drop-shadow-2xl shadow-[#0000000D] justify-center"
-                    >
-                        <span
-                            class="w-[141px] h-[39px] bg-[#0CBE6426] py-3 px-4 rounded-lg text-[#0CBE64]"
-                            >Amina Usman</span
-                        >
-                        <p class="text-gray-700 mb-4">
-                            Cipher Educational Consult guided me through every
-                            step of my university admission process. Their
-                            personalized approach made me feel confident and
-                            prepared for my international studies.
-                        </p>
+                <form>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label
+                                for="firstName"
+                                class="block text-sm font-medium text-gray-700 mb-1"
+                                >First Name</label
+                            >
+                            <input
+                                type="text"
+                                id="firstName"
+                                name="firstName"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                for="lastName"
+                                class="block text-sm font-medium text-gray-700 mb-1"
+                                >Last Name</label
+                            >
+                            <input
+                                type="text"
+                                id="lastName"
+                                name="lastName"
+                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            />
+                        </div>
                     </div>
 
-                    <!-- Add more testimonials as needed -->
-                    <div
-                        class="bg-[#F5F5F5] p-8 rounded-lg flex-shrink-0 w-[378px] h-[348px] space-y-8"
-                    >
-                        <span
-                            class="w-[141px] h-[39px] bg-[#0CBE6426] py-3 px-4 rounded-lg text-[#0CBE64]"
-                            >Amina Usman</span
+                    <div class="mb-4">
+                        <label
+                            for="email"
+                            class="block text-sm font-medium text-gray-700 mb-1"
+                            >Email Address</label
                         >
-                        <p class="text-gray-700 mb-4">
-                            Cipher Educational Consult guided me through every
-                            step of my university admission process. Their
-                            personalized approach made me feel confident and
-                            prepared for my international studies.
-                        </p>
-                        <a
-                            class="font-medium text-sm text-[#DC7000] text-right mt-10 flex align-middle justify-end space-x-3"
-                            >Read more <img src="./svg/arrow.svg" alt="/"
-                        /></a>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        />
                     </div>
-                    <!-- 3 -->
-                    <div
-                        class="bg-[#F5F5F5] p-8 rounded-lg flex-shrink-0 w-[378px] h-[348px] space-y-8"
-                    >
-                        <span
-                            class="w-[141px] h-[39px] bg-[#0CBE6426] py-3 px-4 rounded-lg text-[#0CBE64]"
-                            >Amina Usman</span
+
+                    <div class="mb-6">
+                        <label
+                            for="message"
+                            class="block text-sm font-medium text-gray-700 mb-1"
+                            >Message</label
                         >
-                        <p class="text-gray-700 mb-4">
-                            Cipher Educational Consult guided me through every
-                            step of my university admission process. Their
-                            personalized approach made me feel confident and
-                            prepared for my international studies.
-                        </p>
-                        <a
-                            class="font-medium text-sm text-[#DC7000] text-right mt-10 flex align-middle justify-end space-x-3"
-                            >Read more <img src="./svg/arrow.svg" alt="/"
-                        /></a>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="4"
+                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        ></textarea>
                     </div>
-                </div>
+
+                    <button
+                        type="submit"
+                        class="w-[193px] bg-[#DC7000] text-white font-semibold py-2 px-4 rounded-md hover:bg-orange-600 transition duration-300"
+                    >
+                        Get in touch
+                    </button>
+                </form>
             </div>
         </section>
 

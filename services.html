@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            "custom-black": "#1B1B1B",
+                            "custom-orange": "#DC7000",
+                        },
+                    },
+                },
+            };
+        </script>
+        <!-- Calendly badge widget begin -->
+        <link
+            href="https://assets.calendly.com/assets/external/widget.css"
+            rel="stylesheet"
+        />
+        <script
+            src="https://assets.calendly.com/assets/external/widget.js"
+            type="text/javascript"
+            async
+        ></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                Calendly.initBadgeWidget({
+                    url: "https://calendly.com/aliyussajjads/30min",
+                    text: "Schedule time with me",
+                    color: "#dc7000",
+                    textColor: "#ffffff",
+                    branding: undefined,
+                });
+            };
+        </script>
+        <!-- Calendly badge widget end -->
+        <style>
+            /* Custom Background Styles */
+            .hero-bg {
+                /* background-color: ; Adjust background color */
+                position: relative;
+                padding: 60px 0;
+                background-image: url("./svg/vector1.svg"); /* Path to your vector */
+                background-position: bottom right; /* Align vector to bottom right */
+                background-size: contain; /* Make sure the vector fits nicely */
+                background-repeat: no-repeat;
+            }
+            .about-bg {
+                background-image: url("path-to-about-background-drawing.png");
+                background-position: top right;
+                background-size: 200px;
+                background-repeat: no-repeat;
+            }
+            .services-bg {
+                background-image: url("path-to-services-background-drawing.png");
+                background-position: left center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            .testimonials-bg {
+                background-image: url("path-to-testimonials-background-drawing.png");
+                background-position: bottom left;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            /* About Section */
+            .about-section {
+                background-color: #ffffff;
+                padding: 60px 20px;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 40px;
+            }
+
+            /* Background SVG Dots */
+            .bg-dots-pattern {
+                background-image: url("path-to-your-dots.svg");
+                background-position: bottom right;
+                background-repeat: no-repeat;
+                background-size: 100px 100px; /* Adjust based on the size of your dots */
+            }
+
+            /* Image Styling */
+            .bg-dots-pattern img {
+                display: block;
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+    <body class="font-sans bg-[#FFFFFF]">
+        <!-- Navbar -->
+        <header class="bg-[#E1790D] text-white p-4">
+            <nav
+                class="container mx-auto flex justify-between items-center px-16"
+            >
+                <div class="text-xl font-bold">
+                    <img src="./img/logo 1.png" alt="" />
+                </div>
+                <div class="space-x-28">
+                    <a href="./index.html" class="hover:underline">Home</a>
+                    <a href="./about.html" class="hover:underline">About us</a>
+                    <a href="#" class="hover:underline">Services</a>
+                    <a href="#" class="hover:underline">News</a>
+                    <button class="bg-white text-[#DC7000] px-4 py-2 rounded">
+                        Contact Us
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="bg-white py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <!-- Breadcrumb -->
+                <nav class="text-sm mb-6 items-center">
+                    <ol class="list-none p-0 inline-flex">
+                        <li class="flex items-center text-gray-500">
+                            <a href="#" class="hover:text-gray-700">Home</a>
+                            <svg
+                                class="fill-current w-3 h-3 mx-3"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 320 512"
+                            >
+                                <path
+                                    d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"
+                                />
+                            </svg>
+                        </li>
+                        <li class="flex items-center text-orange-500">
+                            Services
+                        </li>
+                    </ol>
+                </nav>
+
+                <!-- Main heading -->
+                <h1 class="text-4xl font-bold text-center mb-4">
+                    Unlock Your Potential with Expert Guidance
+                </h1>
+
+                <!-- Subheading -->
+                <p class="text-xl text-center text-gray-600 mb-12">
+                    At Cipher Educational Consult Limited, we are committed to
+                    empowering<br />
+                    students in Northeast Nigeria and beyond.
+                </p>
+
+                <!-- Content grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <!-- Left column: Image -->
+                    <div>
+                        <img
+                            src="./img/services-image1.png"
+                            alt="Student writing"
+                            class="rounded-lg shadow-md w-full"
+                        />
+                    </div>
+
+                    <!-- Right column: Services -->
+                    <div>
+                        <h2 class="text-3xl font-semibold mb-4">
+                            Our comprehensive<br />range of services include
+                        </h2>
+                        <p class="text-gray-600 mb-6">
+                            Designed to guide students on their educational
+                            journeys<br />
+                            and help them achieve their academic and career
+                            goals.
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <svg
+                                    class="w-5 h-5 text-green-500 mr-2"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                Educational Consultancy
+                            </li>
+                            <li class="flex items-center">
+                                <svg
+                                    class="w-5 h-5 text-green-500 mr-2"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                International Student Admission
+                            </li>
+                            <li class="flex items-center">
+                                <svg
+                                    class="w-5 h-5 text-green-500 mr-2"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                Scholarship and Financial Aid
+                            </li>
+                            <li class="flex items-center">
+                                <svg
+                                    class="w-5 h-5 text-green-500 mr-2"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                        clip-rule="evenodd"
+                                    />
+                                </svg>
+                                Visa Assistance
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <!-- Left column: Content -->
+                    <div class="flex flex-col space-y-16">
+                        <h2 class="text-3xl font-bold mb-6">
+                            Educational Consultancy
+                        </h2>
+                        <div class="space-y-4">
+                            <p class="text-gray-700">
+                                "Cipher Educational Consult offers tailored
+                                advice and guidance to students looking to
+                                further their education. Our team provides
+                                comprehensive support throughout the process,
+                                ensuring that each student can reach their
+                                academic potential. We help navigate the
+                                complexities of school selection, application
+                                processes, and preparation for academic life."
+                            </p>
+                            <p class="text-gray-700">
+                                We provide tailored guidance on school
+                                selection, application processes, and
+                                preparation for academic life, ensuring each
+                                student finds the right path to success.
+                            </p>
+                        </div>
+                        <button
+                            class="mt-8 bg-orange-500 text-white font-semibold py-2 px-6 hover:bg-orange-600 transition duration-300 w-[177px]"
+                        >
+                            Read more
+                        </button>
+                    </div>
+
+                    <!-- Right column: Image -->
+                    <div>
+                        <img
+                            src="./img/services-image2.png"
+                            alt="Classroom scene with teacher and students"
+                            class="rounded-lg shadow-md w-[473px] h-[481px]"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <!-- Right column: Image -->
+                    <div>
+                        <img
+                            src="./img/services-image3.png"
+                            alt="Classroom scene with teacher and students"
+                            class="rounded-lg shadow-md w-[473px] h-[481px]"
+                        />
+                    </div>
+                    <!-- Left column: Content -->
+                    <div class="flex flex-col space-y-16">
+                        <h2 class="text-3xl font-bold mb-6">
+                            International Student Admission
+                        </h2>
+                        <div class="space-y-4">
+                            <p class="text-gray-700">
+                                We specialize in assisting students with
+                                applications to universities and colleges around
+                                the world. Our expertise covers all aspects of
+                                the application process, from initial school
+                                selection to submitting applications and
+                                securing admissions. We ensure that every
+                                student finds the best possible fit for their
+                                educational journey abroad.
+                            </p>
+                            <p class="text-gray-700">
+                                Navigating international admissions can be
+                                complex, but we make it simple. From school
+                                selection to application submission, our team
+                                supports you every step of the way
+                            </p>
+                        </div>
+                        <button
+                            class="mt-8 bg-orange-500 text-white font-semibold py-2 px-6 hover:bg-orange-600 transition duration-300 w-[177px]"
+                        >
+                            Read more
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <!-- Left column: Content -->
+                    <div class="flex flex-col space-y-16">
+                        <h2 class="text-3xl font-bold mb-6">
+                            Scholarship and Financial Aid Guidance
+                        </h2>
+                        <div class="space-y-4">
+                            <p class="text-gray-700">
+                                We provide expert advice on scholarships and
+                                financial aid options available to students. Our
+                                team helps students find scholarships they are
+                                eligible for and assists with the application
+                                process to maximize their chances of receiving
+                                financial support for their studies.
+                            </p>
+                            <p class="text-gray-700">
+                                Explore a variety of scholarships and financial
+                                aid opportunities with our expert guidance.
+                            </p>
+                        </div>
+                        <button
+                            class="mt-8 bg-orange-500 text-white font-semibold py-2 px-6 hover:bg-orange-600 transition duration-300 w-[177px]"
+                        >
+                            Read more
+                        </button>
+                    </div>
+
+                    <!-- Right column: Image -->
+                    <div>
+                        <img
+                            src="./img/services-image.png"
+                            alt="Classroom scene with teacher and students"
+                            class="rounded-lg shadow-md w-[473px] h-[481px]"
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-28">
+            <div class="container mx-auto px-4 py-8 max-w-6xl">
+                <div class="mb-8">
+                    <h2 class="text-4xl font-bold text-custom-black mb-4">
+                        Empowering Your Educational Journey
+                    </h2>
+                    <p
+                        class="text-base font-normal text-gray-600 max-w-[545px]"
+                    >
+                        Cipher Educational Consult Limited bridges educational
+                        gaps in West Africa, offering international admissions,
+                        career counseling, and mentorship to help you succeed
+                        globally
+                    </p>
+                </div>
+
+                <div
+                    class="bg-custom-black text-white rounded-xl p-8 flex flex-col md:flex-row items-center justify-between"
+                >
+                    <div class="mb-6 md:mb-0 md:mr-8">
+                        <h3 class="text-2xl font-bold mb-2">
+                            Stay in the loop
+                        </h3>
+                        <p class="text-gray-300">
+                            Subscribe to receive the latest news and updates
+                            about TDA. We promise not to spam you!
+                        </p>
+                    </div>
+                    <form class="w-full md:w-auto flex p-2 bg-white rounded">
+                        <input
+                            type="email"
+                            placeholder="Enter email address"
+                            class="flex-grow md:w-64 px-4 py-2 text-custom-black border-none hover:border-none outline-none"
+                        />
+                        <button
+                            type="submit"
+                            class="bg-custom-orange text-white px-6 py-2 rounded-md hover:bg-opacity-90 transition duration-300"
+                        >
+                            Continue
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-[#1B1B1B] text-white">
+            <div class="container mx-auto px-4 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Logo and Company Info -->
+                    <div class="col-span-1">
+                        <img
+                            src="./img/logo 1.png"
+                            alt="Cipher Educational Consult Ltd."
+                            class="mb-4"
+                        />
+                        <p class="mb-4">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry.
+                        </p>
+                        <p class="text-sm">
+                            ciphereducationalconsult@gmail.com
+                        </p>
+                    </div>
+
+                    <!-- About Us -->
+                    <div class="col-span-1">
+                        <h3 class="text-lg font-semibold mb-4">About us</h3>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#" class="hover:text-gray-300"
+                                    >Company</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-gray-300"
+                                    >Portfolio</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-gray-300"
+                                    >Careers</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-gray-300"
+                                    >Contact us</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Us -->
+                    <div class="col-span-1">
+                        <h3 class="text-lg font-semibold mb-4">Contact us</h3>
+                        <p class="mb-4">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry.
+                        </p>
+                        <p>+234 7085 512480</p>
+                    </div>
+
+                    <!-- Social Media Icons -->
+                    <div
+                        class="col-span-1 flex justify-end items-start space-x-4"
+                    >
+                        <a
+                            href="#"
+                            class="bg-white text-[#1B1B1B] rounded-full p-2 hover:bg-gray-200"
+                        >
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="bg-white text-[#1B1B1B] rounded-full p-2 hover:bg-gray-200"
+                        >
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="bg-white text-[#1B1B1B] rounded-full p-2 hover:bg-gray-200"
+                        >
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="bg-white text-[#1B1B1B] rounded-full p-2 hover:bg-gray-200"
+                        >
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700">
+                <div class="container mx-auto px-4 py-4 text-center text-sm">
+                    Copyright © 2024 Company All rights Rcerved
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
