@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            "custom-black": "#1B1B1B",
+                            "custom-orange": "#DC7000",
+                        },
+                    },
+                },
+            };
+        </script>
+        <style>
+            /* Custom Background Styles */
+            .hero-bg {
+                /* background-color: ; Adjust background color */
+                position: relative;
+                padding: 60px 0;
+                background-image: url("./svg/vector1.svg"); /* Path to your vector */
+                background-position: bottom right; /* Align vector to bottom right */
+                background-size: contain; /* Make sure the vector fits nicely */
+                background-repeat: no-repeat;
+            }
+            .about-bg {
+                background-image: url("path-to-about-background-drawing.png");
+                background-position: top right;
+                background-size: 200px;
+                background-repeat: no-repeat;
+            }
+            .services-bg {
+                background-image: url("path-to-services-background-drawing.png");
+                background-position: left center;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            .testimonials-bg {
+                background-image: url("path-to-testimonials-background-drawing.png");
+                background-position: bottom left;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+            /* About Section */
+            .about-section {
+                background-color: #ffffff;
+                padding: 60px 20px;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 40px;
+            }
+
+            /* Background SVG Dots */
+            .bg-dots-pattern {
+                background-image: url("path-to-your-dots.svg");
+                background-position: bottom right;
+                background-repeat: no-repeat;
+                background-size: 100px 100px; /* Adjust based on the size of your dots */
+            }
+
+            /* Image Styling */
+            .bg-dots-pattern img {
+                display: block;
+                width: 100%;
+                height: auto;
+                border-radius: 10px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+        </style>
+    </head>
+    <body class="font-sans bg-[#FFFFFF]">
+        <!-- Navbar -->
+        <header class="bg-[#E1790D] text-white p-4">
+            <nav
+                class="container mx-auto flex justify-between items-center px-16"
+            >
+                <div class="text-xl font-bold">
+                    <img src="./img/logo 1.png" alt="" />
+                </div>
+                <div class="space-x-28">
+                    <a href="./index.html" class="hover:underline">Home</a>
+                    <a href="./about.html" class="hover:underline">About us</a>
+                    <a href="#" class="hover:underline">Services</a>
+                    <a href="#" class="hover:underline">News</a>
+                    <button class="bg-white text-[#DC7000] px-4 py-2 rounded">
+                        Contact Us
+                    </button>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="flex flex-col items-center text-center mt-8">
+            <!-- Breadcrumb -->
+            <div class="flex justify-center py-4 bg-white w-full">
+                <div class="text-sm">
+                    <a href="#" class="text-gray-500">Home</a> >
+                    <span class="text-orange-500">Contact us</span>
+                </div>
+            </div>
+
+            <!-- Main Heading and Subtext -->
+            <h1 class="text-3xl font-bold mb-4">We'd love to hear from you!</h1>
+            <p class="text-gray-500 mb-8">
+                Fill out the form below, and we'll get back to you as soon as
+                possible. Your feedback and inquiries are important to us.
+            </p>
+
+            <!-- Placeholder for the Map Image -->
+            <div class="w-full max-w-4xl">
+                <img
+                    src="./img/world-image.png"
+                    alt="Map Location"
+                    class="w-full h-auto"
+                />
+            </div>
+
+            <!-- Contact Details -->
+            <div class="flex justify-center mt-12 w-full">
+                <div class="flex items-center space-x-8">
+                    <!-- Social Media Icons -->
+                    <div class="flex space-x-4 borde">
+                        <a href="#" class="text-gray-500 hover:text-gray-900"
+                            ><img src="./svg/facebook.svg" alt=""
+                        /></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-900">
+                            <img src="./svg/insta.svg" alt=""
+                        /></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-900">
+                            <img src="./svg/linkedin.svg" alt=""
+                        /></a>
+                        <a href="#" class="text-gray-500 hover:text-gray-900">
+                            <img src="./svg/linkedin.svg" alt=""
+                        /></a>
+                    </div>
+
+                    <!-- Phone Contact -->
+                    <div class="flex items-center space-x-4">
+                        <img src="./svg/phone.svg" alt="" />
+                        <span class="text-gray-700">+2347085512480</span>
+                    </div>
+
+                    <!-- Location Placeholder Text -->
+                    <div class="flex items-center space-x-4">
+                        <img src="./svg/gps.svg" alt="" />
+                        <span class="text-gray-700"
+                            >but also the leap into electronic typesetting</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section
+            class="flex justify-center space-x-32 items-center bg-[#F5F5F5] text-[#2B2B2B] my-36 h-[1063px]"
+        >
+            <img
+                src="./img/car-img.png"
+                alt="Mission and Vision"
+                class="w-[512px] h-[847px] object-cover"
+            />
+            <div
+                class="flex flex-col justify-center space-y-32 w-[536px] h-[847px] overflow-hidden"
+            >
+                <section>
+                    <h2 class="text-2xl font-semibold mb-4 text-black">
+                        Mission
+                    </h2>
+                    <p class="mb-4">
+                        Driven by a commitment to empower and uplift Cipher
+                        Educational Consult Limited seeks to bridge the
+                        educational divide, particularly for those affected by
+                        insurgency in northeastern Nigeria. Our founders,
+                        intimately acquainted with the challenges, aspire to
+                        showcase the resilience and talent of the region to the
+                        world. At the heart of our mission is the Educational
+                        Sponsorship program deserving, designed to empower
+                        deserving students from northeastern Nigeria.
+                    </p>
+                </section>
+                <section>
+                    <h2 class="text-2xl font-semibold mb-4 text-black">
+                        Vision
+                    </h2>
+                    <p>
+                        Shaping Futures, Guiding You To Global Educational
+                        ExcellenceTo be a leading educational consultancy that
+                        transforms lives through education, creating pathways to
+                        success for students worldwide.
+                    </p>
+                </section>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-bg py-16">
+            <div class="max-w-7xl mx-auto px-4">
+                <h2 class="text-3xl font-semibold mb-8 text-[#222222]">
+                    Why work with us
+                </h2>
+                <div class="flex space-x-4 overflow-visible my-12">
+                    <!-- Testimonial 1 -->
+                    <div
+                        class="bg-white p-8 rounded-lg flex-shrink-0 w-[378px] h-[348px] space-y-8 drop-shadow-2xl shadow-[#0000000D] justify-center"
+                    >
+                        <span
+                            class="w-[141px] h-[39px] bg-[#0CBE6426] py-3 px-4 rounded-lg text-[#0CBE64]"
+                            >Amina Usman</span
+                        >
+                        <p class="text-gray-700 mb-4">
+                            Cipher Educational Consult guided me through every
+                            step of my university admission process. Their
+                            personalized approach made me feel confident and
+                            prepared for my international studies.
+                        </p>
+                    </div>
+
+                    <!-- Add more testimonials as needed -->
+                    <div
+                        class="bg-[#F5F5F5] p-8 rounded-lg flex-shrink-0 w-[378px] h-[348px] space-y-8"
+                    >
+                        <span
+                            class="w-[141px] h-[39px] bg-[#0CBE6426] py-3 px-4 rounded-lg text-[#0CBE64]"
+                            >Amina Usman</span
+                        >
+                        <p class="text-gray-700 mb-4">
+                            Cipher Educational Consult guided me through every
+                            step of my university admission process. Their
+                            personalized approach made me feel confident and
+                            prepared for my international studies.
+                        </p>
+                        <a
+                            class="font-medium text-sm text-[#DC7000] text-right mt-10 flex align-middle justify-end space-x-3"
+                            >Read more <img src="./svg/arrow.svg" alt="/"
+                        /></a>
+                    </div>
+                    <!-- 3 -->
+                    <div
+                        class="bg-[#F5F5F5] p-8 rounded-lg flex-shrink-0 w-[378px] h-[348px] space-y-8"
+                    >
+                        <span
+                            class="w-[141px] h-[39px] bg-[#0CBE6426] py-3 px-4 rounded-lg text-[#0CBE64]"
+                            >Amina Usman</span
+                        >
+                        <p class="text-gray-700 mb-4">
+                            Cipher Educational Consult guided me through every
+                            step of my university admission process. Their
+                            personalized approach made me feel confident and
+                            prepared for my international studies.
+                        </p>
+                        <a
+                            class="font-medium text-sm text-[#DC7000] text-right mt-10 flex align-middle justify-end space-x-3"
+                            >Read more <img src="./svg/arrow.svg" alt="/"
+                        /></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-28">
+            <div class="container mx-auto px-4 py-8 max-w-6xl">
+                <div class="mb-8">
+                    <h2 class="text-4xl font-bold text-custom-black mb-4">
+                        Empowering Your Educational Journey
+                    </h2>
+                    <p
+                        class="text-base font-normal text-gray-600 max-w-[545px]"
+                    >
+                        Cipher Educational Consult Limited bridges educational
+                        gaps in West Africa, offering international admissions,
+                        career counseling, and mentorship to help you succeed
+                        globally
+                    </p>
+                </div>
+
+                <div
+                    class="bg-custom-black text-white rounded-xl p-8 flex flex-col md:flex-row items-center justify-between"
+                >
+                    <div class="mb-6 md:mb-0 md:mr-8">
+                        <h3 class="text-2xl font-bold mb-2">
+                            Stay in the loop
+                        </h3>
+                        <p class="text-gray-300">
+                            Subscribe to receive the latest news and updates
+                            about TDA. We promise not to spam you!
+                        </p>
+                    </div>
+                    <form class="w-full md:w-auto flex p-2 bg-white rounded">
+                        <input
+                            type="email"
+                            placeholder="Enter email address"
+                            class="flex-grow md:w-64 px-4 py-2 text-custom-black border-none hover:border-none outline-none"
+                        />
+                        <button
+                            type="submit"
+                            class="bg-custom-orange text-white px-6 py-2 rounded-md hover:bg-opacity-90 transition duration-300"
+                        >
+                            Continue
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-[#1B1B1B] text-white">
+            <div class="container mx-auto px-4 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <!-- Logo and Company Info -->
+                    <div class="col-span-1">
+                        <img
+                            src="./img/logo 1.png"
+                            alt="Cipher Educational Consult Ltd."
+                            class="mb-4"
+                        />
+                        <p class="mb-4">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry.
+                        </p>
+                        <p class="text-sm">
+                            ciphereducationalconsult@gmail.com
+                        </p>
+                    </div>
+
+                    <!-- About Us -->
+                    <div class="col-span-1">
+                        <h3 class="text-lg font-semibold mb-4">About us</h3>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#" class="hover:text-gray-300"
+                                    >Company</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-gray-300"
+                                    >Portfolio</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-gray-300"
+                                    >Careers</a
+                                >
+                            </li>
+                            <li>
+                                <a href="#" class="hover:text-gray-300"
+                                    >Contact us</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Us -->
+                    <div class="col-span-1">
+                        <h3 class="text-lg font-semibold mb-4">Contact us</h3>
+                        <p class="mb-4">
+                            Lorem Ipsum is simply dummy text of the printing and
+                            typesetting industry.
+                        </p>
+                        <p>+234 7085 512480</p>
+                    </div>
+
+                    <!-- Social Media Icons -->
+                    <div
+                        class="col-span-1 flex justify-end items-start space-x-4"
+                    >
+                        <a
+                            href="#"
+                            class="bg-white text-[#1B1B1B] rounded-full p-2 hover:bg-gray-200"
+                        >
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="bg-white text-[#1B1B1B] rounded-full p-2 hover:bg-gray-200"
+                        >
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="bg-white text-[#1B1B1B] rounded-full p-2 hover:bg-gray-200"
+                        >
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a
+                            href="#"
+                            class="bg-white text-[#1B1B1B] rounded-full p-2 hover:bg-gray-200"
+                        >
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700">
+                <div class="container mx-auto px-4 py-4 text-center text-sm">
+                    Copyright © 2024 Company All rights Rcerved
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
