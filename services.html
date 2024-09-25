@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Our Services - Cipher Educational Consult Limited</title>
         <script src="https://cdn.tailwindcss.com"></script>
         <script>
             tailwind.config = {
@@ -29,7 +30,7 @@
         <script type="text/javascript">
             window.onload = function () {
                 Calendly.initBadgeWidget({
-                    url: "https://calendly.com/aliyussajjads/30min",
+                    url: "https://calendly.com/ciphereducationalconsult/30min",
                     text: "Schedule time with me",
                     color: "#dc7000",
                     textColor: "#ffffff",
@@ -39,100 +40,82 @@
         </script>
         <!-- Calendly badge widget end -->
         <style>
-            /* Custom Background Styles */
-            .hero-bg {
-                /* background-color: ; Adjust background color */
-                position: relative;
-                padding: 60px 0;
-                background-image: url("./svg/vector1.svg"); /* Path to your vector */
-                background-position: bottom right; /* Align vector to bottom right */
-                background-size: contain; /* Make sure the vector fits nicely */
-                background-repeat: no-repeat;
-            }
-            .about-bg {
-                background-image: url("path-to-about-background-drawing.png");
-                background-position: top right;
-                background-size: 200px;
-                background-repeat: no-repeat;
-            }
-            .services-bg {
-                background-image: url("path-to-services-background-drawing.png");
-                background-position: left center;
-                background-size: contain;
-                background-repeat: no-repeat;
-            }
-            .testimonials-bg {
-                background-image: url("path-to-testimonials-background-drawing.png");
-                background-position: bottom left;
-                background-size: contain;
-                background-repeat: no-repeat;
-            }
-            /* About Section */
-            .about-section {
-                background-color: #ffffff;
-                padding: 60px 20px;
-            }
-
-            .container {
-                max-width: 1200px;
-                margin: 0 auto;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                gap: 40px;
-            }
-
-            /* Background SVG Dots */
-            .bg-dots-pattern {
-                background-image: url("path-to-your-dots.svg");
-                background-position: bottom right;
-                background-repeat: no-repeat;
-                background-size: 100px 100px; /* Adjust based on the size of your dots */
-            }
-
-            /* Image Styling */
-            .bg-dots-pattern img {
-                display: block;
-                width: 100%;
-                height: auto;
-                border-radius: 10px;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+            body {
+                font-family: "Inter", sans-serif;
             }
         </style>
     </head>
-    <body class="font-sans bg-[#FFFFFF]">
+    <body class="bg-white text-custom-black">
         <!-- Navbar -->
-        <header class="bg-[#E1790D] text-white p-4">
-            <nav
-                class="container mx-auto flex justify-between items-center px-16"
-            >
+        <header class="bg-[#E1790D] text-white p-4 sticky top-0 z-50">
+            <div class="container mx-auto flex justify-between items-center">
                 <div class="text-xl font-bold">
-                    <img src="./img/logo 1.png" alt="" />
+                    <img
+                        src="./img/logo 1.png"
+                        alt="Cipher Educational Consult Ltd Logo"
+                        class="h-8"
+                    />
                 </div>
-                <div class="space-x-28">
+                <nav class="hidden md:flex space-x-8 items-center">
                     <a href="./index.html" class="hover:underline">Home</a>
                     <a href="./about.html" class="hover:underline">About us</a>
                     <a href="./services.html" class="hover:underline"
                         >Services</a
                     >
                     <a
-                        href="contact.html"
-                        class="bg-white text-[#DC7000] px-4 py-2 rounded"
+                        href="./contact.html"
+                        class="bg-white text-[#DC7000] px-4 py-2 rounded hover:bg-opacity-90 transition duration-300"
+                        >Contact Us</a
                     >
-                        Contact Us
-                    </a>
-                </div>
-            </nav>
+                </nav>
+                <button
+                    id="menu-toggle"
+                    class="md:hidden focus:outline-none"
+                    aria-label="Toggle menu"
+                >
+                    <svg
+                        class="w-6 h-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"
+                        ></path>
+                    </svg>
+                </button>
+            </div>
+            <div
+                id="mobile-menu"
+                class="hidden md:hidden mt-4 transition-all duration-300 ease-in-out"
+            >
+                <a href="#home" class="block py-2 hover:underline">Home</a>
+                <a href="#about" class="block py-2 hover:underline">About us</a>
+                <a href="#services" class="block py-2 hover:underline"
+                    >Services</a
+                >
+                <a
+                    href="#contact"
+                    class="block py-2 bg-white text-[#DC7000] px-4 rounded mt-2 hover:bg-opacity-90 transition duration-300"
+                    >Contact Us</a
+                >
+            </div>
         </header>
 
         <!-- Hero Section -->
-        <section class="bg-white py-16 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto">
-                <!-- Breadcrumb -->
-                <nav class="text-sm mb-6 items-center">
+        <section class="bg-orange-50 py-16">
+            <div class="container mx-auto px-4 lg:px-16">
+                <nav class="mb-4 text-gray-500">
                     <ol class="list-none p-0 inline-flex">
-                        <li class="flex items-center text-gray-500">
-                            <a href="#" class="hover:text-gray-700">Home</a>
+                        <li class="flex items-center">
+                            <a href="./index.html" class="hover:text-gray-700"
+                                >Home</a
+                            >
                             <svg
                                 class="fill-current w-3 h-3 mx-3"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -143,27 +126,20 @@
                                 />
                             </svg>
                         </li>
-                        <li class="flex items-center text-orange-500">
-                            Services
-                        </li>
+                        <li class="text-custom-orange">Services</li>
                     </ol>
                 </nav>
 
-                <!-- Main heading -->
                 <h1 class="text-4xl font-bold text-center mb-4">
                     Unlock Your Potential with Expert Guidance
                 </h1>
-
-                <!-- Subheading -->
                 <p class="text-xl text-center text-gray-600 mb-12">
                     At Cipher Educational Consult Limited, we are committed to
-                    empowering<br />
+                    empowering<br class="hidden md:inline" />
                     students in Northeast Nigeria and beyond.
                 </p>
 
-                <!-- Content grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <!-- Left column: Image -->
                     <div>
                         <img
                             src="./img/services-image1.png"
@@ -171,15 +147,15 @@
                             class="rounded-lg shadow-md w-full"
                         />
                     </div>
-
-                    <!-- Right column: Services -->
                     <div>
                         <h2 class="text-3xl font-semibold mb-4">
-                            Our comprehensive<br />range of services include
+                            Our comprehensive<br
+                                class="hidden md:inline"
+                            />range of services include
                         </h2>
                         <p class="text-gray-600 mb-6">
                             Designed to guide students on their educational
-                            journeys<br />
+                            journeys<br class="hidden md:inline" />
                             and help them achieve their academic and career
                             goals.
                         </p>
@@ -246,24 +222,22 @@
             </div>
         </section>
 
-        <section class="bg-white py-16 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto">
+        <!-- Educational Consultancy Section -->
+        <section class="bg-white py-16">
+            <div class="container mx-auto px-4 lg:px-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <!-- Left column: Content -->
-                    <div class="flex flex-col space-y-16">
-                        <h2 class="text-3xl font-bold mb-6">
+                    <div class="flex flex-col space-y-8">
+                        <h2 class="text-3xl font-bold">
                             Educational Consultancy
                         </h2>
                         <div class="space-y-4">
                             <p class="text-gray-700">
-                                "Cipher Educational Consult offers tailored
+                                Cipher Educational Consult offers tailored
                                 advice and guidance to students looking to
                                 further their education. Our team provides
                                 comprehensive support throughout the process,
                                 ensuring that each student can reach their
-                                academic potential. We help navigate the
-                                complexities of school selection, application
-                                processes, and preparation for academic life."
+                                academic potential.
                             </p>
                             <p class="text-gray-700">
                                 We provide tailored guidance on school
@@ -272,39 +246,37 @@
                                 student finds the right path to success.
                             </p>
                         </div>
-                        <button
-                            class="mt-8 bg-orange-500 text-white font-semibold py-2 px-6 hover:bg-orange-600 transition duration-300 w-[177px]"
+                        <a
+                            href="#"
+                            class="inline-block bg-custom-orange text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition duration-300 w-max"
                         >
                             Read more
-                        </button>
+                        </a>
                     </div>
-
-                    <!-- Right column: Image -->
                     <div>
                         <img
                             src="./img/services-image2.png"
                             alt="Classroom scene with teacher and students"
-                            class="rounded-lg shadow-md w-[473px] h-[481px]"
+                            class="rounded-lg shadow-md w-full h-auto"
                         />
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="bg-white py-16 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto">
+        <!-- International Student Admission Section -->
+        <section class="bg-gray-50 py-16">
+            <div class="container mx-auto px-4 lg:px-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <!-- Right column: Image -->
-                    <div>
+                    <div class="order-2 md:order-1">
                         <img
                             src="./img/services-image3.png"
-                            alt="Classroom scene with teacher and students"
-                            class="rounded-lg shadow-md w-[473px] h-[481px]"
+                            alt="International students"
+                            class="rounded-lg shadow-md w-full h-auto"
                         />
                     </div>
-                    <!-- Left column: Content -->
-                    <div class="flex flex-col space-y-16">
-                        <h2 class="text-3xl font-bold mb-6">
+                    <div class="order-1 md:order-2 flex flex-col space-y-8">
+                        <h2 class="text-3xl font-bold">
                             International Student Admission
                         </h2>
                         <div class="space-y-4">
@@ -314,33 +286,32 @@
                                 the world. Our expertise covers all aspects of
                                 the application process, from initial school
                                 selection to submitting applications and
-                                securing admissions. We ensure that every
-                                student finds the best possible fit for their
-                                educational journey abroad.
+                                securing admissions.
                             </p>
                             <p class="text-gray-700">
                                 Navigating international admissions can be
                                 complex, but we make it simple. From school
                                 selection to application submission, our team
-                                supports you every step of the way
+                                supports you every step of the way.
                             </p>
                         </div>
-                        <button
-                            class="mt-8 bg-orange-500 text-white font-semibold py-2 px-6 hover:bg-orange-600 transition duration-300 w-[177px]"
+                        <a
+                            href="#"
+                            class="inline-block bg-custom-orange text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition duration-300 w-max"
                         >
                             Read more
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="bg-white py-16 px-4 sm:px-6 lg:px-8">
-            <div class="max-w-7xl mx-auto">
+        <!-- Scholarship and Financial Aid Section -->
+        <section class="bg-white py-16">
+            <div class="container mx-auto px-4 lg:px-16">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <!-- Left column: Content -->
-                    <div class="flex flex-col space-y-16">
-                        <h2 class="text-3xl font-bold mb-6">
+                    <div class="flex flex-col space-y-8">
+                        <h2 class="text-3xl font-bold">
                             Scholarship and Financial Aid Guidance
                         </h2>
                         <div class="space-y-4">
@@ -357,87 +328,92 @@
                                 aid opportunities with our expert guidance.
                             </p>
                         </div>
-                        <button
-                            class="mt-8 bg-orange-500 text-white font-semibold py-2 px-6 hover:bg-orange-600 transition duration-300 w-[177px]"
+                        <a
+                            href="#"
+                            class="inline-block bg-custom-orange text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition duration-300 w-max"
                         >
                             Read more
-                        </button>
+                        </a>
                     </div>
-
-                    <!-- Right column: Image -->
                     <div>
                         <img
                             src="./img/services-image.png"
-                            alt="Classroom scene with teacher and students"
-                            class="rounded-lg shadow-md w-[473px] h-[481px]"
+                            alt="Students discussing financial aid"
+                            class="rounded-lg shadow-md w-full h-auto"
                         />
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-28">
-            <div class="container mx-auto px-4 py-8 max-w-6xl">
-                <div class="mb-8">
-                    <h2 class="text-4xl font-bold text-custom-black mb-4">
+        <!-- Newsletter Section -->
+        <section class="bg-gray-50 py-16">
+            <div class="container mx-auto px-4 lg:px-16">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-center mb-4">
                         Empowering Your Educational Journey
                     </h2>
-                    <p
-                        class="text-base font-normal text-gray-600 max-w-[545px]"
-                    >
+                    <p class="text-center text-gray-600 mb-8">
                         Cipher Educational Consult Limited bridges educational
                         gaps in West Africa, offering international admissions,
                         career counseling, and mentorship to help you succeed
-                        globally
+                        globally.
                     </p>
-                </div>
-
-                <div
-                    class="bg-custom-black text-white rounded-xl p-8 flex flex-col md:flex-row items-center justify-between"
-                >
-                    <div class="mb-6 md:mb-0 md:mr-8">
-                        <h3 class="text-2xl font-bold mb-2">
-                            Stay in the loop
-                        </h3>
-                        <p class="text-gray-300">
-                            Subscribe to receive the latest news and updates
-                            about TDA. We promise not to spam you!
-                        </p>
-                    </div>
-                    <form class="w-full md:w-auto flex p-2 bg-white rounded">
-                        <input
-                            type="email"
-                            placeholder="Enter email address"
-                            class="flex-grow md:w-64 px-4 py-2 text-custom-black border-none hover:border-none outline-none"
-                        />
-                        <button
-                            type="submit"
-                            class="bg-custom-orange text-white px-6 py-2 rounded-md hover:bg-opacity-90 transition duration-300"
+                    <div
+                        class="bg-custom-black text-white rounded-xl p-8 flex flex-col md:flex-row items-center justify-between"
+                    >
+                        <div class="mb-6 md:mb-0 md:mr-8">
+                            <h3 class="text-2xl font-bold mb-2">
+                                Stay in the loop
+                            </h3>
+                            <p class="text-gray-300">
+                                Subscribe to receive the latest news and
+                                updates. We promise not to spam you!
+                            </p>
+                        </div>
+                        <form
+                            class="w-full md:w-auto flex p-2 bg-white rounded"
                         >
-                            Continue
-                        </button>
-                    </form>
+                            <input
+                                type="email"
+                                placeholder="Enter email address"
+                                class="flex-grow md:w-64 px-4 py-2 text-custom-black border-none hover:border-none outline-none"
+                                required
+                            />
+                            <button
+                                type="submit"
+                                class="bg-custom-orange text-white px-6 py-2 rounded-md hover:bg-opacity-90 transition duration-300"
+                            >
+                                Subscribe
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Footer -->
-        <footer class="bg-[#1B1B1B] text-white">
-            <div class="container mx-auto px-4 py-12">
+        <footer class="bg-custom-black text-white">
+            <div class="container mx-auto px-4 py-12 lg:px-16">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <!-- Logo and Company Info -->
                     <div class="col-span-1">
                         <img
                             src="./img/logo 1.png"
-                            alt="Cipher Educational Consult Ltd."
-                            class="mb-4"
+                            alt="Cipher Educational Consult Lt
+d."
+                            class="mb-4 h-12"
                         />
                         <p class="mb-4">
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry.
+                            Empowering students through expert educational
+                            guidance and support.
                         </p>
                         <p class="text-sm">
-                            ciphereducationalconsult@gmail.com
+                            <a
+                                href="mailto:info@ciphereduconsult.com"
+                                class="hover:underline"
+                                >info@ciphereduconsult.com</a
+                            >
                         </p>
                     </div>
 
@@ -472,8 +448,8 @@
                     <div class="col-span-1">
                         <h3 class="text-lg font-semibold mb-4">Contact us</h3>
                         <p class="mb-4">
-                            Lorem Ipsum is simply dummy text of the printing and
-                            typesetting industry.
+                            We're here to help and answer any question you might
+                            have.
                         </p>
                         <p>+234 7085 512480</p>
                     </div>
@@ -484,36 +460,107 @@
                     >
                         <a
                             href="#"
-                            class="bg-white text-[#1B1B1B] rounded-full p-2 hover:bg-gray-200"
+                            class="bg-white text-custom-black rounded-full p-2 hover:bg-gray-200 transition duration-300"
                         >
-                            <i class="fab fa-facebook-f"></i>
+                            <svg
+                                class="w-5 h-5"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+                                />
+                            </svg>
                         </a>
                         <a
                             href="#"
-                            class="bg-white text-[#1B1B1B] rounded-full p-2 hover:bg-gray-200"
+                            class="bg-white text-custom-black rounded-full p-2 hover:bg-gray-200 transition duration-300"
                         >
-                            <i class="fab fa-instagram"></i>
+                            <svg
+                                class="w-5 h-5"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                                />
+                            </svg>
                         </a>
                         <a
                             href="#"
-                            class="bg-white text-[#1B1B1B] rounded-full p-2 hover:bg-gray-200"
+                            class="bg-white text-custom-black rounded-full p-2 hover:bg-gray-200 transition duration-300"
                         >
-                            <i class="fab fa-twitter"></i>
+                            <svg
+                                class="w-5 h-5"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                                />
+                            </svg>
                         </a>
                         <a
                             href="#"
-                            class="bg-white text-[#1B1B1B] rounded-full p-2 hover:bg-gray-200"
+                            class="bg-white text-custom-black rounded-full p-2 hover:bg-gray-200 transition duration-300"
                         >
-                            <i class="fab fa-linkedin-in"></i>
+                            <svg
+                                class="w-5 h-5"
+                                fill="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"
+                                />
+                            </svg>
                         </a>
                     </div>
                 </div>
             </div>
             <div class="border-t border-gray-700">
                 <div class="container mx-auto px-4 py-4 text-center text-sm">
-                    Copyright © 2024 Company All rights Rcerved
+                    Copyright © 2024 Cipher Educational Consult Limited. All
+                    rights reserved.
                 </div>
             </div>
         </footer>
+        <script>
+            // Mobile menu toggle
+            document
+                .getElementById("menu-toggle")
+                .addEventListener("click", function () {
+                    document
+                        .getElementById("mobile-menu")
+                        .classList.toggle("hidden");
+                });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    document
+                        .querySelector(this.getAttribute("href"))
+                        .scrollIntoView({
+                            behavior: "smooth",
+                        });
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener("click", function (event) {
+                const mobileMenu = document.getElementById("mobile-menu");
+                const menuToggle = document.getElementById("menu-toggle");
+                if (
+                    !mobileMenu.contains(event.target) &&
+                    !menuToggle.contains(event.target)
+                ) {
+                    mobileMenu.classList.add("hidden");
+                }
+            });
+        </script>
     </body>
 </html>
