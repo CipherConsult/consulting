@@ -26,6 +26,18 @@
                 });
             };
         </script>
+        <script>
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            "custom-black": "#1B1B1B",
+                            "custom-orange": "#DC7000",
+                        },
+                    },
+                },
+            };
+        </script>
         <!-- Calendly badge widget end -->
         <style>
             @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
@@ -429,49 +441,47 @@
                 </div>
             </section>
 
-            <section id="newsletter" class="py-28 bg-gray-100">
-                <div class="container mx-auto px-4 py-8 max-w-6xl">
-                    <div class="mb-8">
-                        <h2
-                            class="text-3xl m d:text-4xl font-bold text-[#222222] mb-4"
-                        >
+            <section class="bg-gray-50 py-16">
+                <div class="container mx-auto px-4 lg:px-16">
+                    <div class="max-w-4xl mx-auto">
+                        <h2 class="text-3xl font-bold text-center mb-4">
                             Empowering Your Educational Journey
                         </h2>
-                        <p class="text-[#525252]">
+                        <p class="text-center text-gray-600 mb-8">
                             Cipher Educational Consult Limited bridges
                             educational gaps in West Africa, offering
                             international admissions, career counseling, and
                             mentorship to help you succeed globally.
                         </p>
-                    </div>
-                    <div
-                        class="bg-[#222222] text-white rounded-xl p-8 flex flex-col md:flex-row items-center justify-between"
-                    >
-                        <div class="mb-6 md:mb-0 md:mr-8">
-                            <h3 class="text-2xl font-bold mb-2">
-                                Stay in the loop
-                            </h3>
-                            <p>
-                                Subscribe to receive the latest news and updates
-                                about TDA. We promise not to spam you!
-                            </p>
-                        </div>
-                        <form class="w-full md:w-auto">
-                            <div class="flex flex-col md:flex-row gap-4">
+                        <div
+                            class="bg-custom-black text-white rounded-xl p-8 flex flex-col md:flex-row items-center justify-between"
+                        >
+                            <div class="mb-6 md:mb-0 md:mr-8">
+                                <h3 class="text-2xl font-bold mb-2">
+                                    Stay in the loop
+                                </h3>
+                                <p class="text-gray-300">
+                                    Subscribe to receive the latest news and
+                                    updates. We promise not to spam you!
+                                </p>
+                            </div>
+                            <form
+                                class="w-full md:w-auto flex p-2 bg-white rounded"
+                            >
                                 <input
                                     type="email"
-                                    placeholder="Enter your email"
-                                    class="px-4 py-2 rounded text-black w-full md:w-64"
+                                    placeholder="Enter email address"
+                                    class="flex-grow md:w-64 px-4 py-2 text-custom-black border-none hover:border-none outline-none"
                                     required
                                 />
                                 <button
                                     type="submit"
-                                    class="bg-[#DC7000] text-white px-8 py-3 rounded hover:bg-opacity-90 transition duration-300"
+                                    class="bg-custom-orange text-white px-6 py-2 rounded-md hover:bg-opacity-90 transition duration-300"
                                 >
                                     Subscribe
                                 </button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </section>
