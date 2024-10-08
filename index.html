@@ -134,10 +134,21 @@
                         <span
                             class="text-base md:text-lg text-[#E87D0E] font-bold mb-4 md:mb-6 block"
                         > 
-                            <marquee behavior="scroll" direction="left">
-  <span>Application for fully funded scholarship in Russia for 2025 intake is open! </span>
-  <span style="animation-delay: 6s;">Are you interested in a short term program in The Netherlands or Educational Tourism Program in The Netherlands? Get in touch.</span>
+                            <marquee behavior="scroll" direction="left" id="marquee">
+  <span id="message">Application for fully funded scholarship in Russia for 2025 intake is open! </span>
 </marquee>
+
+<script>
+  const messages = [
+    "Application for fully funded scholarship in Russia for 2025 intake is open! ",
+    "Are you interested in a short term program in The Netherlands or Educational Tourism Program in The Netherlands? Get in touch."
+  ];
+  let i = 0;
+  setInterval(() => {
+    document.getElementById("message").innerText = messages[i];
+    i = (i + 1) % messages.length;
+  }, 5000); // Change message every 5 seconds
+</script>
                             CIPHER EDUCATIONAL CONSULT LIMITED 
                         </span>
                         <h1
