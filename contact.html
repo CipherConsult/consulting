@@ -6,170 +6,294 @@
         <title>Contact Us - Cipher Educational Consult Limited</title>
         <link rel="icon" href="/img/logo 1.png" type="image/x-icon" />
         <script src="https://cdn.tailwindcss.com"></script>
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <script>
             tailwind.config = {
                 theme: {
                     extend: {
                         colors: {
-                            "custom-black": "#1B1B1B",
-                            "custom-orange": "#DC7000",
+                            'primary-blue': '#1a56db',
+                            'secondary-red': '#e11d48',
+                            'light-blue': '#3b82f6',
+                            'dark-blue': '#1e3a8a',
+                            'gold': '#f59e0b',
+                            'custom-orange': '#DC7000',
                         },
+                        animation: {
+                            'fade-in': 'fadeIn 0.5s ease-in-out',
+                            'slide-in': 'slideIn 0.5s ease-out',
+                            'bounce-slow': 'bounce 2s infinite',
+                            'pulse-slow': 'pulse 3s infinite',
+                            'float': 'float 6s ease-in-out infinite',
+                        },
+                        keyframes: {
+                            fadeIn: {
+                                '0%': { opacity: '0' },
+                                '100%': { opacity: '1' },
+                            },
+                            slideIn: {
+                                '0%': { transform: 'translateY(-10px)', opacity: '0' },
+                                '100%': { transform: 'translateY(0)', opacity: '1' },
+                            },
+                            float: {
+                                '0%, 100%': { transform: 'translateY(0)' },
+                                '50%': { transform: 'translateY(-10px)' },
+                            }
+                        }
                     },
                 },
-            };
+            }
         </script>
-        <!-- Calendly badge widget begin -->
-        <link
-            href="https://assets.calendly.com/assets/external/widget.css"
-            rel="stylesheet"
-        />
-        <script
-            src="https://assets.calendly.com/assets/external/widget.js"
-            type="text/javascript"
-            async
-        ></script>
-        <script type="text/javascript">
-            window.onload = function () {
-                Calendly.initBadgeWidget({
-                    url: "https://calendly.com/ciphereducationalconsult/30min",
-                    text: "Schedule Time with Us",
-                    color: "#dc7000",
-                    textColor: "#ffffff",
-                    branding: undefined,
-                });
-            };
-        </script>
-        <!-- Calendly badge widget end -->
         <style>
-            @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
             body {
-                font-family: "Inter", sans-serif;
+                font-family: 'Raleway', sans-serif;
+                scroll-behavior: smooth;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'Playfair Display', serif;
+            }
+            .sticky-nav {
+                position: sticky;
+                top: 0;
+                z-index: 100;
+                transition: all 0.3s ease;
+            }
+            .nav-scrolled {
+                background-color: rgba(26, 86, 219, 0.95);
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+            .hamburger-line {
+                transition: all 0.3s ease;
+            }
+            .hamburger-active .hamburger-line:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            .hamburger-active .hamburger-line:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger-active .hamburger-line:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+            .mobile-menu {
+                transform: translateX(100%);
+                transition: transform 0.4s ease-in-out;
+            }
+            .mobile-menu-open {
+                transform: translateX(0);
+            }
+            .floating-shape {
+                position: absolute;
+                border-radius: 50%;
+                opacity: 0.1;
+                z-index: 0;
+            }
+            .floating-shape-1 {
+                width: 150px;
+                height: 150px;
+                background: #1a56db;
+                top: 10%;
+                left: 5%;
+                animation: float 8s ease-in-out infinite;
+            }
+            .floating-shape-2 {
+                width: 100px;
+                height: 100px;
+                background: #e11d48;
+                bottom: 20%;
+                right: 10%;
+                animation: float 10s ease-in-out infinite reverse;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .animate-fade-in-up {
+                opacity: 0;
+                animation: fadeInUp 0.8s ease-out forwards;
+            }
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            .delay-100 {
+                animation-delay: 100ms;
+            }
+            .delay-200 {
+                animation-delay: 200ms;
+            }
+            .delay-300 {
+                animation-delay: 300ms;
+            }
+            .delay-400 {
+                animation-delay: 400ms;
+            }
+            .back-to-top {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                z-index: 99;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.4s ease;
+            }
+            .back-to-top.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .contact-info-card {
+                transition: all 0.3s ease;
+            }
+            .contact-info-card:hover {
+                transform: translateY(-5px);
+            }
+            .form-input {
+                transition: all 0.3s ease;
+            }
+            .form-input:focus {
+                box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
             }
         </style>
     </head>
-    <body class="bg-white text-custom-black">
+    <body class="bg-white text-gray-800">
         <!-- Navbar -->
-        <header class="bg-[#E1790D] text-white p-4 sticky top-0 z-50">
+        <header class="sticky-nav bg-primary-blue text-white p-4">
             <div class="container mx-auto flex justify-between items-center">
                 <div class="text-xl font-bold">
                     <img
                         src="./img/logo 1.png"
                         alt="Cipher Educational Consult Ltd Logo"
-                        class="h-8"
+                        class="h-8 transform hover:scale-110 transition-transform duration-300"
                     />
                 </div>
                 <nav class="hidden md:flex space-x-8 items-center">
-                    <a href="./index.html" class="hover:underline">Home</a>
-                    <a href="./about.html" class="hover:underline">About us</a>
-                    <a href="./services.html" class="hover:underline"
-                        >Services</a
-                    >
+                    <a href="./index.html" class="hover:underline transition-all duration-300 hover:text-secondary-red relative group">
+                        Home
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary-red transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="./about.html" class="hover:underline transition-all duration-300 hover:text-secondary-red relative group">
+                        About us
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary-red transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="./services.html" class="hover:underline transition-all duration-300 hover:text-secondary-red relative group">
+                        Services
+                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary-red transition-all duration-300 group-hover:w-full"></span>
+                    </a>
                     <a
                         href="./contact.html"
-                        class="bg-white text-[#DC7000] px-4 py-2 rounded hover:bg-opacity-90 transition duration-300"
+                        class="bg-white text-primary-blue px-4 py-2 rounded-lg hover:bg-secondary-red hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg"
                         >Contact Us</a
                     >
                 </nav>
                 <button
                     id="menu-toggle"
-                    class="md:hidden focus:outline-none"
+                    class="md:hidden focus:outline-none flex flex-col w-6 h-5 justify-between items-center z-60"
                     aria-label="Toggle menu"
                 >
-                    <svg
-                        class="w-6 h-6"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M4 6h16M4 12h16m-7 6h7"
-                        ></path>
-                    </svg>
+                    <span class="hamburger-line w-6 h-0.5 bg-white rounded"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-white rounded"></span>
+                    <span class="hamburger-line w-6 h-0.5 bg-white rounded"></span>
                 </button>
             </div>
-            <div
-                id="mobile-menu"
-                class="hidden md:hidden mt-4 transition-all duration-300 ease-in-out"
-            >
-                <a href="./index.html" class="block py-2 hover:underline"
-                    >Home</a
-                >
-                <a href="./about.html" class="block py-2 hover:underline"
-                    >About us</a
-                >
-                <a href="./services.html" class="block py-2 hover:underline"
-                    >Services</a
-                >
+
+            <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-dark-blue text-white z-50 flex flex-col items-center justify-center space-y-8 md:hidden">
+                <button id="close-menu" class="absolute top-6 right-6 text-3xl transform hover:scale-110 transition-transform duration-300">
+                    <i class="fas fa-times"></i>
+                </button>
+                <a href="./index.html" class="text-2xl font-medium hover:text-secondary-red transition-all duration-300 transform hover:translate-x-2">Home</a>
+                <a href="./about.html" class="text-2xl font-medium hover:text-secondary-red transition-all duration-300 transform hover:translate-x-2">About us</a>
+                <a href="./services.html" class="text-2xl font-medium hover:text-secondary-red transition-all duration-300 transform hover:translate-x-2">Services</a>
                 <a
                     href="./contact.html"
-                    class="block py-2 bg-white text-[#DC7000] px-4 rounded mt-2 hover:bg-opacity-90 transition duration-300"
+                    class="bg-white text-primary-blue px-6 py-3 rounded-lg text-xl font-medium hover:bg-secondary-red hover:text-white transition-all duration-300 transform hover:-translate-y-1"
                     >Contact Us</a
                 >
             </div>
         </header>
 
         <!-- Hero Section -->
-        <section class="bg-orange-50 py-16">
-            <div class="container mx-auto px-4 lg:px-16">
-                <nav class="mb-4 text-gray-500">
-                    <a href="./index.html" class="hover:text-gray-700">Home</a>
-                    <span class="mx-2">&gt;</span>
-                    <span class="text-custom-orange">Contact us</span>
+        <section class="bg-gradient-to-r from-blue-50 to-orange-50 py-16 relative overflow-hidden">
+            <div class="floating-shape floating-shape-1"></div>
+            <div class="floating-shape floating-shape-2"></div>
+            
+            <div class="container mx-auto px-4 lg:px-16 relative z-10">
+                <nav class="mb-4 text-gray-600">
+                    <ol class="list-none p-0 inline-flex">
+                        <li class="flex items-center">
+                            <a href="./index.html" class="hover:text-primary-blue transition-colors duration-300">Home</a>
+                            <svg class="fill-current w-3 h-3 mx-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                                <path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/>
+                            </svg>
+                        </li>
+                        <li class="text-primary-blue font-medium">Contact us</li>
+                    </ol>
                 </nav>
 
-                <h1 class="text-3xl md:text-4xl font-bold mb-4 text-center">
+                <h1 class="text-4xl md:text-5xl font-bold text-center mb-4 text-dark-blue animate-fade-in-up">
                     We'd love to hear from you!
                 </h1>
-                <p class="text-gray-600 mb-8 text-center max-w-2xl mx-auto">
+                <p class="text-xl text-center text-gray-600 mb-8 max-w-2xl mx-auto animate-fade-in-up delay-100">
                     Fill out the form below, and we'll get back to you as soon
                     as possible. Your feedback and inquiries are important to
                     us.
                 </p>
 
-                <div class="w-full max-w-4xl mx-auto">
+                <div class="w-full max-w-4xl mx-auto animate-fade-in-up delay-200">
                     <img
                         src="./img/world-image.png"
                         alt="World Map"
-                        class="w-full h-auto g"
+                        class="w-full h-auto rounded-xl shadow-lg transform hover:scale-105 transition-transform duration-500"
                     />
                 </div>
             </div>
         </section>
 
         <!-- Contact Details -->
-        <section class="py-12 bg-white">
+        <section class="py-16 bg-white">
             <div class="container mx-auto px-4 lg:px-16">
-                <div
-                    class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-8"
-                >
-                    <div
-                        class="flex flex-col items-center space-y-4 md:border-r md:pr-8"
-                    ></div>
-
-                    <div
-                        class="flex items-center space-x-4 md:border-r md:px-8"
-                    >
-                        <img
-                            src="./svg/phone.svg"
-                            alt="Phone"
-                            class="w-6 h-6"
-                        />
-                        <span class="text-gray-700">+234 7085 512480</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="contact-info-card bg-blue-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-primary-blue rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Email Us</h3>
+                        <p class="text-gray-700">info@cipherconsult.com.ng</p>
+                        <a href="mailto:info@cipherconsult.com.ng" class="text-primary-blue hover:text-secondary-red transition-colors duration-300 mt-2">
+                            Send a message
+                        </a>
                     </div>
 
-                    <div class="flex items-center space-x-4">
-                        <img
-                            src="./svg/gps.svg"
-                            alt="Location"
-                            class="w-6 h-6"
-                        />
-                        <span class="text-gray-700">Suite 305, Pal Mall Plaza,<br>
+                    <div class="contact-info-card bg-blue-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-primary-blue rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Call Us</h3>
+                        <p class="text-gray-700">+234 7085 512480</p>
+                        <a href="tel:+2347085512480" class="text-primary-blue hover:text-secondary-red transition-colors duration-300 mt-2">
+                            Call now
+                        </a>
+                    </div>
+
+                    <div class="contact-info-card bg-blue-50 p-6 rounded-xl shadow-md flex flex-col items-center text-center">
+                        <div class="w-16 h-16 bg-primary-blue rounded-full flex items-center justify-center text-white text-2xl mb-4">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Visit Us</h3>
+                        <p class="text-gray-700">
+                            Suite 305, Pal Mall Plaza,<br>
                             4th Avenue, Gwarinpa,<br> 
-                            Abuja, Nigeria</span>
+                            Abuja, Nigeria
+                        </p>
+                        <a href="https://goo.gl/maps/example" target="_blank" class="text-primary-blue hover:text-secondary-red transition-colors duration-300 mt-2">
+                            Get directions
+                        </a>
                     </div>
                 </div>
             </div>
@@ -178,10 +302,8 @@
         <!-- Contact Form -->
         <section class="bg-gray-50 py-16">
             <div class="container mx-auto px-4 lg:px-16">
-                <div
-                    class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg"
-                >
-                    <h2 class="text-3xl font-bold text-center mb-2">
+                <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-2xl">
+                    <h2 class="text-3xl font-bold text-center mb-2 text-dark-blue">
                         Say hello
                     </h2>
                     <p class="text-gray-600 text-center mb-8">
@@ -193,28 +315,28 @@
                             <div>
                                 <label
                                     for="firstName"
-                                    class="block text-sm font-medium text-gray-700 mb-1"
+                                    class="block text-sm font-medium text-gray-700 mb-2"
                                     >First Name</label
                                 >
                                 <input
                                     type="text"
                                     id="firstName"
                                     name="firstName"
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-custom-orange"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
                                     required
                                 />
                             </div>
                             <div>
                                 <label
                                     for="lastName"
-                                    class="block text-sm font-medium text-gray-700 mb-1"
+                                    class="block text-sm font-medium text-gray-700 mb-2"
                                     >Last Name</label
                                 >
                                 <input
                                     type="text"
                                     id="lastName"
                                     name="lastName"
-                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-custom-orange"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
                                     required
                                 />
                             </div>
@@ -223,81 +345,127 @@
                         <div class="mb-6">
                             <label
                                 for="email"
-                                class="block text-sm font-medium text-gray-700 mb-1"
+                                class="block text-sm font-medium text-gray-700 mb-2"
                                 >Email Address</label
                             >
                             <input
                                 type="email"
                                 id="email"
                                 name="email"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-custom-orange"
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
                                 required
                             />
                         </div>
 
                         <div class="mb-6">
                             <label
+                                for="phone"
+                                class="block text-sm font-medium text-gray-700 mb-2"
+                                >Phone Number (Optional)</label
+                            >
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
+                            />
+                        </div>
+
+                        <div class="mb-6">
+                            <label
+                                for="subject"
+                                class="block text-sm font-medium text-gray-700 mb-2"
+                                >Subject</label
+                            >
+                            <select
+                                id="subject"
+                                name="subject"
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
+                                required
+                            >
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="admissions">Admissions</option>
+                                <option value="visa">Visa Assistance</option>
+                                <option value="scholarship">Scholarship</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-6">
+                            <label
                                 for="message"
-                                class="block text-sm font-medium text-gray-700 mb-1"
+                                class="block text-sm font-medium text-gray-700 mb-2"
                                 >Message</label
                             >
                             <textarea
                                 id="message"
                                 name="message"
-                                rows="4"
-                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-custom-orange"
+                                rows="5"
+                                class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue"
                                 required
                             ></textarea>
                         </div>
 
                         <button
                             type="submit"
-                            class="w-full bg-custom-orange text-white font-semibold py-2 px-4 rounded-md hover:bg-opacity-90 transition duration-300"
+                            class="w-full bg-primary-blue text-white font-semibold py-3 px-4 rounded-lg hover:bg-secondary-red transition-colors duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl"
                         >
-                            Get in touch
+                            Get in touch <i class="fas fa-paper-plane ml-2"></i>
                         </button>
                     </form>
                 </div>
             </div>
         </section>
 
+        <!-- Map Section -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4 lg:px-16">
+                <h2 class="text-3xl font-bold text-center mb-12 text-dark-blue">Find Us Here</h2>
+                <div class="rounded-xl overflow-hidden shadow-2xl">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126076.15328572256!2d7.358388449999999!3d9.0764785!2m3!1f0!2f0!3f0!3m2!1i1020!2i768!4f13.1!3m3!1m2!1s0x104e0baf7da48d0d%3A0x99a8fe4168c50bc8!2sAbuja!5e0!3m2!1sen!2sng!4v1651234567890!5m2!1sen!2sng" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        class="rounded-xl"
+                    ></iframe>
+                </div>
+            </div>
+        </section>
+
         <!-- Newsletter Section -->
-        <section class="bg-gray-50 py-16">
+        <section class="bg-dark-blue py-16 text-white">
             <div class="container mx-auto px-4 lg:px-16">
                 <div class="max-w-4xl mx-auto">
-                    <h2 class="text-3xl font-bold text-center mb-4">
-                        Empowering Your Educational Journey
-                    </h2>
-                    <p class="text-center text-gray-600 mb-8">
+                    <h2 class="text-3xl font-bold text-center mb-4">Empowering Your Educational Journey</h2>
+                    <p class="text-center text-blue-100 mb-8 text-lg">
                         Cipher Educational Consult Limited bridges educational
                         gaps in West Africa, offering international admissions,
                         career counseling, and mentorship to help you succeed
                         globally.
                     </p>
-                    <div
-                        class="bg-custom-black text-white rounded-xl p-8 flex flex-col md:flex-row items-center justify-between"
-                    >
+                    <div class="bg-white text-dark-blue rounded-xl p-8 flex flex-col md:flex-row items-center justify-between shadow-2xl">
                         <div class="mb-6 md:mb-0 md:mr-8">
-                            <h3 class="text-2xl font-bold mb-2">
-                                Stay in the loop
-                            </h3>
-                            <p class="text-gray-300">
+                            <h3 class="text-2xl font-bold mb-2">Stay in the loop</h3>
+                            <p class="text-gray-600">
                                 Subscribe to receive the latest news and
                                 updates. We promise not to spam you!
                             </p>
                         </div>
-                        <form
-                            class="w-full md:w-auto flex flex-col md:flex-row p-2 bg-white rounded"
-                        >
+                        <form class="w-full md:w-auto flex flex-col md:flex-row p-2 bg-gray-100 rounded-lg">
                             <input
                                 type="email"
                                 placeholder="Enter email address"
-                                class="flex-grow md:w-64 px-4 py-2 text-custom-black border-none hover:border-none outline-none"
+                                class="flex-grow md:w-64 px-4 py-3 text-gray-800 border-none hover:border-none outline-none rounded-l-lg"
                                 required
                             />
                             <button
                                 type="submit"
-                                class="bg-custom-orange text-white px-4 py-2 sm:px-6 sm:py-2 md:px-8 md:py-3 lg:px-10 lg:py-4 rounded-md hover:bg-opacity-90 transition duration-300 text-sm sm:text-base md:text-lg lg:text-xl"
+                                class="bg-primary-blue text-white px-6 py-3 rounded-r-lg hover:bg-secondary-red transition-colors duration-300 font-medium"
                             >
                                 Subscribe
                             </button>
@@ -308,8 +476,11 @@
         </section>
 
         <!-- Footer -->
-        <footer class="bg-[#1B1B1B] text-white">
-            <div class="container mx-auto px-4 py-12">
+       <footer class="bg-dark-blue text-white relative overflow-hidden">
+            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary-blue opacity-10 rounded-full"></div>
+            <div class="absolute -left-20 -top-20 w-48 h-48 bg-secondary-red opacity-10 rounded-full"></div>
+            
+            <div class="container mx-auto px-4 py-12 relative z-10">
                 <div
                     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
                 >
@@ -317,9 +488,9 @@
                         <img
                             src="./img/logo 1.png"
                             alt="Cipher Educational Consult Ltd."
-                            class="mb-4"
+                            class="mb-4 h-10"
                         />
-                        <p class="mb-4">
+                        <p class="mb-4 text-gray-300">
                             Empowering students through comprehensive
                             educational consulting services.
                         </p>
@@ -327,15 +498,16 @@
 
                     <div class="col-span-1">
                         <h3 class="text-lg font-semibold mb-4">Contact us</h3>
-                        <p>+234 7085 512480</p>
-                        <p>
+                        <p class="text-gray-300">
+                            +234 7085 512480</p>
+                        <p class="text-gray-300"> 
                             <a
                                 href="mailto:info@cipherconsult.com.ng"
-                                class="hover:underline"
+                                class="hover:text-secondary-red transition-colors duration-300"
                                 >info@cipherconsult.com.ng</a
                             >
                         </p>
-                        <p> Suite 305, Pal Mall Plaza, 4th Avenue, <br>
+                        <p class="text-gray-300"> Suite 305, Pal Mall Plaza, 4th Avenue, <br>
                         Gwarinpa, Abuja, Nigeria</p>
                     </div>
                     <div
@@ -343,82 +515,128 @@
                     >
                         <a
                             href="https://wa.link/alv5t4"
-                            class="bg-green text-[#25D366] rounded-full p-2 hover:bg-gray-200 transition duration-300"
+                            class="bg-white rounded-full p-3 hover:bg-secondary-red transition-all duration-300 transform hover:-translate-y-1 shadow-md"
                             aria-label="WhatsApp"
                         >
-                            <svg
-                                class="w-6 h-6"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
-                                />
-                            </svg>
+                            <i class="fab fa-whatsapp text-green-500 hover:text-white text-xl"></i>
                         </a>
 
                         <a
                             href="https://www.instagram.com/ciphereducationalconsult?igsh=MXN3N2dyMjZpeWlsYw=="
-                            class="bg-gradient text-[#F7C94D] rounded-full p-2 hover:bg-gray-200 transition duration-300"
+                            class="bg-white rounded-full p-3 hover:bg-secondary-red transition-all duration-300 transform hover:-translate-y-1 shadow-md"
                             aria-label="Instagram"
                         >
-                            <svg
-                                class="w-6 h-6"
-                                fill="currentColor"
-                                viewBox="0 0 24 24"
-                                aria-hidden="true"
-                            >
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-                                    clip-rule="evenodd"
-                                />
-                            </svg>
+                            <i class="fab fa-instagram text-pink-500 hover:text-white text-xl"></i>
+                        </a>
+                        
+                        <a
+                            href="#"
+                            class="bg-white rounded-full p-3 hover:bg-secondary-red transition-all duration-300 transform hover:-translate-y-1 shadow-md"
+                            aria-label="Facebook"
+                        >
+                            <i class="fab fa-facebook-f text-blue-600 hover:text-white text-xl"></i>
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="border-t border-gray-700">
-                <div class="container mx-auto px-4 py-4 text-center text-sm">
+            <div class="border-t border-gray-700 relative z-10">
+                <div class="container mx-auto px-4 py-4 text-center text-sm text-gray-300">
                     &copy; 2024 Cipher Educational Consult Ltd. All rights
                     reserved.
                 </div>
             </div>
         </footer>
+
+        <!-- Back to Top Button -->
+        <button id="back-to-top" class="back-to-top bg-primary-blue text-white p-3 rounded-full shadow-lg hover:bg-secondary-red transition-colors duration-300">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
         <script>
-            // Mobile menu toggle
-            document
-                .getElementById("menu-toggle")
-                .addEventListener("click", function () {
-                    document
-                        .getElementById("mobile-menu")
-                        .classList.toggle("hidden");
-                });
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-                anchor.addEventListener("click", function (e) {
-                    e.preventDefault();
-                    document
-                        .querySelector(this.getAttribute("href"))
-                        .scrollIntoView({
-                            behavior: "smooth",
-                        });
-                });
+            // Mobile menu functionality
+            const menuToggle = document.getElementById('menu-toggle');
+            const closeMenu = document.getElementById('close-menu');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', () => {
+                mobileMenu.classList.add('mobile-menu-open');
+                menuToggle.classList.add('hamburger-active');
+                document.body.style.overflow = 'hidden';
             });
-
-            // Close mobile menu when clicking outside
-            document.addEventListener("click", function (event) {
-                const mobileMenu = document.getElementById("mobile-menu");
-                const menuToggle = document.getElementById("menu-toggle");
-                if (
-                    !mobileMenu.contains(event.target) &&
-                    !menuToggle.contains(event.target)
-                ) {
-                    mobileMenu.classList.add("hidden");
+            
+            closeMenu.addEventListener('click', () => {
+                mobileMenu.classList.remove('mobile-menu-open');
+                menuToggle.classList.remove('hamburger-active');
+                document.body.style.overflow = 'auto';
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && mobileMenu.classList.contains('mobile-menu-open')) {
+                    mobileMenu.classList.remove('mobile-menu-open');
+                    menuToggle.classList.remove('hamburger-active');
+                    document.body.style.overflow = 'auto';
                 }
             });
+            
+            // Sticky nav on scroll
+            const header = document.querySelector('.sticky-nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('nav-scrolled');
+                } else {
+                    header.classList.remove('nav-scrolled');
+                }
+            });
+            
+            // Form submission
+            const form = document.querySelector('form');
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    // Here you would normally handle form submission to a server
+                    alert('Thank you for your submission! We will contact you shortly.');
+                    form.reset();
+                });
+            }
+            
+            // Animate elements on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.animate-fade-in-up');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = 1;
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                animateOnScroll();
+                
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Initial call in case elements are already in view
+            animateOnScroll();
         </script>
     </body>
 </html>
