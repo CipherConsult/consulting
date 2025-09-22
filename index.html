@@ -25,7 +25,9 @@
                         'light-blue': '#3b82f6',
                         'dark-blue': '#1e3a8a',
                         'light-bg': '#f8fafc',
-                        'gold': '#f59e0b'
+                        'gold': '#f59e0b',
+                        'off-white': '#f9fafb',
+                        'light-gray': '#f1f5f9'
                     },
                     animation: {
                         'fade-in': 'fadeIn 0.5s ease-in-out',
@@ -141,10 +143,14 @@
         .mobile-menu {
             transform: translateX(100%);
             transition: transform 0.4s ease-in-out;
+            opacity: 0;
+            visibility: hidden;
         }
 
         .mobile-menu-open {
             transform: translateX(0);
+            opacity: 1;
+            visibility: visible;
         }
 
         .partner-logo {
@@ -272,8 +278,8 @@
 
         .partner-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
         }
 
         @media (min-width: 768px) {
@@ -282,16 +288,151 @@
             }
         }
 
-        
+        /* Testimonial block cards */
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Improved mobile menu */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 40;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Logo improvements - REMOVED THE BOX */
+        .logo-container {
+            /* Removed the background and padding that created the box */
+            padding: 0;
+            background: transparent;
+        }
+
+        /* Enhanced section backgrounds */
+        .section-alt {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .section-brand {
+            background: linear-gradient(135deg, #1a56db 0%, #3b82f6 100%);
+            color: white;
+        }
+
+        .section-brand h2, .section-brand h3, .section-brand p {
+            color: white;
+        }
+
+        /* Testimonial Carousel Styles */
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .testimonial-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            padding: 0 15px;
+        }
+
+        .carousel-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .carousel-btn {
+            background: #1a56db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-btn:hover {
+            background: #e11d48;
+            transform: scale(1.1);
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e0;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #1a56db;
+            transform: scale(1.2);
+        }
+
+        @media (min-width: 768px) {
+            .testimonial-slide {
+                min-width: 50%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .testimonial-slide {
+                min-width: 33.333%;
+            }
+        }
     </style>
 </head>
 
 <body class="bg-light-bg">
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+
     <header class="sticky-nav bg-primary-blue text-white p-4">
         <div class="container mx-auto flex justify-between items-center">
             <div class="text-xl font-bold animate-fade-in-up">
-                <img src="./img/logo 1.png" alt="Cipher Educational Consult Ltd Logo"
-                    class="h-8 transform hover:scale-110 transition-transform duration-300" />
+                <div class="logo-container">
+                    <!-- Logo now has no box around it -->
+                    <img src="./img/logo 1.png" alt="Cipher Educational Consult Ltd Logo"
+                        class="h-12 transform hover:scale-110 transition-transform duration-300" />
+                </div>
             </div>
             <nav class="hidden md:flex space-x-8 items-center">
                 <a href="./index.html"
@@ -317,7 +458,7 @@
                     Us</a>
             </nav>
             <button id="menu-toggle"
-                class="md:hidden focus:outline-none flex flex-col w-6 h-5 justify-between items-center z-60"
+                class="md:hidden focus:outline-none flex flex-col w-6 h-5 justify-between items-center z-60 relative"
                 aria-label="Toggle menu">
                 <span class="hamburger-line w-6 h-0.5 bg-white rounded"></span>
                 <span class="hamburger-line w-6 h-0.5 bg-white rounded"></span>
@@ -327,7 +468,7 @@
     </header>
 
     <div id="mobile-menu"
-        class="mobile-menu fixed inset-0 bg-dark-blue text-white z-50 flex flex-col items-center justify-center space-y-8 md:hidden">
+        class="mobile-menu fixed inset-y-0 right-0 bg-dark-blue text-white z-50 flex flex-col items-center justify-center space-y-8 md:hidden w-3/4 max-w-sm">
         <button id="close-menu"
             class="absolute top-6 right-6 text-3xl transform hover:scale-110 transition-transform duration-300">
             <i class="fas fa-times"></i>
@@ -392,7 +533,7 @@
             </div>
         </section>
 
-        <section id="about" class="py-16 bg-white relative">
+        <section id="about" class="py-16 bg-white relative section-alt">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center py-12 text-dark-blue">
                     Discover how our expertise and personalized approach can
@@ -430,7 +571,7 @@
             </div>
         </section>
 
-        <section id="services" class="services-bg py-16 bg-blue-50 relative">
+        <section id="services" class="services-bg py-16 bg-white relative">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl font-bold text-center text-dark-blue mb-12">
                     Our <span class="text-secondary-red">Services</span>
@@ -587,7 +728,7 @@
             </div>
         </section>
 
-        <section id="testimonials" class="testimonials-bg py-16 bg-gray-50 relative">
+        <section id="testimonials" class="testimonials-bg py-16 section-alt relative">
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-dark-blue text-center">
                     What People Say About Us
@@ -596,149 +737,153 @@
                     Discover why our clients trust us to provide the best
                     educational consulting services.
                 </p>
-                <div class="flex flex-nowrap overflow-x-auto space-x-4 pb-8 scrollbar-hide">
-                    <div
-                        class="bg-white p-8 rounded-xl flex-shrink-0 w-full sm:w-[380px] space-y-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div class="flex items-center">
-                            <div
-                                class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 mr-3">
-                                <i class="fas fa-user-graduate"></i>
+                
+                <!-- Testimonial Carousel -->
+                <div class="testimonial-carousel">
+                    <div class="testimonial-track" id="testimonial-track">
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card p-6">
+                                <div class="flex items-center mb-4">
+                                    <div
+                                        class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 mr-3">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </div>
+                                    <span
+                                        class="inline-block bg-green-100 py-2 px-4 rounded-lg text-green-700 font-medium">Amina
+                                        Usman</span>
+                                </div>
+                                <p class="text-gray-600 italic">
+                                    "Cipher Educational Consult guided me through
+                                    every step of my university admission process.
+                                    Their personalized approach made me feel
+                                    confident and prepared for my international
+                                    studies."
+                                </p>
                             </div>
-                            <span
-                                class="inline-block bg-green-100 py-2 px-4 rounded-lg text-green-700 font-medium">Amina
-                                Usman</span>
                         </div>
-                        <p class="text-gray-600 italic">
-                            "Cipher Educational Consult guided me through
-                            every step of my university admission process.
-                            Their personalized approach made me feel
-                            confident and prepared for my international
-                            studies."
-                        </p>
-                    </div>
 
-                    <div
-                        class="bg-white p-8 rounded-xl flex-shrink-0 w-full sm:w-[380px] space-y-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div class="flex items-center">
-                            <div
-                                class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700 mr-3">
-                                <i class="fas fa-user-tie"></i>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card p-6">
+                                <div class="flex items-center mb-4">
+                                    <div
+                                        class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700 mr-3">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <span class="inline-block bg-red-100 py-2 px-4 rounded-lg text-red-700 font-medium">David
+                                        Okechukwu</span>
+                                </div>
+                                <p class="text-gray-600 italic">
+                                    "I struggled with finding the right career path,
+                                    but the career counseling and mentorship I
+                                    received from Cipher was a game-changer. They helped me discover my
+                                    passion and provided the guidance I needed."
+                                </p>
                             </div>
-                            <span class="inline-block bg-red-100 py-2 px-4 rounded-lg text-red-700 font-medium">David
-                                Okechukwu</span>
                         </div>
-                        <p class="text-gray-600 italic">
-                            "I struggled with finding the right career path,
-                            but the career counseling and mentorship I
-                            received from Cipher was a game-changer. They helped me discover my
-                            passion and provided the guidance I needed."
-                        </p>
-                    </div>
 
-                    <div
-                        class="bg-white p-8 rounded-xl flex-shrink-0 w-full sm:w-[380px] space-y-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div class="flex items-center">
-                            <div
-                                class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 mr-3">
-                                <i class="fas fa-user-friends"></i>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card p-6">
+                                <div class="flex items-center mb-4">
+                                    <div
+                                        class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 mr-3">
+                                        <i class="fas fa-user-friends"></i>
+                                    </div>
+                                    <span
+                                        class="inline-block bg-purple-100 py-2 px-4 rounded-lg text-purple-700 font-medium">Fatima
+                                        Mohammed</span>
+                                </div>
+                                <p class="text-gray-600 italic">
+                                    "As a parent, I wanted the best for my child's
+                                    education. Cipher not only provided exceptional tutoring but also
+                                    assisted us in navigating the complex visa
+                                    process for studying abroad."
+                                </p>
                             </div>
-                            <span
-                                class="inline-block bg-purple-100 py-2 px-4 rounded-lg text-purple-700 font-medium">Fatima
-                                Mohammed</span>
                         </div>
-                        <p class="text-gray-600 italic">
-                            "As a parent, I wanted the best for my child's
-                            education. Cipher not only provided exceptional tutoring but also
-                            assisted us in navigating the complex visa
-                            process for studying abroad."
-                        </p>
-                    </div>
 
-                    <div
-                        class="bg-white p-8 rounded-xl flex-shrink-0 w-full sm:w-[380px] space-y-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div class="flex items-center">
-                            <div
-                                class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 mr-3">
-                                <i class="fas fa-user-graduate"></i>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card p-6">
+                                <div class="flex items-center mb-4">
+                                    <div
+                                        class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 mr-3">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </div>
+                                    <span class="inline-block bg-blue-100 py-2 px-4 rounded-lg text-blue-700 font-medium">Samuel
+                                        Adeyemi</span>
+                                </div>
+                                <p class="text-gray-600 italic">
+                                    "The team at Cipher went above and beyond to help me secure
+                                    admission to a top university in Germany. Their
+                                    knowledge of international admissions and their
+                                    commitment to my success made all the
+                                    difference."
+                                </p>
                             </div>
-                            <span class="inline-block bg-blue-100 py-2 px-4 rounded-lg text-blue-700 font-medium">Samuel
-                                Adeyemi</span>
                         </div>
-                        <p class="text-gray-600 italic">
-                            "The team at Cipher went above and beyond to help me secure
-                            admission to a top university in Germany. Their
-                            knowledge of international admissions and their
-                            commitment to my success made all the
-                            difference."
-                        </p>
+                    </div>
+                    
+                    <!-- Carousel Navigation -->
+                    <div class="carousel-nav">
+                        <button class="carousel-btn" id="prev-btn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="carousel-dots" id="carousel-dots">
+                            <!-- Dots will be generated by JavaScript -->
+                        </div>
+                        <button class="carousel-btn" id="next-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="py-24 bg-white relative">
+        <section id="projects" class="py-24 bg-white relative section-brand">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-dark-blue mb-12">
-                    Our <span class="text-secondary-red">Partners</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">
+                    Our <span class="text-gold">Partners</span>
                 </h2>
-                <p class="text-center mb-12 max-w-3xl mx-auto text-gray-600 text-lg">
+                <p class="text-center mb-12 max-w-3xl mx-auto text-white text-lg opacity-90">
                     Meet some of our valued partners who share our vision for
                     empowering education. Our collaborations with innovative organizations
                     and institutions are designed to drive positive change and foster educational excellence.
                 </p>
                 <div class="partner-grid">
                     <a href="https://www.munich-business-school.de/en/" target="_blank"
-                        class="partner-logo block bg-white p-4 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-24">
-                        <img src="./img/MBS.jpg" alt="MBS" class="max-h-12 object-contain" loading="lazy" />
+                        class="partner-logo block bg-white p-6 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-32">
+                        <img src="./img/MBS.jpg" alt="MBS" class="max-h-16 object-contain" loading="lazy" />
                     </a>
                     <a href="https://www.uom.ac.mu/" target="_blank"
-                        class="partner-logo block bg-white p-4 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-24">
-                        <img src="./img/UM.jpg" alt="UM" class="max-h-12 object-contain" loading="lazy" />
+                        class="partner-logo block bg-white p-6 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-32">
+                        <img src="./img/UM.jpg" alt="UM" class="max-h-16 object-contain" loading="lazy" />
                     </a>
                     <a href="https://alte.edu.ge/en" target="_blank"
-                        class="partner-logo block bg-white p-4 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-24">
-                        <img src="./img/Geo.jpg" alt="Geo" class="max-h-12 object-contain" loading="lazy" />
+                        class="partner-logo block bg-white p-6 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-32">
+                        <img src="./img/Geo.jpg" alt="Geo" class="max-h-16 object-contain" loading="lazy" />
                     </a>
                     <a href="https://tneg.nl/" target="_blank"
-                        class="partner-logo block bg-white p-4 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-24">
-                        <img src="./img/LBT.jpg" alt="LBT" class="max-h-12 object-contain" loading="lazy" />
+                        class="partner-logo block bg-white p-6 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-32">
+                        <img src="./img/LBT.jpg" alt="LBT" class="max-h-16 object-contain" loading="lazy" />
                     </a>
                     <a href="https://www.cuchd.in/" target="_blank"
-                        class="partner-logo block bg-white p-4 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-24">
-                        <img src="./img/chandigarh.jpg" alt="LBT" class="max-h-12 object-contain" loading="lazy" />
+                        class="partner-logo block bg-white p-6 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-32">
+                        <img src="./img/chandigarh.jpg" alt="LBT" class="max-h-16 object-contain" loading="lazy" />
                     </a>
                     <a href="https://igniteyouth.com/" target="_blank"
-                        class="partner-logo block bg-white p-4 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-24">
-                        <img src="./img/Ignite logo.jpg" alt="LBT" class="max-h-12 object-contain" loading="lazy" />
+                        class="partner-logo block bg-white p-6 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-32">
+                        <img src="./img/Ignite logo.jpg" alt="LBT" class="max-h-16 object-contain" loading="lazy" />
                     </a>
                 </div>
             </div>
         </section>
         
-      <section>
+      <section class="py-16 bg-white">
         <div class="bg-white py-6">
-  <h2 class="text-3xl font-extrabold text-center mb-4 animate-fadeInUp">
-    <span class="text-blue-600">Book a Session</span> 
-    <span class="text-red-600">With Us</span>
-  </h2>
-</div>
-
-<style>
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.animate-fadeInUp {
-  animation: fadeInUp 1s ease-out;
-}
-</style>
-
+          <h2 class="text-3xl font-extrabold text-center mb-4 animate-fadeInUp">
+            <span class="text-blue-600">Book a Session</span> 
+            <span class="text-red-600">With Us</span>
+          </h2>
+        </div>
 
         <form method="POST" 
       action="https://script.google.com/macros/s/AKfycbx8wRYtt-NzwisuaEONNuqKHiG7ibbpwYepdSc0_O77ILchshK7qQPKtde1a_mHcWI8RQ/exec"
@@ -851,11 +996,7 @@
 </form>
       </section>
 
-
-
-
-
-        <section id="empower" class="py-16 bg-gray-50 relative">
+        <section id="empower" class="py-16 section-alt relative">
             <div class="container mx-auto flex flex-col lg:flex-row items-center px-4">
                 <div class="lg:w-1/2 mb-8 lg:mb-0">
                     <img src="./img/empower-image.png" alt="Empowering image"
@@ -889,30 +1030,30 @@
             </div>
         </section>
 
-        <section class="bg-gray-50 py-16">
+        <section class="bg-gray-50 py-16 section-brand">
             <div class="container mx-auto px-4 lg:px-16">
                 <div class="max-w-4xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-dark-blue">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-white">
                         Empowering Your Educational Journey
                     </h2>
-                    <p class="text-center text-gray-600 mb-8 text-lg">
+                    <p class="text-center text-white mb-8 text-lg opacity-90">
                         Cipher Educational Consult Limited bridges
                         educational gaps in West Africa, offering
                         international student admission services, career counseling, and
                         mentorship to help you succeed globally.
                     </p>
                     <div
-                        class="bg-dark-blue text-white rounded-xl p-8 flex flex-col md:flex-row items-center justify-between shadow-2xl">
+                        class="bg-white text-dark-blue rounded-xl p-8 flex flex-col md:flex-row items-center justify-between shadow-2xl">
                         <div class="mb-6 md:mb-0 md:mr-8">
                             <h3 class="text-2xl font-bold mb-2">
                                 Stay in the loop
                             </h3>
-                            <p class="text-gray-300">
+                            <p class="text-gray-600">
                                 Subscribe to receive the latest news and
                                 updates. We promise not to spam you!
                             </p>
                         </div>
-                        <form class="w-full md:w-auto flex flex-col md:flex-row p-2 bg-white rounded-lg shadow-inner">
+                        <form class="w-full md:w-auto flex flex-col md:flex-row p-2 bg-gray-100 rounded-lg shadow-inner">
                             <input type="email" placeholder="Enter email address"
                                 class="flex-grow md:w-64 px-4 py-3 text-gray-800 border-none hover:border-none outline-none rounded-l-lg"
                                 required />
@@ -934,7 +1075,7 @@
         <div class="container mx-auto px-4 py-12 relative z-10">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="col-span-1">
-                    <img src="./img/logo 1.png" alt="Cipher Educational Consult Ltd." class="mb-4 h-10" />
+                    <img src="./img/logo 1.png" alt="Cipher Educational Consult Ltd." class="mb-4 h-12" />
                     <p class="mb-4 text-gray-300">
                         Empowering students through comprehensive
                         educational consulting services.
@@ -992,25 +1133,37 @@
         const menuToggle = document.getElementById('menu-toggle');
         const closeMenu = document.getElementById('close-menu');
         const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 
-        menuToggle.addEventListener('click', () => {
+        const openMobileMenu = () => {
             mobileMenu.classList.add('mobile-menu-open');
+            mobileMenuOverlay.classList.add('active');
             menuToggle.classList.add('hamburger-active');
             document.body.style.overflow = 'hidden';
-        });
+        };
 
-        closeMenu.addEventListener('click', () => {
+        const closeMobileMenu = () => {
             mobileMenu.classList.remove('mobile-menu-open');
+            mobileMenuOverlay.classList.remove('active');
             menuToggle.classList.remove('hamburger-active');
             document.body.style.overflow = 'auto';
-        });
+        };
+
+        menuToggle.addEventListener('click', openMobileMenu);
+        closeMenu.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
 
         // Close menu when clicking outside
         document.addEventListener('click', (e) => {
             if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && mobileMenu.classList.contains('mobile-menu-open')) {
-                mobileMenu.classList.remove('mobile-menu-open');
-                menuToggle.classList.remove('hamburger-active');
-                document.body.style.overflow = 'auto';
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('mobile-menu-open')) {
+                closeMobileMenu();
             }
         });
 
@@ -1134,17 +1287,75 @@ if (form) {
         window.addEventListener('scroll', animateCards);
         animateCards(); // Initial check
 
-
-
-
-
-
-
-
+        // Testimonial Carousel Functionality
+        const testimonialTrack = document.getElementById('testimonial-track');
+        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const carouselDots = document.getElementById('carousel-dots');
+        
+        let currentSlide = 0;
+        const totalSlides = testimonialSlides.length;
+        
+        // Create dots for carousel navigation
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('carousel-dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => goToSlide(i));
+            carouselDots.appendChild(dot);
+        }
+        
+        // Function to update carousel position
+        function updateCarousel() {
+            // Calculate slide width based on screen size
+            let slideWidth;
+            if (window.innerWidth >= 1024) {
+                slideWidth = 100 / 3; // 3 slides visible on desktop
+            } else if (window.innerWidth >= 768) {
+                slideWidth = 100 / 2; // 2 slides visible on tablet
+            } else {
+                slideWidth = 100; // 1 slide visible on mobile
+            }
+            
+            testimonialTrack.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+            
+            // Update active dot
+            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        // Function to go to specific slide
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+        }
+        
+        // Next slide function
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+        
+        // Previous slide function
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        
+        // Event listeners for navigation buttons
+        prevBtn.addEventListener('click', prevSlide);
+        nextBtn.addEventListener('click', nextSlide);
+        
+        // Update carousel on window resize
+        window.addEventListener('resize', updateCarousel);
+        
+        // Initialize carousel
+        updateCarousel();
+        
+        // Auto-advance carousel (optional)
+        // setInterval(nextSlide, 5000);
     </script>
-
-
-
 </body>
-
 </html>
