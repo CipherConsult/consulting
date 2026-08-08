@@ -16,6 +16,7 @@ tailwind.config = {
       colors: {
         ink: '#12192B',
         paper: '#FAFAF7',
+        mist: '#EEF2FB',
         'cipher-blue': '#1A56DB',
         'deep-blue': '#12235C',
         'signal-red': '#E11D48',
@@ -36,11 +37,20 @@ tailwind.config = {
   body { font-family: 'Raleway', sans-serif; background:#FAFAF7; color:#12192B; }
   h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
   .eyebrow { font-family:'IBM Plex Mono', monospace; letter-spacing:0.14em; text-transform:uppercase; font-size:0.72rem; }
-  .route-line { display:flex; align-items:center; overflow-x:auto; scrollbar-width:none; }
-  .route-line::-webkit-scrollbar{ display:none; }
-  .route-stop { font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.08em; white-space:nowrap; padding:0 1rem; position:relative; }
+  .route-line-wrap{ overflow:hidden; }
+  .route-line-track{ display:flex; width:max-content; animation: marquee 55s linear infinite; }
+  .route-line-wrap:hover .route-line-track{ animation-play-state:paused; }
+  @keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce){ .route-line-track{ animation:none; } }
+  .route-stop { font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.08em; white-space:nowrap; padding:0 1.1rem; position:relative; }
   .route-stop::before{ content:''; position:absolute; left:-1px; top:50%; width:6px; height:6px; border-radius:50%; background:#C68A2E; transform:translate(-50%,-50%); }
-  .route-connector{ flex:1 0 2rem; height:1px; background:#E3E1DA; }
+  .route-connector{ flex:0 0 2rem; height:1px; background:#E3E1DA; }
+  .dot{ width:6px; height:6px; border-radius:50%; background:#E3E1DA; transition:all .25s ease; cursor:pointer; }
+  .dot.active{ background:#12192B; width:20px; border-radius:9999px; }
+  @keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
+  .pulse-dot{ animation:pulseDot 1.8s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce){ .pulse-dot{ animation:none; } }
+  .hero-glow{ background:radial-gradient(ellipse 60% 50% at 80% 0%, rgba(26,86,219,0.07), transparent 70%); }
   @keyframes fadeUp { from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
   .reveal{ opacity:0; animation: fadeUp .7s ease forwards; }
   .reveal-1{animation-delay:.08s;} .reveal-2{animation-delay:.18s;} .reveal-3{animation-delay:.28s;}
@@ -63,6 +73,10 @@ tailwind.config = {
 </style>
 </head>
 <body class="bg-paper text-ink">
+
+<a href="#book" class="block bg-ink text-paper text-center py-2 px-4 text-xs md:text-sm hover:bg-cipher-blue transition-colors">
+  <span class="w-1.5 h-1.5 rounded-full bg-runway-gold pulse-dot inline-block align-middle mr-2"></span>Admission application ongoing &middot; book a consultation today
+</a>
 
 <header class="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-hairline">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between relative">
@@ -91,7 +105,7 @@ tailwind.config = {
 
 <main>
   <!-- Hero -->
-  <section class="max-w-6xl mx-auto px-6 pt-16 md:pt-24 pb-12">
+  <section class="hero-glow max-w-6xl mx-auto px-6 pt-16 md:pt-24 pb-12">
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="reveal">
         <p class="eyebrow text-cipher-blue mb-5">Abuja &middot; International Education Consultancy</p>
@@ -113,33 +127,55 @@ tailwind.config = {
   </section>
 
   <!-- Route line -->
-  <section class="border-y border-hairline bg-white">
-    <div class="max-w-6xl mx-auto px-6 py-5">
-      <div class="route-line">
-        <span class="route-stop pl-0">ABUJA</span><span class="route-connector"></span>
-        <span class="route-stop">MUNICH</span><span class="route-connector"></span>
-        <span class="route-stop">ROME</span><span class="route-connector"></span>
-        <span class="route-stop">TBILISI</span><span class="route-connector"></span>
-        <span class="route-stop">BATUMI</span><span class="route-connector"></span>
-        <span class="route-stop">CHANDIGARH</span><span class="route-connector"></span>
-        <span class="route-stop pr-0">PORT LOUIS</span>
-      </div>
+  <section class="route-line-wrap border-y border-hairline bg-white py-5">
+    <div class="route-line-track">
+      <span class="route-stop">ABUJA</span><span class="route-connector"></span>
+      <span class="route-stop">MUNICH</span><span class="route-connector"></span>
+      <span class="route-stop">ROME</span><span class="route-connector"></span>
+      <span class="route-stop">TBILISI</span><span class="route-connector"></span>
+      <span class="route-stop">BATUMI</span><span class="route-connector"></span>
+      <span class="route-stop">BUDAPEST</span><span class="route-connector"></span>
+      <span class="route-stop">ISTANBUL</span><span class="route-connector"></span>
+      <span class="route-stop">CHANDIGARH</span><span class="route-connector"></span>
+      <span class="route-stop">BEIJING</span><span class="route-connector"></span>
+      <span class="route-stop">KUALA LUMPUR</span><span class="route-connector"></span>
+      <span class="route-stop">PORT LOUIS</span><span class="route-connector"></span>
+      <span class="route-stop">LONDON</span><span class="route-connector"></span>
+      <span class="route-stop">OTTAWA</span><span class="route-connector"></span>
+      <span class="route-stop">WASHINGTON</span><span class="route-connector"></span>
+      <!-- duplicate set for seamless loop -->
+      <span class="route-stop">ABUJA</span><span class="route-connector"></span>
+      <span class="route-stop">MUNICH</span><span class="route-connector"></span>
+      <span class="route-stop">ROME</span><span class="route-connector"></span>
+      <span class="route-stop">TBILISI</span><span class="route-connector"></span>
+      <span class="route-stop">BATUMI</span><span class="route-connector"></span>
+      <span class="route-stop">BUDAPEST</span><span class="route-connector"></span>
+      <span class="route-stop">ISTANBUL</span><span class="route-connector"></span>
+      <span class="route-stop">CHANDIGARH</span><span class="route-connector"></span>
+      <span class="route-stop">BEIJING</span><span class="route-connector"></span>
+      <span class="route-stop">KUALA LUMPUR</span><span class="route-connector"></span>
+      <span class="route-stop">PORT LOUIS</span><span class="route-connector"></span>
+      <span class="route-stop">LONDON</span><span class="route-connector"></span>
+      <span class="route-stop">OTTAWA</span><span class="route-connector"></span>
+      <span class="route-stop">WASHINGTON</span><span class="route-connector"></span>
     </div>
   </section>
 
   <!-- About preview -->
-  <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
-    <div class="grid md:grid-cols-2 gap-14 items-center">
-      <img src="./img/about-image.png" alt="Cipher office" class="w-full h-auto order-2 md:order-1" loading="lazy" />
-      <div class="order-1 md:order-2">
-        <p class="eyebrow text-cipher-blue mb-4">Who we are</p>
-        <h2 class="text-3xl md:text-4xl font-semibold mb-5">More than a study abroad agency</h2>
-        <p class="text-ink/70 leading-relaxed mb-6">
-          Cipher Educational Consult Limited is an education, career development, and youth empowerment organisation
-          working across Nigeria and West Africa. We do not just help young people get into schools abroad.
-          We walk with them from where they are today to where they are capable of being.
-        </p>
-        <a href="./about.html" class="text-sm font-medium border-b border-ink pb-0.5">Read our story</a>
+  <section class="bg-mist">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <div class="grid md:grid-cols-2 gap-14 items-center">
+        <img src="./img/about-image.png" alt="Cipher office" class="w-full h-auto order-2 md:order-1 rounded-2xl" loading="lazy" />
+        <div class="order-1 md:order-2">
+          <p class="eyebrow text-cipher-blue mb-4">Who we are</p>
+          <h2 class="text-3xl md:text-4xl font-semibold mb-5">More than a study abroad agency</h2>
+          <p class="text-ink/70 leading-relaxed mb-6">
+            Cipher Educational Consult Limited is an education, career development, and youth empowerment organisation
+            working across Nigeria and West Africa. We do not just help young people get into schools abroad.
+            We walk with them from where they are today to where they are capable of being.
+          </p>
+          <a href="./about.html" class="text-sm font-medium border-b border-ink pb-0.5">Read our story</a>
+        </div>
       </div>
     </div>
   </section>
@@ -193,7 +229,7 @@ tailwind.config = {
       <p class="eyebrow text-cipher-blue mb-4">In their words</p>
       <h2 class="text-3xl md:text-4xl font-semibold">What students and parents say</h2>
     </div>
-    <div class="quote-rail">
+    <div class="quote-rail" id="quote-rail">
       <div class="quote-card card-border border border-hairline rounded-2xl p-7 bg-white">
         <p class="text-ink/80 leading-relaxed mb-6">"Cipher guided me through every step of my university admission process. Their approach made me feel confident and prepared for my studies abroad."</p>
         <p class="font-semibold text-sm">Amina Usman</p>
@@ -211,37 +247,42 @@ tailwind.config = {
         <p class="font-semibold text-sm">Samuel Adeyemi</p>
       </div>
     </div>
+    <div class="flex items-center justify-center gap-2 mt-7" id="quote-dots">
+      <span class="dot active" data-index="0"></span>
+      <span class="dot" data-index="1"></span>
+      <span class="dot" data-index="2"></span>
+      <span class="dot" data-index="3"></span>
+    </div>
   </section>
 
   <!-- Partners -->
   <section class="bg-deep-blue">
     <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
       <div class="max-w-xl mb-14">
-        <p class="eyebrow text-runway-gold mb-4">Verified partnerships</p>
-        <h2 class="text-3xl md:text-4xl font-semibold text-white">Direct partners, not resellers</h2>
+        <p class="eyebrow text-runway-gold mb-4">Partners</p>
+        <h2 class="text-3xl md:text-4xl font-semibold text-white">Some of our partners</h2>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        <a href="https://www.munich-business-school.de/en/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24"><img src="./img/MBS.jpg" alt="Munich Business School" class="max-h-12 object-contain grayscale-hover" loading="lazy"></a>
-        <a href="https://alte.edu.ge/en" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24"><img src="./img/Geo.jpg" alt="Alte University Georgia" class="max-h-12 object-contain grayscale-hover" loading="lazy"></a>
-        <a href="https://www.uom.ac.mu/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24"><img src="./img/UM.jpg" alt="University of Mauritius" class="max-h-12 object-contain grayscale-hover" loading="lazy"></a>
-        <a href="https://tneg.nl/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24"><img src="./img/LBT.jpg" alt="Netherlands Education Group" class="max-h-12 object-contain grayscale-hover" loading="lazy"></a>
-        <a href="https://www.cuchd.in/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24"><img src="./img/chandigarh.jpg" alt="Chandigarh University" class="max-h-12 object-contain grayscale-hover" loading="lazy"></a>
-        <a href="https://igniteyouth.com/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24"><img src="./img/Ignite logo.jpg" alt="Ignite Youth" class="max-h-12 object-contain grayscale-hover" loading="lazy"></a>
+        <a href="https://www.munich-business-school.de/en/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24 transition-transform hover:-translate-y-1"><img src="./img/MBS.jpg" alt="Munich Business School" class="max-h-12 object-contain" loading="lazy"></a>
+        <a href="https://alte.edu.ge/en" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24 transition-transform hover:-translate-y-1"><img src="./img/Geo.jpg" alt="Alte University Georgia" class="max-h-12 object-contain" loading="lazy"></a>
+        <a href="https://www.uom.ac.mu/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24 transition-transform hover:-translate-y-1"><img src="./img/UM.jpg" alt="University of Mauritius" class="max-h-12 object-contain" loading="lazy"></a>
+        <a href="https://tneg.nl/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24 transition-transform hover:-translate-y-1"><img src="./img/LBT.jpg" alt="Netherlands Education Group" class="max-h-12 object-contain" loading="lazy"></a>
+        <a href="https://www.cuchd.in/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24 transition-transform hover:-translate-y-1"><img src="./img/chandigarh.jpg" alt="Chandigarh University" class="max-h-12 object-contain" loading="lazy"></a>
+        <a href="https://igniteyouth.com/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24 transition-transform hover:-translate-y-1"><img src="./img/Ignite logo.jpg" alt="Ignite Youth" class="max-h-12 object-contain" loading="lazy"></a>
       </div>
     </div>
   </section>
 
   <!-- Booking form -->
-  <section id="book" class="max-w-3xl mx-auto px-6 py-20 md:py-28">
+  <section id="book" class="bg-mist">
+   <div class="max-w-3xl mx-auto px-6 py-20 md:py-28">
     <div class="text-center mb-12">
       <p class="eyebrow text-cipher-blue mb-4">Start here</p>
       <h2 class="text-3xl md:text-4xl font-semibold mb-3">Book a session with us</h2>
       <p class="text-ink/60">Tell us where you're starting from. We'll tell you what's possible.</p>
     </div>
 
-    <!-- Form delivery: connected via Formspree so submissions email straight to info@cipherconsult.com.ng.
-         Replace YOUR_FORM_ID below once the Formspree endpoint is created and verified. -->
-    <form method="POST" action="https://formspree.io/f/YOUR_FORM_ID" class="bg-white border border-hairline rounded-2xl p-8 md:p-10">
+    <form method="POST" action="https://formspree.io/f/xjybgewa" class="bg-white border border-hairline rounded-2xl p-8 md:p-10">
       <input type="hidden" name="_subject" value="New consultation booking, Cipher website">
 
       <div class="mb-6">
@@ -323,6 +364,7 @@ tailwind.config = {
         Submit booking
       </button>
     </form>
+   </div>
   </section>
 </main>
 
@@ -356,6 +398,21 @@ tailwind.config = {
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+  const rail = document.getElementById('quote-rail');
+  const dots = document.querySelectorAll('#quote-dots .dot');
+  if (rail && dots.length) {
+    rail.addEventListener('scroll', () => {
+      const cardWidth = rail.scrollWidth / dots.length;
+      const index = Math.min(Math.round(rail.scrollLeft / cardWidth), dots.length - 1);
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    });
+    dots.forEach((d) => {
+      d.addEventListener('click', () => {
+        const i = Number(d.dataset.index);
+        rail.scrollTo({ left: (rail.scrollWidth / dots.length) * i, behavior: 'smooth' });
+      });
+    });
+  }
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   menuToggle.addEventListener('click', () => {

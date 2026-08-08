@@ -14,7 +14,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        ink: '#12192B', paper: '#FAFAF7', 'cipher-blue': '#1A56DB',
+        ink: '#12192B', paper: '#FAFAF7', mist: '#EEF2FB', 'cipher-blue': '#1A56DB',
         'deep-blue': '#12235C', 'signal-red': '#E11D48', 'runway-gold': '#C68A2E', hairline: '#E3E1DA',
       },
       fontFamily: {
@@ -43,9 +43,16 @@ tailwind.config = {
   .nav-link:hover::after{ width:100%; }
   .btn-primary{ background:#12192B; color:#FAFAF7; }
   .btn-primary:hover{ background:#1A56DB; }
+  @keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
+  .pulse-dot{ animation:pulseDot 1.8s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce){ .pulse-dot{ animation:none; } }
 </style>
 </head>
 <body class="bg-paper text-ink">
+
+<a href="./index.html#book" class="block bg-ink text-paper text-center py-2 px-4 text-xs md:text-sm hover:bg-cipher-blue transition-colors">
+  <span class="w-1.5 h-1.5 rounded-full bg-runway-gold pulse-dot inline-block align-middle mr-2"></span>Admission application ongoing &middot; book a consultation today
+</a>
 
 <header class="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-hairline">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between relative">
@@ -80,25 +87,9 @@ tailwind.config = {
     </h1>
   </section>
 
-  <!-- Video -->
-  <section class="max-w-6xl mx-auto px-6 pb-20 md:pb-28">
-    <div class="max-w-2xl mb-8">
-      <p class="eyebrow text-cipher-blue mb-4">Watch</p>
-      <h2 class="text-3xl md:text-4xl font-semibold">Our story, in two minutes</h2>
-    </div>
-    <video
-      controls
-      preload="metadata"
-      poster="./img/about-image.png"
-      class="w-full h-auto rounded-2xl border border-hairline">
-      <source src="./img/about-video.mp4" type="video/mp4">
-      Your browser doesn't support embedded video. <a href="./img/about-video.mp4">Download the video</a> instead.
-    </video>
-  </section>
-
   <!-- Founder story -->
-  <section class="max-w-6xl mx-auto px-6 pb-20 md:pb-28">
-    <div class="grid md:grid-cols-2 gap-14 items-start">
+  <section class="bg-mist">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-14 items-start">
       <div class="space-y-5 text-ink/70 leading-relaxed">
         <p>
           Cipher Educational Consult Limited was founded on a simple but urgent conviction: that where a young
@@ -146,10 +137,18 @@ tailwind.config = {
 
   <!-- Projects -->
   <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
-    <div class="max-w-xl mb-14">
+    <div class="max-w-xl mb-10">
       <p class="eyebrow text-cipher-blue mb-4">On the ground</p>
       <h2 class="text-3xl md:text-4xl font-semibold">Recent work</h2>
     </div>
+    <video
+      controls
+      preload="metadata"
+      poster="./img/about-image.png"
+      class="w-full h-auto rounded-2xl border border-hairline mb-6">
+      <source src="./img/about-video.mp4" type="video/mp4">
+      Your browser doesn't support embedded video. <a href="./img/about-video.mp4">Download the video</a> instead.
+    </video>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <img src="./img/project-image.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
       <img src="./img/project-image1.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">

@@ -14,7 +14,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        ink: '#12192B', paper: '#FAFAF7', 'cipher-blue': '#1A56DB',
+        ink: '#12192B', paper: '#FAFAF7', mist: '#EEF2FB', 'cipher-blue': '#1A56DB',
         'deep-blue': '#12235C', 'signal-red': '#E11D48', 'runway-gold': '#C68A2E', hairline: '#E3E1DA',
       },
       fontFamily: {
@@ -39,9 +39,16 @@ tailwind.config = {
   .nav-link:hover::after{ width:100%; }
   .btn-primary{ background:#12192B; color:#FAFAF7; }
   .btn-primary:hover{ background:#1A56DB; }
+  @keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
+  .pulse-dot{ animation:pulseDot 1.8s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce){ .pulse-dot{ animation:none; } }
 </style>
 </head>
 <body class="bg-paper text-ink">
+
+<a href="./index.html#book" class="block bg-ink text-paper text-center py-2 px-4 text-xs md:text-sm hover:bg-cipher-blue transition-colors">
+  <span class="w-1.5 h-1.5 rounded-full bg-runway-gold pulse-dot inline-block align-middle mr-2"></span>Admission application ongoing &middot; book a consultation today
+</a>
 
 <header class="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-hairline">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between relative">
@@ -101,9 +108,7 @@ tailwind.config = {
       <h2 class="text-3xl font-semibold mb-2 text-center">Say hello</h2>
       <p class="text-ink/60 text-center mb-10">Looking forward to connecting with you.</p>
 
-      <!-- Form delivery: connected via Formspree, submissions email straight to info@cipherconsult.com.ng.
-           Replace YOUR_FORM_ID below once the Formspree endpoint is created and verified. -->
-      <form method="POST" action="https://formspree.io/f/YOUR_FORM_ID" class="border border-hairline rounded-2xl p-8 md:p-10">
+      <form method="POST" action="https://formspree.io/f/xjybgewa" class="border border-hairline rounded-2xl p-8 md:p-10">
         <input type="hidden" name="_subject" value="New enquiry, Cipher website contact form">
 
         <div class="grid sm:grid-cols-2 gap-6 mb-6">
