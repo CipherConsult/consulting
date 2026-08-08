@@ -1,1349 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/img/logo 1.png" type="image/x-icon" />
-    <title>Cipher Educational Consult Limited</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-blue': '#1a56db',
-                        'secondary-red': '#e11d48',
-                        'light-blue': '#3b82f6',
-                        'dark-blue': '#1e3a8a',
-                        'light-bg': '#f8fafc',
-                        'gold': '#f59e0b',
-                        'off-white': '#f9fafb',
-                        'light-gray': '#f1f5f9'
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.5s ease-in-out',
-                        'slide-in': 'slideIn 0.5s ease-out',
-                        'bounce-slow': 'bounce 2s infinite',
-                        'pulse-slow': 'pulse 3s infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' },
-                        },
-                        slideIn: {
-                            '0%': { transform: 'translateY(-10px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
-                    }
-                },
-            },
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Raleway', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        .hero-bg {
-            background-image: url("./svg/vector1.svg");
-            background-position: bottom right;
-            background-size: contain;
-            background-repeat: no-repeat;
-        }
-
-        .services-bg {
-            background-image: url("./img/services-bg.png");
-        }
-
-        .testimonials-bg {
-            background-image: url("./img/testimonials-bg.png");
-        }
-
-        /* Custom animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes shimmer {
-            0% {
-                background-position: -1000px 0;
-            }
-
-            100% {
-                background-position: 1000px 0;
-            }
-        }
-
-        .animate-fade-in-up {
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
-        .sticky-nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            transition: all 0.3s ease;
-        }
-
-        .nav-scrolled {
-            background-color: rgba(26, 86, 219, 0.95);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .hamburger-line {
-            transition: all 0.3s ease;
-        }
-
-        .hamburger-active .hamburger-line:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .hamburger-active .hamburger-line:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger-active .hamburger-line:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.4s ease-in-out;
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .mobile-menu-open {
-            transform: translateX(0);
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .partner-logo {
-            transition: all 0.4s ease;
-        }
-
-        .partner-logo:hover {
-            transform: scale(1.05) rotate(2deg);
-            box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.15);
-        }
-
-        .form-input {
-            transition: all 0.3s ease;
-        }
-
-        .form-input:focus {
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
-        }
-
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none;
-        }
-
-        .scrollbar-hide {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        .delay-100 {
-            animation-delay: 100ms;
-        }
-
-        .delay-200 {
-            animation-delay: 200ms;
-        }
-
-        .delay-300 {
-            animation-delay: 300ms;
-        }
-
-        .delay-400 {
-            animation-delay: 400ms;
-        }
-
-        .delay-500 {
-            animation-delay: 500ms;
-        }
-
-        .service-card {
-            transition: all 0.4s ease;
-            perspective: 1000px;
-        }
-
-        .service-card-inner {
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-        }
-
-        .service-card:hover .service-card-inner {
-            transform: rotateY(10deg);
-        }
-
-        .announcement-bar {
-            background: linear-gradient(90deg, #1a56db, #e11d48, #f59e0b, #1a56db);
-            background-size: 300% 100%;
-            animation: shimmer 3s infinite linear;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .announcement-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shimmer 2s infinite;
-        }
-
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 99;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.4s ease;
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .floating-shape {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .floating-shape-1 {
-            width: 150px;
-            height: 150px;
-            background: #1a56db;
-            top: 10%;
-            left: 5%;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .floating-shape-2 {
-            width: 100px;
-            height: 100px;
-            background: #e11d48;
-            bottom: 20%;
-            right: 10%;
-            animation: float 10s ease-in-out infinite reverse;
-        }
-
-        .text-shadow {
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .partner-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1.5rem;
-        }
-
-        @media (min-width: 768px) {
-            .partner-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        /* Testimonial block cards */
-        .testimonial-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            overflow: hidden;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        /* Improved mobile menu */
-        .mobile-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 40;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Logo improvements - REMOVED THE BOX */
-        .logo-container {
-            /* Removed the background and padding that created the box */
-            padding: 0;
-            background: transparent;
-        }
-
-        /* Enhanced section backgrounds */
-        .section-alt {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-        }
-
-        .section-brand {
-            background: linear-gradient(135deg, #1a56db 0%, #3b82f6 100%);
-            color: white;
-        }
-
-        .section-brand h2, .section-brand h3, .section-brand p {
-            color: white;
-        }
-
-        /* Testimonial Carousel Styles */
-        .testimonial-carousel {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .testimonial-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .testimonial-slide {
-            min-width: 100%;
-            box-sizing: border-box;
-            padding: 0 15px;
-        }
-
-        .carousel-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .carousel-btn {
-            background: #1a56db;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 10px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-btn:hover {
-            background: #e11d48;
-            transform: scale(1.1);
-        }
-
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 15px;
-        }
-
-        .carousel-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #cbd5e0;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .carousel-dot.active {
-            background: #1a56db;
-            transform: scale(1.2);
-        }
-
-        @media (min-width: 768px) {
-            .testimonial-slide {
-                min-width: 50%;
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .testimonial-slide {
-                min-width: 33.333%;
-            }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Cipher Educational Consult Limited. International admissions, scholarships, visa support, and career mentorship for students across Nigeria and West Africa." />
+<title>Cipher Educational Consult Limited</title>
+<link rel="icon" href="./img/logo 1.png" type="image/x-icon" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Raleway:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#12192B',
+        paper: '#FAFAF7',
+        'cipher-blue': '#1A56DB',
+        'deep-blue': '#12235C',
+        'signal-red': '#E11D48',
+        'runway-gold': '#C68A2E',
+        hairline: '#E3E1DA',
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', 'serif'],
+        body: ['Raleway', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'monospace'],
+      },
+    },
+  },
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Raleway', sans-serif; background:#FAFAF7; color:#12192B; }
+  h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+  .eyebrow { font-family:'IBM Plex Mono', monospace; letter-spacing:0.14em; text-transform:uppercase; font-size:0.72rem; }
+  .route-line { display:flex; align-items:center; overflow-x:auto; scrollbar-width:none; }
+  .route-line::-webkit-scrollbar{ display:none; }
+  .route-stop { font-family:'IBM Plex Mono', monospace; font-size:0.72rem; letter-spacing:0.08em; white-space:nowrap; padding:0 1rem; position:relative; }
+  .route-stop::before{ content:''; position:absolute; left:-1px; top:50%; width:6px; height:6px; border-radius:50%; background:#C68A2E; transform:translate(-50%,-50%); }
+  .route-connector{ flex:1 0 2rem; height:1px; background:#E3E1DA; }
+  @keyframes fadeUp { from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+  .reveal{ opacity:0; animation: fadeUp .7s ease forwards; }
+  .reveal-1{animation-delay:.08s;} .reveal-2{animation-delay:.18s;} .reveal-3{animation-delay:.28s;}
+  @media (prefers-reduced-motion: reduce){ .reveal{ animation:none; opacity:1; } }
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline:2px solid #1A56DB; outline-offset:2px; }
+  .mobile-menu{ transform:translateY(-8px); opacity:0; visibility:hidden; transition:all .25s ease; }
+  .mobile-menu.open{ transform:translateY(0); opacity:1; visibility:visible; }
+  .nav-link{ position:relative; }
+  .nav-link::after{ content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px; background:#12192B; transition:width .25s ease; }
+  .nav-link:hover::after{ width:100%; }
+  .btn-primary{ background:#12192B; color:#FAFAF7; }
+  .btn-primary:hover{ background:#1A56DB; }
+  .grayscale-hover{ filter:grayscale(1); opacity:.55; transition:all .3s ease; }
+  .grayscale-hover:hover{ filter:grayscale(0); opacity:1; }
+  .quote-rail{ display:flex; gap:1.5rem; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:.5rem; scrollbar-width:none; }
+  .quote-rail::-webkit-scrollbar{ display:none; }
+  .quote-card{ scroll-snap-align:start; min-width:82%; }
+  @media (min-width:768px){ .quote-card{ min-width:46%; } }
+  @media (min-width:1024px){ .quote-card{ min-width:31%; } }
+</style>
 </head>
+<body class="bg-paper text-ink">
 
-<body class="bg-light-bg">
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div>
+<header class="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-hairline">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between relative">
+    <a href="./index.html" class="shrink-0"><img src="./img/logo 1.png" alt="Cipher Educational Consult" class="h-9"></a>
+    <nav class="hidden md:flex items-center gap-10 text-sm">
+      <a href="./index.html" class="nav-link">Home</a>
+      <a href="./about.html" class="nav-link">About</a>
+      <a href="./services.html" class="nav-link">Services</a>
+      <a href="./contact.html" class="ml-4 btn-primary text-sm px-5 py-2.5 rounded-full transition-colors">Contact us</a>
+    </nav>
+    <button id="menu-toggle" class="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5" aria-label="Open menu" aria-expanded="false">
+      <span class="block w-6 h-px bg-ink"></span>
+      <span class="block w-6 h-px bg-ink"></span>
+      <span class="block w-6 h-px bg-ink"></span>
+    </button>
+    <div id="mobile-menu" class="mobile-menu md:hidden absolute top-full left-0 w-full bg-paper border-b border-hairline">
+      <div class="flex flex-col px-6 py-6 gap-5 text-2xl">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./services.html">Services</a>
+        <a href="./contact.html" class="text-cipher-blue">Contact us</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-    <header class="sticky-nav bg-primary-blue text-white p-4">
-        <div class="container mx-auto flex justify-between items-center">
-            <div class="text-xl font-bold animate-fade-in-up">
-                <div class="logo-container">
-                    <!-- Logo now has no box around it -->
-                    <img src="./img/logo 1.png" alt="Cipher Educational Consult Ltd Logo"
-                        class="h-12 transform hover:scale-110 transition-transform duration-300" />
-                </div>
-            </div>
-            <nav class="hidden md:flex space-x-8 items-center">
-                <a href="./index.html"
-                    class="hover:underline transition-all duration-300 hover:text-secondary-red relative group">
-                    Home
-                    <span
-                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary-red transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="./about.html"
-                    class="hover:underline transition-all duration-300 hover:text-secondary-red relative group">
-                    About us
-                    <span
-                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary-red transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="./services.html"
-                    class="hover:underline transition-all duration-300 hover:text-secondary-red relative group">
-                    Services
-                    <span
-                        class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary-red transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="./contact.html"
-                    class="bg-white text-primary-blue px-4 py-2 rounded-lg hover:bg-secondary-red hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg">Contact
-                    Us</a>
-            </nav>
-            <button id="menu-toggle"
-                class="md:hidden focus:outline-none flex flex-col w-6 h-5 justify-between items-center z-60 relative"
-                aria-label="Toggle menu">
-                <span class="hamburger-line w-6 h-0.5 bg-white rounded"></span>
-                <span class="hamburger-line w-6 h-0.5 bg-white rounded"></span>
-                <span class="hamburger-line w-6 h-0.5 bg-white rounded"></span>
-            </button>
+<main>
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 pt-16 md:pt-24 pb-12">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="reveal">
+        <p class="eyebrow text-cipher-blue mb-5">Abuja &middot; International Education Consultancy</p>
+        <h1 class="text-4xl md:text-5xl lg:text-[3.4rem] leading-[1.08] font-semibold text-ink mb-6">
+          We move ambitious young Nigerians into rooms the world said were closed.
+        </h1>
+        <p class="text-lg text-ink/70 leading-relaxed mb-8 max-w-md">
+          Admissions, scholarships, visas, and mentorship, handled with the seriousness a young person's future deserves.
+        </p>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="#book" class="btn-primary px-7 py-3.5 rounded-full text-sm font-medium transition-colors">Book a consultation</a>
+          <a href="./services.html" class="text-sm font-medium border-b border-ink pb-0.5">See our services</a>
         </div>
-    </header>
+      </div>
+      <div class="reveal reveal-2">
+        <img src="./img/hero-image.png" alt="Cipher students" class="w-full h-auto" loading="lazy" />
+      </div>
+    </div>
+  </section>
 
-    <div id="mobile-menu"
-        class="mobile-menu fixed inset-y-0 right-0 bg-dark-blue text-white z-50 flex flex-col items-center justify-center space-y-8 md:hidden w-3/4 max-w-sm">
-        <button id="close-menu"
-            class="absolute top-6 right-6 text-3xl transform hover:scale-110 transition-transform duration-300">
-            <i class="fas fa-times"></i>
-        </button>
-        <a href="./index.html"
-            class="text-2xl font-medium hover:text-secondary-red transition-all duration-300 transform hover:translate-x-2">Home</a>
-        <a href="./about.html"
-            class="text-2xl font-medium hover:text-secondary-red transition-all duration-300 transform hover:translate-x-2">About
-            us</a>
-        <a href="./services.html"
-            class="text-2xl font-medium hover:text-secondary-red transition-all duration-300 transform hover:translate-x-2">Services</a>
-        <a href="./contact.html"
-            class="bg-white text-primary-blue px-6 py-3 rounded-lg text-xl font-medium hover:bg-secondary-red hover:text-white transition-all duration-300 transform hover:-translate-y-1">Contact
-            Us</a>
+  <!-- Route line -->
+  <section class="border-y border-hairline bg-white">
+    <div class="max-w-6xl mx-auto px-6 py-5">
+      <div class="route-line">
+        <span class="route-stop pl-0">ABUJA</span><span class="route-connector"></span>
+        <span class="route-stop">MUNICH</span><span class="route-connector"></span>
+        <span class="route-stop">ROME</span><span class="route-connector"></span>
+        <span class="route-stop">TBILISI</span><span class="route-connector"></span>
+        <span class="route-stop">BATUMI</span><span class="route-connector"></span>
+        <span class="route-stop">CHANDIGARH</span><span class="route-connector"></span>
+        <span class="route-stop pr-0">PORT LOUIS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About preview -->
+  <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <div class="grid md:grid-cols-2 gap-14 items-center">
+      <img src="./img/about-image.png" alt="Cipher office" class="w-full h-auto order-2 md:order-1" loading="lazy" />
+      <div class="order-1 md:order-2">
+        <p class="eyebrow text-cipher-blue mb-4">Who we are</p>
+        <h2 class="text-3xl md:text-4xl font-semibold mb-5">More than a study abroad agency</h2>
+        <p class="text-ink/70 leading-relaxed mb-6">
+          Cipher Educational Consult Limited is an education, career development, and youth empowerment organisation
+          working across Nigeria and West Africa. We do not just help young people get into schools abroad.
+          We walk with them from where they are today to where they are capable of being.
+        </p>
+        <a href="./about.html" class="text-sm font-medium border-b border-ink pb-0.5">Read our story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="bg-white border-y border-hairline">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <div class="max-w-xl mb-14">
+        <p class="eyebrow text-cipher-blue mb-4">What we do</p>
+        <h2 class="text-3xl md:text-4xl font-semibold mb-5">Six ways we get you there</h2>
+        <p class="text-ink/70 leading-relaxed">From first application to first day on campus, and every decision in between.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+        <a href="./services.html#educational-consult" class="group">
+          <i class="fas fa-graduation-cap text-xl text-cipher-blue mb-4 block"></i>
+          <h3 class="text-lg font-semibold mb-2 group-hover:text-cipher-blue transition-colors">Educational Consultancy</h3>
+          <p class="text-sm text-ink/60">Expert guidance on school selection and application strategy.</p>
+        </a>
+        <a href="./services.html#international" class="group">
+          <i class="fas fa-globe text-xl text-cipher-blue mb-4 block"></i>
+          <h3 class="text-lg font-semibold mb-2 group-hover:text-cipher-blue transition-colors">International Admission</h3>
+          <p class="text-sm text-ink/60">Placement across Europe, Asia, and beyond, with real partnerships.</p>
+        </a>
+        <a href="./services.html#financial" class="group">
+          <i class="fas fa-hand-holding-dollar text-xl text-cipher-blue mb-4 block"></i>
+          <h3 class="text-lg font-semibold mb-2 group-hover:text-cipher-blue transition-colors">Scholarship &amp; Financial Aid</h3>
+          <p class="text-sm text-ink/60">Funding should never be the reason a qualified student stays behind.</p>
+        </a>
+        <a href="./services.html" class="group">
+          <i class="fas fa-passport text-xl text-cipher-blue mb-4 block"></i>
+          <h3 class="text-lg font-semibold mb-2 group-hover:text-cipher-blue transition-colors">Visa Assistance</h3>
+          <p class="text-sm text-ink/60">Documentation and process support, done right the first time.</p>
+        </a>
+        <a href="./services.html" class="group">
+          <i class="fas fa-people-arrows text-xl text-cipher-blue mb-4 block"></i>
+          <h3 class="text-lg font-semibold mb-2 group-hover:text-cipher-blue transition-colors">Career Counselling</h3>
+          <p class="text-sm text-ink/60">Shaping the professional path, not just the next application.</p>
+        </a>
+        <a href="./services.html" class="group">
+          <i class="fas fa-laptop-code text-xl text-cipher-blue mb-4 block"></i>
+          <h3 class="text-lg font-semibold mb-2 group-hover:text-cipher-blue transition-colors">Digital Skills &amp; AI Training</h3>
+          <p class="text-sm text-ink/60">Practical, in-demand skills for the workforce young people are entering.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <div class="max-w-xl mb-12">
+      <p class="eyebrow text-cipher-blue mb-4">In their words</p>
+      <h2 class="text-3xl md:text-4xl font-semibold">What students and parents say</h2>
+    </div>
+    <div class="quote-rail">
+      <div class="quote-card card-border border border-hairline rounded-2xl p-7 bg-white">
+        <p class="text-ink/80 leading-relaxed mb-6">"Cipher guided me through every step of my university admission process. Their approach made me feel confident and prepared for my studies abroad."</p>
+        <p class="font-semibold text-sm">Amina Usman</p>
+      </div>
+      <div class="quote-card border border-hairline rounded-2xl p-7 bg-white">
+        <p class="text-ink/80 leading-relaxed mb-6">"The career counselling and mentorship I received from Cipher was a game changer. They helped me discover my direction and gave me the guidance I needed."</p>
+        <p class="font-semibold text-sm">David Okechukwu</p>
+      </div>
+      <div class="quote-card border border-hairline rounded-2xl p-7 bg-white">
+        <p class="text-ink/80 leading-relaxed mb-6">"As a parent, I wanted the best for my child's education. Cipher provided exceptional tutoring and helped us navigate the visa process for studying abroad."</p>
+        <p class="font-semibold text-sm">Fatima Mohammed</p>
+      </div>
+      <div class="quote-card border border-hairline rounded-2xl p-7 bg-white">
+        <p class="text-ink/80 leading-relaxed mb-6">"The team at Cipher went above and beyond to help me secure admission to a top university in Germany. Their knowledge of international admissions made all the difference."</p>
+        <p class="font-semibold text-sm">Samuel Adeyemi</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Partners -->
+  <section class="bg-deep-blue">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <div class="max-w-xl mb-14">
+        <p class="eyebrow text-runway-gold mb-4">Verified partnerships</p>
+        <h2 class="text-3xl md:text-4xl font-semibold text-white">Direct partners, not resellers</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <a href="https://www.munich-business-school.de/en/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24"><img src="./img/MBS.jpg" alt="Munich Business School" class="max-h-12 object-contain grayscale-hover" loading="lazy"></a>
+        <a href="https://alte.edu.ge/en" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24"><img src="./img/Geo.jpg" alt="Alte University Georgia" class="max-h-12 object-contain grayscale-hover" loading="lazy"></a>
+        <a href="https://www.uom.ac.mu/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24"><img src="./img/UM.jpg" alt="University of Mauritius" class="max-h-12 object-contain grayscale-hover" loading="lazy"></a>
+        <a href="https://tneg.nl/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24"><img src="./img/LBT.jpg" alt="Netherlands Education Group" class="max-h-12 object-contain grayscale-hover" loading="lazy"></a>
+        <a href="https://www.cuchd.in/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24"><img src="./img/chandigarh.jpg" alt="Chandigarh University" class="max-h-12 object-contain grayscale-hover" loading="lazy"></a>
+        <a href="https://igniteyouth.com/" target="_blank" class="bg-white rounded-xl p-5 flex items-center justify-center h-24"><img src="./img/Ignite logo.jpg" alt="Ignite Youth" class="max-h-12 object-contain grayscale-hover" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking form -->
+  <section id="book" class="max-w-3xl mx-auto px-6 py-20 md:py-28">
+    <div class="text-center mb-12">
+      <p class="eyebrow text-cipher-blue mb-4">Start here</p>
+      <h2 class="text-3xl md:text-4xl font-semibold mb-3">Book a session with us</h2>
+      <p class="text-ink/60">Tell us where you're starting from. We'll tell you what's possible.</p>
     </div>
 
-    <!-- Announcement Bar -->
-    <div class="announcement-bar text-white py-3 px-4 text-center relative overflow-hidden">
-        <div class="container mx-auto">
-            <div class="flex flex-col md:flex-row items-center justify-center">
-                <span
-                    class="inline-block px-3 py-1 bg-white text-secondary-red rounded-full text-sm font-bold mb-2 md:mb-0 md:mr-4 animate-pulse">
-                    <i class="fas fa-bullhorn mr-1"></i> IMPORTANT
-                </span>
-                <p class="text-sm md:text-base font-medium">
-                    Ready to stay ahead in today’s digital world?<br>
-                    Join Cipher’s AI Skills Training Program and learn how to use powerful AI tools to work smarter, create better, and earn more.<br>
-                </p>
-            </div>
+    <!-- Form delivery: connected via Formspree so submissions email straight to info@cipherconsult.com.ng.
+         Replace YOUR_FORM_ID below once the Formspree endpoint is created and verified. -->
+    <form method="POST" action="https://formspree.io/f/YOUR_FORM_ID" class="bg-white border border-hairline rounded-2xl p-8 md:p-10">
+      <input type="hidden" name="_subject" value="New consultation booking, Cipher website">
+
+      <div class="mb-6">
+        <label for="full-name" class="block text-sm font-medium mb-2">Full name</label>
+        <input type="text" id="full-name" name="fullName" required
+          class="w-full px-4 py-3 border border-hairline rounded-lg focus:ring-2 focus:ring-cipher-blue outline-none">
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label for="email" class="block text-sm font-medium mb-2">Email address</label>
+          <input type="email" id="email" name="email" required
+            class="w-full px-4 py-3 border border-hairline rounded-lg focus:ring-2 focus:ring-cipher-blue outline-none">
         </div>
-    </div>
-
-    <main class="relative overflow-hidden">
-        <!-- Floating shapes for background decoration -->
-        <div class="floating-shape floating-shape-1"></div>
-        <div class="floating-shape floating-shape-2"></div>
-
-        <section id="home" class="hero-bg py-16 md:py-24 lg:py-32 bg-gradient-to-r from-white to-blue-50 relative">
-            <div class="container mx-auto flex flex-col lg:flex-row items-center px-4">
-                <div class="w-full lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
-                    <h1
-                        class="text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight font-bold text-dark-blue mb-4 animate-fade-in-up delay-100 text-shadow">
-                        Empowering African Youth Through Education, Global Opportunities and Career Development
-                    </h1>
-                    <p
-                        class="text-lg md:text-xl text-gray-700 font-light mb-6 max-w-xl mx-auto lg:mx-0 animate-fade-in-up delay-200">
-                        Empowering West Africa's Excellence
-                    </p>
-                    <div class="animate-fade-in-up delay-300">
-                        <a href="#services"
-                            class="bg-primary-blue text-white px-8 md:px-12 py-4 rounded-full hover:bg-secondary-red text-sm md:text-base transition-all duration-300 transform hover:-translate-y-1 inline-block shadow-lg hover:shadow-xl">
-                            Get started <i class="fas fa-arrow-right ml-2"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="lg:w-1/2 mt-8 lg:mt-0 animate-fade-in-up delay-400">
-                    <img src="./img/hero-image.png" alt="Educational graphics"
-                        class="hidden md:block w-full max-w-2xl mx-auto transform hover:scale-105 transition-transform duration-700"
-                        loading="lazy" />
-                </div>
-            </div>
-        </section>
-         <section id="about" class="py-16 bg-white relative section-alt">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-center py-12 text-dark-blue">
-                    Discover how our expertise and personalized approach can
-                    guide<br class="hidden md:inline" />
-                    you toward achieving your educational and career goals
-                </h2>
-
-                <div class="mb-8 max-w-3xl mx-auto">
-                    <h3
-                        class="text-3xl md:text-4xl font-semibold mb-4 text-dark-blue border-l-4 border-secondary-red pl-4">
-                        About us
-                    </h3>
-                    <p class="text-gray-600 mb-4 font-normal text-lg">
-                      Cipher Educational Consult Limited is an education, career development,
-                      and youth empowerment organisation committed to expanding access to quality education,
-                      international opportunities, digital skills, mentorship, and leadership development 
-                      across Nigeria and West Africa. We do not just help young people get into schools abroad. 
-                      We walk with them from where they are today to where they are capable of being.
-    
-                    </p>
-                </div>
-
-                <div class="relative max-w-4xl mx-auto">
-                    <img src="./img/about-image.png" alt="Office space with people working"
-                        class="w-full h-auto object-cover rounded-xl shadow-2xl relative z-10 transform hover:scale-105 transition-transform duration-500"
-                        loading="lazy" />
-                    <div
-                        class="absolute -right-6 -top-6 z-0 w-32 h-32 bg-secondary-red opacity-20 rounded-lg transform rotate-12">
-                    </div>
-                    <div
-                        class="absolute -left-6 -bottom-6 z-0 w-24 h-24 bg-primary-blue opacity-20 rounded-lg transform -rotate-12">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="services-bg py-16 bg-white relative">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-dark-blue mb-12">
-                    Our <span class="text-secondary-red">Services</span>
-                </h2>
-                <p class="text-center mb-12 max-w-3xl mx-auto text-gray-600 text-lg">
-                   Our services are designed to support students and young professionals
-                   at every stage of their educational and career journey. 
-                   From securing international admissions to building the skills that make them competitive
-                   in a changing world, we provide the guidance and the push they need to move forward.
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 font-medium">
-                    <div
-                        class="service-card bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 h-full flex flex-col justify-center items-center shadow-lg hover:shadow-2xl relative overflow-hidden group">
-                        <div class="service-card-inner">
-                            <div
-                                class="absolute -right-6 -top-6 w-16 h-16 bg-primary-blue rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="absolute -left-6 -bottom-6 w-20 h-20 bg-secondary-red rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="mb-5 w-20 h-20 bg-primary-blue rounded-full flex items-center justify-center text-white text-2xl transform group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <a href="./services.html#educational-consult"
-                                class="text-xl text-dark-blue hover:text-secondary-red transition-colors duration-300 font-bold text-center mb-3">Educational
-                                Consultancy</a>
-                            <p class="text-gray-600 text-center text-sm">Expert guidance for your educational journey
-                            </p>
-                            <div
-                                class="mt-4 w-12 h-1 bg-secondary-red mx-auto transform group-hover:scaleX(1.5) transition-transform duration-300">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="service-card bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 h-full flex flex-col justify-center items-center shadow-lg hover:shadow-2xl relative overflow-hidden group">
-                        <div class="service-card-inner">
-                            <div
-                                class="absolute -right-6 -top-6 w-16 h-16 bg-primary-blue rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="absolute -left-6 -bottom-6 w-20 h-20 bg-secondary-red rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="mb-5 w-20 h-20 bg-primary-blue rounded-full flex items-center justify-center text-white text-2xl transform group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-globe-americas"></i>
-                            </div>
-                            <a href="./services.html#international"
-                                class="text-xl text-dark-blue hover:text-secondary-red transition-colors duration-300 font-bold text-center mb-3">
-                                International Student Admission
-                            </a>
-                            <p class="text-gray-600 text-center text-sm">Global opportunities for your academic future
-                            </p>
-                            <div
-                                class="mt-4 w-12 h-1 bg-secondary-red mx-auto transform group-hover:scaleX(1.5) transition-transform duration-300">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="service-card bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 h-full flex flex-col justify-center items-center shadow-lg hover:shadow-2xl relative overflow-hidden group">
-                        <div class="service-card-inner">
-                            <div
-                                class="absolute -right-6 -top-6 w-16 h-16 bg-primary-blue rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="absolute -left-6 -bottom-6 w-20 h-20 bg-secondary-red rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="mb-5 w-20 h-20 bg-primary-blue rounded-full flex items-center justify-center text-white text-2xl transform group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-passport"></i>
-                            </div>
-                            <a href="./services.html#visa"
-                                class="text-xl text-dark-blue hover:text-secondary-red transition-colors duration-300 font-bold text-center mb-3">Visa
-                                Assistance</a>
-                            <p class="text-gray-600 text-center text-sm">Navigate visa processes with confidence</p>
-                            <div
-                                class="mt-4 w-12 h-1 bg-secondary-red mx-auto transform group-hover:scaleX(1.5) transition-transform duration-300">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="service-card bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 h-full flex flex-col justify-center items-center shadow-lg hover:shadow-2xl relative overflow-hidden group">
-                        <div class="service-card-inner">
-                            <div
-                                class="absolute -right-6 -top-6 w-16 h-16 bg-primary-blue rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="absolute -left-6 -bottom-6 w-20 h-20 bg-secondary-red rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="mb-5 w-20 h-20 bg-primary-blue rounded-full flex items-center justify-center text-white text-2xl transform group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-chalkboard-teacher"></i>
-                            </div>
-                            <a href="./services.html#financial"
-                                class="text-xl text-dark-blue hover:text-secondary-red transition-colors duration-300 font-bold text-center mb-3">Tutoring
-                                and Mentorship</a>
-                            <p class="text-gray-600 text-center text-sm">Personalized guidance for academic success</p>
-                            <div
-                                class="mt-4 w-12 h-1 bg-secondary-red mx-auto transform group-hover:scaleX(1.5) transition-transform duration-300">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="service-card bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 h-full flex flex-col justify-center items-center shadow-lg hover:shadow-2xl relative overflow-hidden group">
-                        <div class="service-card-inner">
-                            <div
-                                class="absolute -right-6 -top-6 w-16 h-16 bg-primary-blue rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="absolute -left-6 -bottom-6 w-20 h-20 bg-secondary-red rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="mb-5 w-20 h-20 bg-primary-blue rounded-full flex items-center justify-center text-white text-2xl transform group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-briefcase"></i>
-                            </div>
-                            <a href="./services.html"
-                                class="text-xl text-dark-blue hover:text-secondary-red transition-colors duration-300 font-bold text-center mb-3">Career
-                                Counseling</a>
-                            <p class="text-gray-600 text-center text-sm">Shape your professional future with expert
-                                advice</p>
-                            <div
-                                class="mt-4 w-12 h-1 bg-secondary-red mx-auto transform group-hover:scaleX(1.5) transition-transform duration-300">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="service-card bg-gradient-to-br from-white to-blue-50 rounded-xl p-6 h-full flex flex-col justify-center items-center shadow-lg hover:shadow-2xl relative overflow-hidden group">
-                        <div class="service-card-inner">
-                            <div
-                                class="absolute -right-6 -top-6 w-16 h-16 bg-primary-blue rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="absolute -left-6 -bottom-6 w-20 h-20 bg-secondary-red rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                            </div>
-                            <div
-                                class="mb-5 w-20 h-20 bg-primary-blue rounded-full flex items-center justify-center text-white text-2xl transform group-hover:scale-110 transition-transform duration-300">
-                                <i class="fas fa-flask"></i>
-                            </div>
-                            <a href="services.html"
-                                class="text-xl text-dark-blue hover:text-secondary-red transition-colors duration-300 font-bold text-center mb-3">Research
-                                Services</a>
-                            <p class="text-gray-600 text-center text-sm">Support for your academic research projects</p>
-                            <div
-                                class="mt-4 w-12 h-1 bg-secondary-red mx-auto transform group-hover:scaleX(1.5) transition-transform duration-300">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="testimonials-bg py-16 section-alt relative">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-8 text-dark-blue text-center">
-                    What People Say About Us
-                </h2>
-                <p class="text-base font-normal text-gray-600 mb-12 max-w-2xl mx-auto text-center">
-                    Discover why our clients trust us to provide the best
-                    educational consulting services.
-                </p>
-                
-                <!-- Testimonial Carousel -->
-                <div class="testimonial-carousel">
-                    <div class="testimonial-track" id="testimonial-track">
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card p-6">
-                                <div class="flex items-center mb-4">
-                                    <div
-                                        class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 mr-3">
-                                        <i class="fas fa-user-graduate"></i>
-                                    </div>
-                                    <span
-                                        class="inline-block bg-green-100 py-2 px-4 rounded-lg text-green-700 font-medium">Amina
-                                        Usman</span>
-                                </div>
-                                <p class="text-gray-600 italic">
-                                    "Cipher Educational Consult guided me through
-                                    every step of my university admission process.
-                                    Their personalized approach made me feel
-                                    confident and prepared for my international
-                                    studies."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card p-6">
-                                <div class="flex items-center mb-4">
-                                    <div
-                                        class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center text-red-700 mr-3">
-                                        <i class="fas fa-user-tie"></i>
-                                    </div>
-                                    <span class="inline-block bg-red-100 py-2 px-4 rounded-lg text-red-700 font-medium">David
-                                        Okechukwu</span>
-                                </div>
-                                <p class="text-gray-600 italic">
-                                    "I struggled with finding the right career path,
-                                    but the career counseling and mentorship I
-                                    received from Cipher was a game-changer. They helped me discover my
-                                    passion and provided the guidance I needed."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card p-6">
-                                <div class="flex items-center mb-4">
-                                    <div
-                                        class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 mr-3">
-                                        <i class="fas fa-user-friends"></i>
-                                    </div>
-                                    <span
-                                        class="inline-block bg-purple-100 py-2 px-4 rounded-lg text-purple-700 font-medium">Fatima
-                                        Mohammed</span>
-                                </div>
-                                <p class="text-gray-600 italic">
-                                    "As a parent, I wanted the best for my child's
-                                    education. Cipher not only provided exceptional tutoring but also
-                                    assisted us in navigating the complex visa
-                                    process for studying abroad."
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="testimonial-slide">
-                            <div class="testimonial-card p-6">
-                                <div class="flex items-center mb-4">
-                                    <div
-                                        class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 mr-3">
-                                        <i class="fas fa-user-graduate"></i>
-                                    </div>
-                                    <span class="inline-block bg-blue-100 py-2 px-4 rounded-lg text-blue-700 font-medium">Samuel
-                                        Adeyemi</span>
-                                </div>
-                                <p class="text-gray-600 italic">
-                                    "The team at Cipher went above and beyond to help me secure
-                                    admission to a top university in Germany. Their
-                                    knowledge of international admissions and their
-                                    commitment to my success made all the
-                                    difference."
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Carousel Navigation -->
-                    <div class="carousel-nav">
-                        <button class="carousel-btn" id="prev-btn">
-                            <i class="fas fa-chevron-left"></i>
-                        </button>
-                        <div class="carousel-dots" id="carousel-dots">
-                            <!-- Dots will be generated by JavaScript -->
-                        </div>
-                        <button class="carousel-btn" id="next-btn">
-                            <i class="fas fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="py-24 bg-white relative section-brand">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-white mb-12">
-                    Our <span class="text-gold">Partners</span>
-                </h2>
-                <p class="text-center mb-12 max-w-3xl mx-auto text-white text-lg opacity-90">
-                    Meet some of our valued partners who share our vision for
-                    empowering education. Our collaborations with innovative organizations
-                    and institutions are designed to drive positive change and foster educational excellence.
-                </p>
-                <div class="partner-grid">
-                    <a href="https://www.munich-business-school.de/en/" target="_blank"
-                        class="partner-logo block bg-white p-6 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-32">
-                        <img src="./img/MBS.jpg" alt="MBS" class="max-h-16 object-contain" loading="lazy" />
-                    </a>
-                    <a href="https://www.uom.ac.mu/" target="_blank"
-                        class="partner-logo block bg-white p-6 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-32">
-                        <img src="./img/UM.jpg" alt="UM" class="max-h-16 object-contain" loading="lazy" />
-                    </a>
-                    <a href="https://alte.edu.ge/en" target="_blank"
-                        class="partner-logo block bg-white p-6 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-32">
-                        <img src="./img/Geo.jpg" alt="Geo" class="max-h-16 object-contain" loading="lazy" />
-                    </a>
-                    <a href="https://tneg.nl/" target="_blank"
-                        class="partner-logo block bg-white p-6 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-32">
-                        <img src="./img/LBT.jpg" alt="LBT" class="max-h-16 object-contain" loading="lazy" />
-                    </a>
-                    <a href="https://www.cuchd.in/" target="_blank"
-                        class="partner-logo block bg-white p-6 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-32">
-                        <img src="./img/chandigarh.jpg" alt="LBT" class="max-h-16 object-contain" loading="lazy" />
-                    </a>
-                    <a href="https://igniteyouth.com/" target="_blank"
-                        class="partner-logo block bg-white p-6 rounded-xl shadow-md hover:shadow-xl border border-gray-100 flex items-center justify-center h-32">
-                        <img src="./img/Ignite logo.jpg" alt="LBT" class="max-h-16 object-contain" loading="lazy" />
-                    </a>
-                </div>
-            </div>
-        </section>
-        
-      <section class="py-16 bg-white">
-        <div class="bg-white py-6">
-          <h2 class="text-3xl font-extrabold text-center mb-4 animate-fadeInUp">
-            <span class="text-blue-600">Book a Session</span> 
-            <span class="text-red-600">With Us</span>
-          </h2>
+        <div>
+          <label for="phone" class="block text-sm font-medium mb-2">Phone / WhatsApp</label>
+          <input type="tel" id="phone" name="phone" required
+            class="w-full px-4 py-3 border border-hairline rounded-lg focus:ring-2 focus:ring-cipher-blue outline-none">
         </div>
+      </div>
 
-        <form method="POST" 
-      action="https://script.google.com/macros/s/AKfycbx8wRYtt-NzwisuaEONNuqKHiG7ibbpwYepdSc0_O77ILchshK7qQPKtde1a_mHcWI8RQ/exec"
-      enctype="application/x-www-form-urlencoded"
-      class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-2xl">
-
-    <!-- Full Name -->
-    <div class="mb-6">
-        <label for="full-name" class="block text-gray-700 mb-2 font-medium">Full Name</label>
-        <input type="text" id="full-name" name="fullName"
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-700"
-            required>
-    </div>
-
-    <!-- Email Address -->
-    <div class="mb-6">
-        <label for="email" class="block text-gray-700 mb-2 font-medium">Email Address</label>
-        <input type="email" id="email" name="email"
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-700"
-            required>
-    </div>
-
-    <!-- Phone / WhatsApp -->
-    <div class="mb-6">
-        <label for="phone" class="block text-gray-700 mb-2 font-medium">Phone / WhatsApp Number</label>
-        <input type="tel" id="phone" name="phone"
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-700"
-            required>
-    </div>
-
-    <!-- Gender -->
-    <div class="mb-6">
-        <label for="gender" class="block text-gray-700 mb-2 font-medium">Gender</label>
-        <select id="gender" name="gender"
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-700 bg-white"
-            required>
-            <option value="">Select gender</option>
+      <div class="grid sm:grid-cols-2 gap-6 mb-6">
+        <div>
+          <label for="gender" class="block text-sm font-medium mb-2">Gender</label>
+          <select id="gender" name="gender" required class="w-full px-4 py-3 border border-hairline rounded-lg focus:ring-2 focus:ring-cipher-blue outline-none bg-white">
+            <option value="">Select</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="prefer-not-say">Prefer not to say</option>
+          </select>
+        </div>
+        <div>
+          <label for="country" class="block text-sm font-medium mb-2">Country of residence</label>
+          <input type="text" id="country" name="country" required
+            class="w-full px-4 py-3 border border-hairline rounded-lg focus:ring-2 focus:ring-cipher-blue outline-none">
+        </div>
+      </div>
+
+      <div class="mb-6">
+        <label for="program" class="block text-sm font-medium mb-2">Program type</label>
+        <select id="program" name="program" required class="w-full px-4 py-3 border border-hairline rounded-lg focus:ring-2 focus:ring-cipher-blue outline-none bg-white">
+          <option value="">Select a program</option>
+          <option value="study-abroad">Study Abroad</option>
+          <option value="short-courses">Short Courses</option>
+          <option value="scholarship">Scholarship</option>
+          <option value="career-counseling">Career Counseling</option>
+          <option value="training">Training</option>
+          <option value="mentorship">Mentorship</option>
+          <option value="others">Others</option>
         </select>
-    </div>
+      </div>
 
-    <!-- Country -->
-    <div class="mb-6">
-        <label for="country" class="block text-gray-700 mb-2 font-medium">Country of Residence</label>
-        <input type="text" id="country" name="country"
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-700"
-            required>
-    </div>
-
-    <!-- Program -->
-    <div class="mb-6">
-        <label for="program" class="block text-gray-700 mb-2 font-medium">Program Type / Interest</label>
-        <select id="program" name="program"
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-700 bg-white"
-            required>
-            <option value="">Select a program</option>
-            <option value="study-abroad">Study Abroad</option>
-            <option value="short-courses">Short Courses</option>
-            <option value="scholarship">Scholarship</option>
-            <option value="career-counseling">Career Counseling</option>
-            <option value="training">Training</option>
-            <option value="mentorship">Mentorship</option>
-            <option value="others">Others</option>
+      <div class="mb-8">
+        <label for="preferred-country" class="block text-sm font-medium mb-2">Preferred country</label>
+        <select id="preferred-country" name="preferredCountry" required class="w-full px-4 py-3 border border-hairline rounded-lg focus:ring-2 focus:ring-cipher-blue outline-none bg-white">
+          <option value="">Select a country</option>
+          <option value="germany">Germany</option>
+          <option value="italy">Italy</option>
+          <option value="georgia">Georgia</option>
+          <option value="hungary">Hungary</option>
+          <option value="mauritius">Mauritius</option>
+          <option value="china">China</option>
+          <option value="india">India</option>
+          <option value="turkiye">Turkiye</option>
+          <option value="uk">United Kingdom</option>
+          <option value="canada">Canada</option>
+          <option value="other">Other</option>
         </select>
-    </div>
+      </div>
 
-    <!-- Preferred Country -->
-    <div class="mb-6">
-        <label for="preferred-country" class="block text-gray-700 mb-2 font-medium">Preferred Country</label>
-        <select id="preferred-country" name="preferredCountry"
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-blue text-gray-700 bg-white"
-            required>
-            <option value="">Select a country</option>
-            <option value="germany">Germany</option>
-            <option value="mauritius">Mauritius</option>
-            <option value="china">China</option>
-            <option value="egypt">Egypt</option>
-            <option value="malaysia">Malaysia</option>
-            <option value="india">India</option>
-            <option value="russia">Russia</option>
-            <option value="ireland">Ireland</option>
-            <option value="uk">United Kingdom</option>
-            <option value="usa">United States</option>
-            <option value="canada">Canada</option>
-            <option value="australia">Australia</option>
-            <option value="turkiye">Turkiye</option>
-            <option value="cyprus">Cyprus</option>
-            <option value="georgia">Georgia</option>
-        </select>
-    </div>
-
-    <!-- Consent -->
-    <div class="mb-6">
-        <label class="inline-flex items-start">
-            <input type="checkbox" id="consent" name="consent"
-                class="form-checkbox h-5 w-5 text-primary-blue border-gray-300 rounded" required>
-            <span class="ml-3 text-gray-700 text-sm leading-5">
-                By submitting this form, I consent to the collection and use of my personal information...
-            </span>
+      <div class="mb-8">
+        <label class="flex items-start gap-3 text-sm text-ink/70">
+          <input type="checkbox" id="consent" name="consent" required class="mt-1">
+          By submitting this form, I consent to Cipher Educational Consult Limited collecting and using this information to respond to my enquiry.
         </label>
+      </div>
+
+      <button type="submit" class="w-full btn-primary py-4 rounded-lg font-medium transition-colors">
+        Submit booking
+      </button>
+    </form>
+  </section>
+</main>
+
+<footer class="bg-deep-blue text-white">
+  <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
+    <div class="md:col-span-2">
+      <img src="./img/logo 1.png" alt="Cipher Educational Consult" class="h-10 mb-4">
+      <p class="text-white/60 max-w-sm text-sm leading-relaxed">Education, career development, and youth empowerment across Nigeria and West Africa.</p>
     </div>
+    <div>
+      <p class="eyebrow text-white/40 mb-4">Contact</p>
+      <p class="text-sm text-white/80 mb-2"><a href="tel:+2347085512480" class="hover:text-white">+234 708 551 2480</a></p>
+      <p class="text-sm text-white/80 mb-2"><a href="mailto:info@cipherconsult.com.ng" class="hover:text-white">info@cipherconsult.com.ng</a></p>
+      <p class="text-sm text-white/80">Suite 305, Pal Mall Plaza,<br>4th Avenue, Gwarinpa, Abuja</p>
+    </div>
+    <div>
+      <p class="eyebrow text-white/40 mb-4">Follow</p>
+      <div class="flex gap-3">
+        <a href="https://wa.link/alv5t4" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-blue transition-colors" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/ciphereducationalconsult?igsh=MXN3N2dyMjZpeWlsYw==" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-blue transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-5 text-xs text-white/40 flex flex-col md:flex-row justify-between gap-2">
+      <span>&copy; <span id="year"></span> Cipher Educational Consult Ltd. All rights reserved.</span>
+      <span>Abuja, Nigeria</span>
+    </div>
+  </div>
+</footer>
 
-    <!-- Submit -->
-    <button type="submit"
-        class="w-full bg-secondary-red text-white py-4 rounded-lg font-bold hover:bg-red-700 transition-colors duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex items-center justify-center">
-        <i class="far fa-calendar-check mr-2"></i> Submit
-    </button>
-</form>
-      </section>
-
-        <section id="empower" class="py-16 section-alt relative">
-            <div class="container mx-auto flex flex-col lg:flex-row items-center px-4">
-                <div class="lg:w-1/2 mb-8 lg:mb-0">
-                    <img src="./img/empower-image.png" alt="Empowering image"
-                        class="w-full rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
-                        loading="lazy" />
-                </div>
-                <div class="lg:w-1/2 text-center lg:text-left lg:pl-12">
-                    <h2 class="text-3xl md:text-4xl text-dark-blue font-bold mb-6">
-                        Empowering Future Leaders Through Education
-                    </h2>
-                    <p class="mb-6 text-gray-600 text-lg">
-                        At Cipher, we believe the most powerful investment any society can make is in its young people.
-                        Our work is built around that belief. Every student we guide, every career we help shape,
-                        and every skill we help develop is a step toward a generation of Africans who are not waiting on opportunities but creating them.
-                        We are not just a consultancy. We are a youth development organisation with a track record and a mission that goes beyond paperwork.
-                    </p>
-                    <a href="./services.html"
-                        class="bg-primary-blue text-white px-8 py-4 rounded-lg inline-block hover:bg-secondary-red transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl font-bold">
-                        Read more <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-         <section class="bg-dark-blue py-16 text-white">
-            <div class="container mx-auto px-4 lg:px-16">
-                <div class="max-w-4xl mx-auto">
-                    <h2 class="text-3xl font-bold text-center mb-4">Empowering Your Educational Journey</h2>
-                    <p class="text-center text-blue-100 mb-8 text-lg">
-                        Cipher Educational Consult Limited bridges educational
-                        gaps in West Africa, offering international admissions,
-                        career counseling, and mentorship to help you succeed
-                        globally.
-                    </p>
-                    <div class="bg-white text-dark-blue rounded-xl p-8 flex flex-col md:flex-row items-center justify-between shadow-2xl">
-                        <div class="mb-6 md:mb-0 md:mr-8">
-                            <h3 class="text-2xl font-bold mb-2">Stay in the loop</h3>
-                            <p class="text-gray-600">
-                                Subscribe to receive the latest news and
-                                updates. We promise not to spam you!
-                            </p>
-                        </div>
-                        <form class="w-full md:w-auto flex flex-col md:flex-row p-2 bg-gray-100 rounded-lg">
-                            <input
-                                type="email"
-                                placeholder="Enter email address"
-                                class="flex-grow md:w-64 px-4 py-3 text-gray-800 border-none hover:border-none outline-none rounded-l-lg"
-                                required
-                            />
-                            <button
-                                type="submit"
-                                class="bg-primary-blue text-white px-6 py-3 rounded-r-lg hover:bg-secondary-red transition-colors duration-300 font-medium"
-                            >
-                                Subscribe
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="bg-dark-blue text-white relative overflow-hidden">
-        <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary-blue opacity-10 rounded-full"></div>
-        <div class="absolute -left-20 -top-20 w-48 h-48 bg-secondary-red opacity-10 rounded-full"></div>
-
-        <div class="container mx-auto px-4 py-12 relative z-10">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div class="col-span-1">
-                    <img src="./img/logo 1.png" alt="Cipher Educational Consult Ltd." class="mb-4 h-12" />
-                    <p class="mb-4 text-gray-300">
-                        Empowering students through comprehensive
-                        educational consulting services.
-                    </p>
-                </div>
-
-                <div class="col-span-1">
-                    <h3 class="text-lg font-semibold mb-4">Contact us</h3>
-                    <p class="text-gray-300">
-                        +234 7085 512480</p>
-                    <p class="text-gray-300">
-                        <a href="mailto:info@cipherconsult.com.ng"
-                            class="hover:text-secondary-red transition-colors duration-300">info@cipherconsult.com.ng</a>
-                    </p>
-                    <p class="text-gray-300"> Suite 305, Pal Mall Plaza, 4th Avenue, <br>
-                        Gwarinpa, Abuja, Nigeria</p>
-                </div>
-                <div class="col-span-1 flex justify-start md:justify-end items-start space-x-4">
-                    <a href="https://wa.link/alv5t4"
-                        class="bg-white rounded-full p-3 hover:bg-secondary-red transition-all duration-300 transform hover:-translate-y-1 shadow-md"
-                        aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp text-green-500 hover:text-white text-xl"></i>
-                    </a>
-
-                    <a href="https://www.instagram.com/ciphereducationalconsult?igsh=MXN3N2dyMjZpeWlsYw=="
-                        class="bg-white rounded-full p-3 hover:bg-secondary-red transition-all duration-300 transform hover:-translate-y-1 shadow-md"
-                        aria-label="Instagram">
-                        <i class="fab fa-instagram text-pink-500 hover:text-white text-xl"></i>
-                    </a>
-
-                    <a href="#"
-                        class="bg-white rounded-full p-3 hover:bg-secondary-red transition-all duration-300 transform hover:-translate-y-1 shadow-md"
-                        aria-label="Facebook">
-                        <i class="fab fa-facebook-f text-blue-600 hover:text-white text-xl"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="border-t border-gray-700 relative z-10">
-            <div class="container mx-auto px-4 py-4 text-center text-sm text-gray-300">
-                &copy; 2024 Cipher Educational Consult Ltd. All rights
-                reserved.
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top"
-        class="back-to-top bg-primary-blue text-white p-3 rounded-full shadow-lg hover:bg-secondary-red transition-colors duration-300">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script>
-        // Mobile menu functionality
-        const menuToggle = document.getElementById('menu-toggle');
-        const closeMenu = document.getElementById('close-menu');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-
-        const openMobileMenu = () => {
-            mobileMenu.classList.add('mobile-menu-open');
-            mobileMenuOverlay.classList.add('active');
-            menuToggle.classList.add('hamburger-active');
-            document.body.style.overflow = 'hidden';
-        };
-
-        const closeMobileMenu = () => {
-            mobileMenu.classList.remove('mobile-menu-open');
-            mobileMenuOverlay.classList.remove('active');
-            menuToggle.classList.remove('hamburger-active');
-            document.body.style.overflow = 'auto';
-        };
-
-        menuToggle.addEventListener('click', openMobileMenu);
-        closeMenu.addEventListener('click', closeMobileMenu);
-        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && mobileMenu.classList.contains('mobile-menu-open')) {
-                closeMobileMenu();
-            }
-        });
-
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('mobile-menu-open')) {
-                closeMobileMenu();
-            }
-        });
-
-        // Sticky nav on scroll
-        const header = document.querySelector('.sticky-nav');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('nav-scrolled');
-            } else {
-                header.classList.remove('nav-scrolled');
-            }
-        });
-
-       // Form submission
-const form = document.querySelector('form');
-if (form) {
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Basic validation
-        if (!form.checkValidity()) {
-            form.reportValidity();
-            return;
-        }
-        
-        // Show loading state
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalText = submitButton.innerHTML;
-        submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
-        submitButton.disabled = true;
-        
-        try {
-            // Get form data
-            const formData = new FormData(form);
-            
-            // Convert to URL-encoded string
-            const urlEncodedData = new URLSearchParams(formData).toString();
-            
-            // Send to Google Apps Script
-            const response = await fetch(form.action, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: urlEncodedData
-            });
-            
-            if (response.ok) {
-                // Show success message
-                alert('Thank you for your submission! We will contact you shortly.');
-                form.reset();
-            } else {
-                throw new Error('Form submission failed');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('There was an error submitting the form. Please try again.');
-        } finally {
-            // Restore button state
-            submitButton.innerHTML = originalText;
-            submitButton.disabled = false;
-        }
-    });
-}
-
-        // Animate elements on scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.animate-fade-in-up');
-
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = 1;
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
-
-        // Back to top button
-        const backToTopButton = document.getElementById('back-to-top');
-
-        window.addEventListener('scroll', () => {
-            animateOnScroll();
-
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
-
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Initial call in case elements are already in view
-        animateOnScroll();
-
-        // Add animation to service cards on scroll
-        const serviceCards = document.querySelectorAll('.service-card');
-
-        const animateCards = () => {
-            serviceCards.forEach((card, index) => {
-                const cardPosition = card.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-
-                if (cardPosition < screenPosition) {
-                    setTimeout(() => {
-                        card.style.opacity = 1;
-                        card.style.transform = 'translateY(0) scale(1)';
-                    }, index * 150);
-                }
-            });
-        };
-
-        window.addEventListener('scroll', animateCards);
-        animateCards(); // Initial check
-
-        // Testimonial Carousel Functionality
-        const testimonialTrack = document.getElementById('testimonial-track');
-        const testimonialSlides = document.querySelectorAll('.testimonial-slide');
-        const prevBtn = document.getElementById('prev-btn');
-        const nextBtn = document.getElementById('next-btn');
-        const carouselDots = document.getElementById('carousel-dots');
-        
-        let currentSlide = 0;
-        const totalSlides = testimonialSlides.length;
-        
-        // Create dots for carousel navigation
-        for (let i = 0; i < totalSlides; i++) {
-            const dot = document.createElement('div');
-            dot.classList.add('carousel-dot');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
-            carouselDots.appendChild(dot);
-        }
-        
-        // Function to update carousel position
-        function updateCarousel() {
-            // Calculate slide width based on screen size
-            let slideWidth;
-            if (window.innerWidth >= 1024) {
-                slideWidth = 100 / 3; // 3 slides visible on desktop
-            } else if (window.innerWidth >= 768) {
-                slideWidth = 100 / 2; // 2 slides visible on tablet
-            } else {
-                slideWidth = 100; // 1 slide visible on mobile
-            }
-            
-            testimonialTrack.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
-            
-            // Update active dot
-            document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-        
-        // Function to go to specific slide
-        function goToSlide(slideIndex) {
-            currentSlide = slideIndex;
-            updateCarousel();
-        }
-        
-        // Next slide function
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            updateCarousel();
-        }
-        
-        // Previous slide function
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            updateCarousel();
-        }
-        
-        // Event listeners for navigation buttons
-        prevBtn.addEventListener('click', prevSlide);
-        nextBtn.addEventListener('click', nextSlide);
-        
-        // Update carousel on window resize
-        window.addEventListener('resize', updateCarousel);
-        
-        // Initialize carousel
-        updateCarousel();
-        
-        // Auto-advance carousel (optional)
-        // setInterval(nextSlide, 5000);
-    </script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>
 </body>
 </html>

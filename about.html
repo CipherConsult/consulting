@@ -1,620 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>About Us - Cipher Educational Consult Limited</title>
-        <link rel="icon" href="/img/logo 1.png" type="image/x-icon" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <!-- Font Awesome -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-        <script>
-            tailwind.config = {
-                theme: {
-                    extend: {
-                        colors: {
-                            'primary-blue': '#1a56db',
-                            'secondary-red': '#e11d48',
-                            'light-blue': '#3b82f6',
-                            'dark-blue': '#1e3a8a',
-                            'gold': '#f59e0b',
-                            'custom-orange': '#DC7000',
-                        },
-                        animation: {
-                            'fade-in': 'fadeIn 0.5s ease-in-out',
-                            'slide-in': 'slideIn 0.5s ease-out',
-                            'bounce-slow': 'bounce 2s infinite',
-                            'pulse-slow': 'pulse 3s infinite',
-                            'float': 'float 6s ease-in-out infinite',
-                        },
-                        keyframes: {
-                            fadeIn: {
-                                '0%': { opacity: '0' },
-                                '100%': { opacity: '1' },
-                            },
-                            slideIn: {
-                                '0%': { transform: 'translateY(-10px)', opacity: '0' },
-                                '100%': { transform: 'translateY(0)', opacity: '1' },
-                            },
-                            float: {
-                                '0%, 100%': { transform: 'translateY(0)' },
-                                '50%': { transform: 'translateY(-10px)' },
-                            }
-                        }
-                    },
-                },
-            }
-        </script>
-        <style>
-            body {
-                font-family: 'Raleway', sans-serif;
-                scroll-behavior: smooth;
-            }
-            h1, h2, h3, h4, h5, h6 {
-                font-family: 'Playfair Display', serif;
-            }
-            .sticky-nav {
-                position: sticky;
-                top: 0;
-                z-index: 100;
-                transition: all 0.3s ease;
-            }
-            .nav-scrolled {
-                background-color: rgba(26, 86, 219, 0.95);
-                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            }
-            .hamburger-line {
-                transition: all 0.3s ease;
-            }
-            .hamburger-active .hamburger-line:nth-child(1) {
-                transform: rotate(45deg) translate(6px, 6px);
-            }
-            .hamburger-active .hamburger-line:nth-child(2) {
-                opacity: 0;
-            }
-            .hamburger-active .hamburger-line:nth-child(3) {
-                transform: rotate(-45deg) translate(6px, -6px);
-            }
-            .mobile-menu {
-                transform: translateX(100%);
-                transition: transform 0.4s ease-in-out;
-            }
-            .mobile-menu-open {
-                transform: translateX(0);
-            }
-            .floating-shape {
-                position: absolute;
-                border-radius: 50%;
-                opacity: 0.1;
-                z-index: 0;
-            }
-            .floating-shape-1 {
-                width: 150px;
-                height: 150px;
-                background: #1a56db;
-                top: 10%;
-                left: 5%;
-                animation: float 8s ease-in-out infinite;
-            }
-            .floating-shape-2 {
-                width: 100px;
-                height: 100px;
-                background: #e11d48;
-                bottom: 20%;
-                right: 10%;
-                animation: float 10s ease-in-out infinite reverse;
-            }
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            }
-            .partner-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 1rem;
-            }
-            @media (min-width: 768px) {
-                .partner-grid {
-                    grid-template-columns: repeat(4, 1fr);
-                }
-            }
-            .animate-fade-in-up {
-                opacity: 0;
-                animation: fadeInUp 0.8s ease-out forwards;
-            }
-            @keyframes fadeInUp {
-                from {
-                    opacity: 0;
-                    transform: translateY(30px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
-            }
-            .delay-100 {
-                animation-delay: 100ms;
-            }
-            .delay-200 {
-                animation-delay: 200ms;
-            }
-            .delay-300 {
-                animation-delay: 300ms;
-            }
-            .delay-400 {
-                animation-delay: 400ms;
-            }
-            .back-to-top {
-                position: fixed;
-                bottom: 30px;
-                right: 30px;
-                z-index: 99;
-                opacity: 0;
-                transform: translateY(20px);
-                transition: all 0.4s ease;
-            }
-            .back-to-top.visible {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            .project-image {
-                transition: all 0.4s ease;
-            }
-            .project-image:hover {
-                transform: scale(1.05);
-            }
-        </style>
-    </head>
-    <body class="bg-white text-gray-800">
-        <!-- Navbar -->
-        <header class="sticky-nav bg-primary-blue text-white p-4">
-            <div class="container mx-auto flex justify-between items-center">
-                <div class="text-xl font-bold">
-                    <img
-                        src="./img/logo 1.png"
-                        alt="Cipher Educational Consult Ltd Logo"
-                        class="h-8 transform hover:scale-110 transition-transform duration-300"
-                    />
-                </div>
-                <nav class="hidden md:flex space-x-8 items-center">
-                    <a href="./index.html" class="hover:underline transition-all duration-300 hover:text-secondary-red relative group">
-                        Home
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary-red transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="./about.html" class="hover:underline transition-all duration-300 hover:text-secondary-red relative group">
-                        About us
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary-red transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="./services.html" class="hover:underline transition-all duration-300 hover:text-secondary-red relative group">
-                        Services
-                        <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary-red transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a
-                        href="./contact.html"
-                        class="bg-white text-primary-blue px-4 py-2 rounded-lg hover:bg-secondary-red hover:text-white transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg"
-                        >Contact Us</a
-                    >
-                </nav>
-                <button
-                    id="menu-toggle"
-                    class="md:hidden focus:outline-none flex flex-col w-6 h-5 justify-between items-center z-60"
-                    aria-label="Toggle menu"
-                >
-                    <span class="hamburger-line w-6 h-0.5 bg-white rounded"></span>
-                    <span class="hamburger-line w-6 h-0.5 bg-white rounded"></span>
-                    <span class="hamburger-line w-6 h-0.5 bg-white rounded"></span>
-                </button>
-            </div>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Cipher Educational Consult Limited was founded to turn potential into possibility for young people across Nigeria and West Africa." />
+<title>About Us | Cipher Educational Consult Limited</title>
+<link rel="icon" href="./img/logo 1.png" type="image/x-icon" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Raleway:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#12192B', paper: '#FAFAF7', 'cipher-blue': '#1A56DB',
+        'deep-blue': '#12235C', 'signal-red': '#E11D48', 'runway-gold': '#C68A2E', hairline: '#E3E1DA',
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', 'serif'],
+        body: ['Raleway', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'monospace'],
+      },
+    },
+  },
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Raleway', sans-serif; background:#FAFAF7; color:#12192B; }
+  h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+  .eyebrow { font-family:'IBM Plex Mono', monospace; letter-spacing:0.14em; text-transform:uppercase; font-size:0.72rem; }
+  @keyframes fadeUp { from{opacity:0; transform:translateY(16px);} to{opacity:1; transform:translateY(0);} }
+  .reveal{ opacity:0; animation: fadeUp .7s ease forwards; }
+  .reveal-2{animation-delay:.15s;}
+  @media (prefers-reduced-motion: reduce){ .reveal{ animation:none; opacity:1; } }
+  a:focus-visible, button:focus-visible { outline:2px solid #1A56DB; outline-offset:2px; }
+  .mobile-menu{ transform:translateY(-8px); opacity:0; visibility:hidden; transition:all .25s ease; }
+  .mobile-menu.open{ transform:translateY(0); opacity:1; visibility:visible; }
+  .nav-link{ position:relative; }
+  .nav-link::after{ content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px; background:#12192B; transition:width .25s ease; }
+  .nav-link:hover::after{ width:100%; }
+  .btn-primary{ background:#12192B; color:#FAFAF7; }
+  .btn-primary:hover{ background:#1A56DB; }
+</style>
+</head>
+<body class="bg-paper text-ink">
 
-            <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-dark-blue text-white z-50 flex flex-col items-center justify-center space-y-8 md:hidden">
-                <button id="close-menu" class="absolute top-6 right-6 text-3xl transform hover:scale-110 transition-transform duration-300">
-                    <i class="fas fa-times"></i>
-                </button>
-                <a href="./index.html" class="text-2xl font-medium hover:text-secondary-red transition-all duration-300 transform hover:translate-x-2">Home</a>
-                <a href="./about.html" class="text-2xl font-medium hover:text-secondary-red transition-all duration-300 transform hover:translate-x-2">About us</a>
-                <a href="./services.html" class="text-2xl font-medium hover:text-secondary-red transition-all duration-300 transform hover:translate-x-2">Services</a>
-                <a
-                    href="./contact.html"
-                    class="bg-white text-primary-blue px-6 py-3 rounded-lg text-xl font-medium hover:bg-secondary-red hover:text-white transition-all duration-300 transform hover:-translate-y-1"
-                    >Contact Us</a
-                >
-            </div>
-        </header>
+<header class="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-hairline">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between relative">
+    <a href="./index.html" class="shrink-0"><img src="./img/logo 1.png" alt="Cipher Educational Consult" class="h-9"></a>
+    <nav class="hidden md:flex items-center gap-10 text-sm">
+      <a href="./index.html" class="nav-link">Home</a>
+      <a href="./about.html" class="nav-link">About</a>
+      <a href="./services.html" class="nav-link">Services</a>
+      <a href="./contact.html" class="ml-4 btn-primary text-sm px-5 py-2.5 rounded-full transition-colors">Contact us</a>
+    </nav>
+    <button id="menu-toggle" class="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5" aria-label="Open menu" aria-expanded="false">
+      <span class="block w-6 h-px bg-ink"></span><span class="block w-6 h-px bg-ink"></span><span class="block w-6 h-px bg-ink"></span>
+    </button>
+    <div id="mobile-menu" class="mobile-menu md:hidden absolute top-full left-0 w-full bg-paper border-b border-hairline">
+      <div class="flex flex-col px-6 py-6 gap-5 text-2xl">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./services.html">Services</a>
+        <a href="./contact.html" class="text-cipher-blue">Contact us</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-        <!-- Hero Section -->
-        <section class="bg-gradient-to-r from-blue-50 to-orange-50 py-16 relative overflow-hidden">
-            <div class="floating-shape floating-shape-1"></div>
-            <div class="floating-shape floating-shape-2"></div>
-            
-            <div class="container mx-auto px-4 lg:px-16 relative z-10">
-                <nav class="mb-4 text-gray-600">
-                    <a href="./index.html" class="hover:text-primary-blue transition-colors duration-300">Home</a>
-                    <span class="mx-2">&gt;</span>
-                    <a
-                        href="./about.html"
-                        class="text-primary-blue hover:underline font-medium"
-                        >About us</a
-                    >
-                </nav>
+<main>
+  <section class="max-w-6xl mx-auto px-6 pt-16 md:pt-24 pb-16">
+    <p class="eyebrow text-cipher-blue mb-5 reveal">
+      <a href="./index.html" class="hover:text-ink">Home</a> &middot; About us
+    </p>
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold max-w-3xl leading-[1.08] reveal reveal-2">
+      Who we are
+    </h1>
+  </section>
 
-                <h1 class="text-4xl md:text-5xl font-bold mb-8 text-dark-blue animate-fade-in-up">
-                    Who We Are
-                </h1>
-                <p class="text-gray-700 leading-relaxed max-w-3xl mb-8 text-lg animate-fade-in-up delay-100">
-                    Cipher Educational Consult Limited was founded on a simple but urgent conviction:
-                    that where a young person grows up should not determine how far they go. Born from the lived experience of Nigeria's northeast,
-                    a region that has faced more than its share of disruption and displacement, Cipher was built to turn potential into possibility.
-                    We started as a study abroad agency. Today we are a full youth development organisation, working across education, career guidance,
-                    digital skills, and leadership to equip young Nigerians and West Africans to compete and lead on a global stage.
-                    <p class="text-gray-700">
-                    Our founders understand firsthand what it means to come from a place the world overlooks. 
-                    That understanding drives everything we do, from the care we bring to every student's application,
-                    to our Educational Sponsorship Program which opens doors specifically 
-                    for deserving students from insurgency-affected communities in the northeast.
-                     </p>
-                </p>
+  <!-- Video -->
+  <section class="max-w-6xl mx-auto px-6 pb-20 md:pb-28">
+    <div class="max-w-2xl mb-8">
+      <p class="eyebrow text-cipher-blue mb-4">Watch</p>
+      <h2 class="text-3xl md:text-4xl font-semibold">Our story, in two minutes</h2>
+    </div>
+    <video
+      controls
+      preload="metadata"
+      poster="./img/about-image.png"
+      class="w-full h-auto rounded-2xl border border-hairline">
+      <source src="./img/about-video.mp4" type="video/mp4">
+      Your browser doesn't support embedded video. <a href="./img/about-video.mp4">Download the video</a> instead.
+    </video>
+  </section>
 
-                <a
-                    href="./contact.html"
-                    class="inline-block bg-primary-blue text-white px-8 py-4 rounded-full font-semibold hover:bg-secondary-red transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl animate-fade-in-up delay-300"
-                >
-                    Get in touch <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </section>
+  <!-- Founder story -->
+  <section class="max-w-6xl mx-auto px-6 pb-20 md:pb-28">
+    <div class="grid md:grid-cols-2 gap-14 items-start">
+      <div class="space-y-5 text-ink/70 leading-relaxed">
+        <p>
+          Cipher Educational Consult Limited was founded on a simple but urgent conviction: that where a young
+          person grows up should not determine how far they go. Born from the lived experience of Nigeria's
+          northeast, a region that has faced more than its share of disruption and displacement, Cipher was built
+          to turn potential into possibility.
+        </p>
+        <p>
+          We started as a study abroad agency. Today we are a full youth development organisation, working across
+          education, career guidance, digital skills, and leadership to equip young Nigerians and West Africans to
+          compete and lead on a global stage.
+        </p>
+        <p>
+          Our founders understand firsthand what it means to come from a place the world overlooks. That
+          understanding drives everything we do, from the care we bring to every student's application, to our
+          Educational Sponsorship Program which opens doors specifically for deserving students from
+          insurgency-affected communities in the northeast.
+        </p>
+        <a href="./contact.html" class="inline-block text-sm font-medium border-b border-ink pb-0.5 pt-2">Get in touch</a>
+      </div>
+      <img src="./img/car-img.png" alt="Cipher team at work" class="w-full h-auto rounded-2xl" loading="lazy">
+    </div>
+  </section>
 
-        <!-- Mission and Vision Section -->
-        <section class="py-24 bg-gray-50 relative">
-            <div
-                class="container mx-auto px-4 lg:px-16 flex flex-col lg:flex-row items-center gap-16"
-            >
-                <img
-                    src="./img/car-img.png"
-                    alt="Mission and Vision"
-                    class="w-full lg:w-1/2 rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-500"
-                />
-                <div class="w-full lg:w-1/2 space-y-16">
-                    <div class="animate-fade-in-up">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-primary-blue rounded-full flex items-center justify-center text-white mr-4">
-                                <i class="fas fa-bullseye"></i>
-                            </div>
-                            <h2 class="text-3xl font-semibold text-dark-blue">
-                                Mission
-                            </h2>
-                        </div>
-                        <p class="text-gray-700 text-lg">
-                            To bridge the educational and opportunity gap for young people
-                            across Nigeria and West Africa, by providing world-class guidance, 
-                            practical skills, and meaningful mentorship that prepares them
-                            not just to study abroad, but to succeed everywhere.
-                        </p>
-                    </div>
-                    <div class="animate-fade-in-up delay-100">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-secondary-red rounded-full flex items-center justify-center text-white mr-4">
-                                <i class="fas fa-eye"></i>
-                            </div>
-                            <h2 class="text-3xl font-semibold text-dark-blue">
-                                Vision
-                            </h2>
-                        </div>
-                        <p class="text-gray-700 text-lg">
-                            A West Africa where every young person, regardless of background or circumstance,
-                            has a genuine path to global education, professional growth, and lifelong impact.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Mission / Vision -->
+  <section class="bg-white border-y border-hairline">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-14">
+      <div>
+        <p class="eyebrow text-cipher-blue mb-4">Mission</p>
+        <p class="text-xl md:text-2xl font-display leading-snug">
+          To bridge the educational and opportunity gap for young people across Nigeria and West Africa, through
+          world-class guidance, practical skills, and mentorship that prepares them not just to study abroad, but
+          to succeed everywhere.
+        </p>
+      </div>
+      <div>
+        <p class="eyebrow text-signal-red mb-4">Vision</p>
+        <p class="text-xl md:text-2xl font-display leading-snug">
+          A West Africa where every young person, regardless of background or circumstance, has a genuine path to
+          global education, professional growth, and lifelong impact.
+        </p>
+      </div>
+    </div>
+  </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-24 bg-white">
-            <div class="container mx-auto px-4">
-                <h2 class="text-3xl md:text-4xl font-bold text-center text-dark-blue mb-4">
-                    Our Recent Projects
-                </h2>
-                <p class="text-center mb-12 max-w-3xl mx-auto text-gray-600 text-lg">
-                    Explore some of our latest projects that have empowered
-                    students and transformed communities through education.
-                </p>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="project-image overflow-hidden rounded-xl shadow-lg">
-                        <img
-                            src="./img/project-image.jpeg"
-                            alt="Project 1"
-                            class="w-full h-64 object-cover hover:opacity-90 transition duration-500"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div class="project-image overflow-hidden rounded-xl shadow-lg">
-                        <img
-                            src="./img/project-image1.jpeg"
-                            alt="Project 2"
-                            class="w-full h-64 object-cover hover:opacity-90 transition duration-500"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div class="project-image overflow-hidden rounded-xl shadow-lg">
-                        <img
-                            src="./img/project-image2.jpeg"
-                            alt="Project 3"
-                            class="w-full h-64 object-cover hover:opacity-90 transition duration-500"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div class="project-image overflow-hidden rounded-xl shadow-lg">
-                        <img
-                            src="./img/project-imgae3.jpeg"
-                            alt="Project 4"
-                            class="w-full h-64 object-cover hover:opacity-90 transition duration-500"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div class="project-image overflow-hidden rounded-xl shadow-lg">
-                        <img
-                            src="./img/project-image5.png"
-                            alt="Project 5"
-                            class="w-full h-64 object-cover hover:opacity-90 transition duration-500"
-                            loading="lazy"
-                        />
-                    </div>
-                    <div class="project-image overflow-hidden rounded-xl shadow-lg">
-                        <img
-                            src="./img/project-image6.png"
-                            alt="Project 6"
-                            class="w-full h-64 object-cover hover:opacity-90 transition duration-500"
-                            loading="lazy"
-                        />
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Projects -->
+  <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <div class="max-w-xl mb-14">
+      <p class="eyebrow text-cipher-blue mb-4">On the ground</p>
+      <h2 class="text-3xl md:text-4xl font-semibold">Recent work</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <img src="./img/project-image.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
+      <img src="./img/project-image1.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
+      <img src="./img/project-image2.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
+      <img src="./img/project-imgae3.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
+      <img src="./img/project-image5.png" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
+      <img src="./img/project-image6.png" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
+    </div>
+  </section>
 
-        <!-- Testimonials Section -->
-        <section class="py-24 bg-gradient-to-br from-blue-50 to-orange-50">
-            <div class="container mx-auto px-4 lg:px-16">
-                <h2 class="text-3xl md:text-4xl font-semibold mb-12 text-dark-blue text-center">
-                    Why Work With Us
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl mb-4">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <span class="inline-block bg-blue-100 text-blue-600 py-2 px-4 rounded-full text-sm mb-4 font-medium">Community Impact</span>
-                        <p class="text-gray-700">
-                            When you work with Cipher, you are part of something bigger than an application.
-                            Our work directly invests in communities, particularly those rebuilding
-                            from conflict and disadvantage across Nigeria and West Africa.
-                        </p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center text-green-600 text-2xl mb-4">
-                            <i class="fas fa-user-graduate"></i>
-                        </div>
-                        <span class="inline-block bg-green-100 text-green-600 py-2 px-4 rounded-full text-sm mb-4 font-medium">Personalized Support</span>
-                        <p class="text-gray-700">
-                            No two students have the same story, and we do not treat them as if they do.
-                            We take time to understand your background, your goals,
-                            and your constraints before we recommend anything.
-                        </p>
-                    </div>
-                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center text-purple-600 text-2xl mb-4">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <span class="inline-block bg-purple-100 text-purple-600 py-2 px-4 rounded-full text-sm mb-4 font-medium">Global Exposure</span>
-                        <p class="text-gray-700">
-                            We connect students to universities, programs, and career networks that open up the world,
-                            while making sure they carry their identity and their roots with them as strengths, not baggage.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- Why work with us -->
+  <section class="bg-deep-blue text-white">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+      <p class="eyebrow text-runway-gold mb-4">Why work with us</p>
+      <h2 class="text-3xl md:text-4xl font-semibold mb-14 max-w-xl">Three things that set Cipher apart</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div>
+          <p class="font-mono text-white/40 text-sm mb-3">01</p>
+          <h3 class="text-xl font-semibold mb-3">Community impact</h3>
+          <p class="text-white/70 leading-relaxed text-sm">
+            Working with Cipher directly invests in communities rebuilding from conflict and disadvantage across
+            Nigeria and West Africa.
+          </p>
+        </div>
+        <div>
+          <p class="font-mono text-white/40 text-sm mb-3">02</p>
+          <h3 class="text-xl font-semibold mb-3">Personalised support</h3>
+          <p class="text-white/70 leading-relaxed text-sm">
+            No two students have the same story. We take time to understand your background and goals before we
+            recommend anything.
+          </p>
+        </div>
+        <div>
+          <p class="font-mono text-white/40 text-sm mb-3">03</p>
+          <h3 class="text-xl font-semibold mb-3">Global exposure</h3>
+          <p class="text-white/70 leading-relaxed text-sm">
+            We connect students to universities and career networks that open up the world, while helping them
+            carry their roots as a strength, not baggage.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Newsletter Section -->
-        <section class="bg-dark-blue py-16 text-white">
-            <div class="container mx-auto px-4 lg:px-16">
-                <div class="max-w-4xl mx-auto">
-                    <h2 class="text-3xl font-bold text-center mb-4">Empowering Your Educational Journey</h2>
-                    <p class="text-center text-blue-100 mb-8 text-lg">
-                        Cipher Educational Consult Limited bridges educational
-                        gaps in West Africa, offering international admissions,
-                        career counseling, and mentorship to help you succeed
-                        globally.
-                    </p>
-                    <div class="bg-white text-dark-blue rounded-xl p-8 flex flex-col md:flex-row items-center justify-between shadow-2xl">
-                        <div class="mb-6 md:mb-0 md:mr-8">
-                            <h3 class="text-2xl font-bold mb-2">Stay in the loop</h3>
-                            <p class="text-gray-600">
-                                Subscribe to receive the latest news and
-                                updates. We promise not to spam you!
-                            </p>
-                        </div>
-                        <form class="w-full md:w-auto flex flex-col md:flex-row p-2 bg-gray-100 rounded-lg">
-                            <input
-                                type="email"
-                                placeholder="Enter email address"
-                                class="flex-grow md:w-64 px-4 py-3 text-gray-800 border-none hover:border-none outline-none rounded-l-lg"
-                                required
-                            />
-                            <button
-                                type="submit"
-                                class="bg-primary-blue text-white px-6 py-3 rounded-r-lg hover:bg-secondary-red transition-colors duration-300 font-medium"
-                            >
-                                Subscribe
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-6 py-20 md:py-28 text-center">
+    <h2 class="text-3xl md:text-4xl font-semibold mb-5">Ready to start your journey?</h2>
+    <p class="text-ink/60 mb-8 max-w-md mx-auto">Tell us where you are, and let's map out where you could be.</p>
+    <a href="./contact.html" class="btn-primary inline-block px-8 py-3.5 rounded-full text-sm font-medium transition-colors">Get in touch</a>
+  </section>
+</main>
 
-        <!-- Footer -->
-       <footer class="bg-dark-blue text-white relative overflow-hidden">
-            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary-blue opacity-10 rounded-full"></div>
-            <div class="absolute -left-20 -top-20 w-48 h-48 bg-secondary-red opacity-10 rounded-full"></div>
-            
-            <div class="container mx-auto px-4 py-12 relative z-10">
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-                >
-                    <div class="col-span-1">
-                        <img
-                            src="./img/logo 1.png"
-                            alt="Cipher Educational Consult Ltd."
-                            class="mb-4 h-10"
-                        />
-                        <p class="mb-4 text-gray-300">
-                            Empowering students through comprehensive
-                            educational consulting services.
-                        </p>
-                    </div>
+<footer class="bg-deep-blue text-white">
+  <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
+    <div class="md:col-span-2">
+      <img src="./img/logo 1.png" alt="Cipher Educational Consult" class="h-10 mb-4">
+      <p class="text-white/60 max-w-sm text-sm leading-relaxed">Education, career development, and youth empowerment across Nigeria and West Africa.</p>
+    </div>
+    <div>
+      <p class="eyebrow text-white/40 mb-4">Contact</p>
+      <p class="text-sm text-white/80 mb-2"><a href="tel:+2347085512480" class="hover:text-white">+234 708 551 2480</a></p>
+      <p class="text-sm text-white/80 mb-2"><a href="mailto:info@cipherconsult.com.ng" class="hover:text-white">info@cipherconsult.com.ng</a></p>
+      <p class="text-sm text-white/80">Suite 305, Pal Mall Plaza,<br>4th Avenue, Gwarinpa, Abuja</p>
+    </div>
+    <div>
+      <p class="eyebrow text-white/40 mb-4">Follow</p>
+      <div class="flex gap-3">
+        <a href="https://wa.link/alv5t4" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-blue transition-colors" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/ciphereducationalconsult?igsh=MXN3N2dyMjZpeWlsYw==" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-blue transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-5 text-xs text-white/40 flex flex-col md:flex-row justify-between gap-2">
+      <span>&copy; <span id="year"></span> Cipher Educational Consult Ltd. All rights reserved.</span>
+      <span>Abuja, Nigeria</span>
+    </div>
+  </div>
+</footer>
 
-                    <div class="col-span-1">
-                        <h3 class="text-lg font-semibold mb-4">Contact us</h3>
-                        <p class="text-gray-300">
-                            +234 7085 512480</p>
-                        <p class="text-gray-300"> 
-                            <a
-                                href="mailto:info@cipherconsult.com.ng"
-                                class="hover:text-secondary-red transition-colors duration-300"
-                                >info@cipherconsult.com.ng</a
-                            >
-                        </p>
-                        <p class="text-gray-300"> Suite 305, Pal Mall Plaza, 4th Avenue, <br>
-                        Gwarinpa, Abuja, Nigeria</p>
-                    </div>
-                    <div
-                        class="col-span-1 flex justify-start md:justify-end items-start space-x-4"
-                    >
-                        <a
-                            href="https://wa.link/alv5t4"
-                            class="bg-white rounded-full p-3 hover:bg-secondary-red transition-all duration-300 transform hover:-translate-y-1 shadow-md"
-                            aria-label="WhatsApp"
-                        >
-                            <i class="fab fa-whatsapp text-green-500 hover:text-white text-xl"></i>
-                        </a>
-
-                        <a
-                            href="https://www.instagram.com/ciphereducationalconsult?igsh=MXN3N2dyMjZpeWlsYw=="
-                            class="bg-white rounded-full p-3 hover:bg-secondary-red transition-all duration-300 transform hover:-translate-y-1 shadow-md"
-                            aria-label="Instagram"
-                        >
-                            <i class="fab fa-instagram text-pink-500 hover:text-white text-xl"></i>
-                        </a>
-                        
-                        <a
-                            href="#"
-                            class="bg-white rounded-full p-3 hover:bg-secondary-red transition-all duration-300 transform hover:-translate-y-1 shadow-md"
-                            aria-label="Facebook"
-                        >
-                            <i class="fab fa-facebook-f text-blue-600 hover:text-white text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 relative z-10">
-                <div class="container mx-auto px-4 py-4 text-center text-sm text-gray-300">
-                    &copy; 2024 Cipher Educational Consult Ltd. All rights
-                    reserved.
-                </div>
-            </div>
-        </footer>
-
-        <!-- Back to Top Button -->
-        <button id="back-to-top" class="back-to-top bg-primary-blue text-white p-3 rounded-full shadow-lg hover:bg-secondary-red transition-colors duration-300">
-            <i class="fas fa-arrow-up"></i>
-        </button>
-
-        <script>
-            // Mobile menu functionality
-            const menuToggle = document.getElementById('menu-toggle');
-            const closeMenu = document.getElementById('close-menu');
-            const mobileMenu = document.getElementById('mobile-menu');
-            
-            menuToggle.addEventListener('click', () => {
-                mobileMenu.classList.add('mobile-menu-open');
-                menuToggle.classList.add('hamburger-active');
-                document.body.style.overflow = 'hidden';
-            });
-            
-            closeMenu.addEventListener('click', () => {
-                mobileMenu.classList.remove('mobile-menu-open');
-                menuToggle.classList.remove('hamburger-active');
-                document.body.style.overflow = 'auto';
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target) && mobileMenu.classList.contains('mobile-menu-open')) {
-                    mobileMenu.classList.remove('mobile-menu-open');
-                    menuToggle.classList.remove('hamburger-active');
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            // Sticky nav on scroll
-            const header = document.querySelector('.sticky-nav');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('nav-scrolled');
-                } else {
-                    header.classList.remove('nav-scrolled');
-                }
-            });
-            
-            // Form submission
-            const form = document.querySelector('form');
-            if (form) {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    // Here you would normally handle form submission to a server
-                    alert('Thank you for your submission! We will contact you shortly.');
-                    form.reset();
-                });
-            }
-            
-            // Animate elements on scroll
-            const animateOnScroll = () => {
-                const elements = document.querySelectorAll('.animate-fade-in-up');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.3;
-                    
-                    if (elementPosition < screenPosition) {
-                        element.style.opacity = 1;
-                        element.style.transform = 'translateY(0)';
-                    }
-                });
-            };
-            
-            // Back to top button
-            const backToTopButton = document.getElementById('back-to-top');
-            
-            window.addEventListener('scroll', () => {
-                animateOnScroll();
-                
-                if (window.scrollY > 300) {
-                    backToTopButton.classList.add('visible');
-                } else {
-                    backToTopButton.classList.remove('visible');
-                }
-            });
-            
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Initial call in case elements are already in view
-            animateOnScroll();
-        </script>
-    </body>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>
+</body>
 </html>
