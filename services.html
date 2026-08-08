@@ -42,6 +42,11 @@ tailwind.config = {
   @keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
   .pulse-dot{ animation:pulseDot 1.8s ease-in-out infinite; }
   @media (prefers-reduced-motion: reduce){ .pulse-dot{ animation:none; } }
+  .reveal-on-scroll{ opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal-on-scroll.in-view{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ .reveal-on-scroll{ opacity:1; transform:none; transition:none; } }
+  .grad-card{ transition:transform .3s ease, box-shadow .3s ease; }
+  .grad-card:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -12px rgba(18,25,43,0.25); }
 </style>
 </head>
 <body class="bg-paper text-ink">
@@ -88,8 +93,8 @@ tailwind.config = {
   <!-- Educational Consultancy -->
   <section id="educational-consult" class="bg-white border-y border-hairline">
     <div class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-14 items-center">
-      <div>
-        <p class="eyebrow text-cipher-blue mb-4">01 &middot; Educational Consultancy</p>
+      <div class="reveal-on-scroll">
+        <span class="inline-flex items-center gap-2 bg-cipher-blue/10 text-cipher-blue text-xs font-mono uppercase tracking-wider px-4 py-2 rounded-full mb-5">01 &middot; Educational Consultancy</span>
         <h2 class="text-3xl md:text-4xl font-semibold mb-5">Choosing right, from the start</h2>
         <p class="text-ink/70 leading-relaxed">
           Getting into the right school is only the beginning. We provide personalised guidance on school
@@ -97,15 +102,15 @@ tailwind.config = {
           students don't end up in programmes that don't fit their goals.
         </p>
       </div>
-      <img src="./img/services-image2.png" alt="Educational consultancy" class="w-full h-auto rounded-2xl" loading="lazy">
+      <img src="./img/services-image2.png" alt="Educational consultancy" class="w-full h-auto rounded-2xl reveal-on-scroll" style="transition-delay:.1s" loading="lazy">
     </div>
   </section>
 
   <!-- International Admission -->
   <section id="international" class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-14 items-center">
-    <img src="./img/services-image3.png" alt="International admission" class="w-full h-auto rounded-2xl order-2 md:order-1" loading="lazy">
-    <div class="order-1 md:order-2">
-      <p class="eyebrow text-cipher-blue mb-4">02 &middot; International Admission</p>
+    <img src="./img/services-image3.png" alt="International admission" class="w-full h-auto rounded-2xl order-2 md:order-1 reveal-on-scroll" loading="lazy">
+    <div class="order-1 md:order-2 reveal-on-scroll" style="transition-delay:.1s">
+      <span class="inline-flex items-center gap-2 bg-signal-red/10 text-signal-red text-xs font-mono uppercase tracking-wider px-4 py-2 rounded-full mb-5">02 &middot; International Admission</span>
       <h2 class="text-3xl md:text-4xl font-semibold mb-5">Placement, done properly</h2>
       <p class="text-ink/70 leading-relaxed">
         We've placed students into universities across Europe, Asia, and beyond. Our team knows the requirements,
@@ -118,8 +123,8 @@ tailwind.config = {
   <!-- Scholarship -->
   <section id="financial" class="bg-white border-y border-hairline">
     <div class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-14 items-center">
-      <div>
-        <p class="eyebrow text-cipher-blue mb-4">03 &middot; Scholarship &amp; Financial Aid</p>
+      <div class="reveal-on-scroll">
+        <span class="inline-flex items-center gap-2 bg-runway-gold/10 text-runway-gold text-xs font-mono uppercase tracking-wider px-4 py-2 rounded-full mb-5">03 &middot; Scholarship &amp; Financial Aid</span>
         <h2 class="text-3xl md:text-4xl font-semibold mb-5">Funding shouldn't be the wall</h2>
         <p class="text-ink/70 leading-relaxed">
           We help students identify scholarships they are genuinely eligible for and guide them through the
@@ -127,7 +132,7 @@ tailwind.config = {
           student stays behind.
         </p>
       </div>
-      <img src="./img/services-image.png" alt="Scholarship guidance" class="w-full h-auto rounded-2xl" loading="lazy">
+      <img src="./img/services-image.png" alt="Scholarship guidance" class="w-full h-auto rounded-2xl reveal-on-scroll" style="transition-delay:.1s" loading="lazy">
     </div>
   </section>
 
@@ -137,26 +142,26 @@ tailwind.config = {
       <p class="eyebrow text-cipher-blue mb-4">Also available</p>
       <h2 class="text-3xl md:text-4xl font-semibold">The rest of the toolkit</h2>
     </div>
-    <div class="grid sm:grid-cols-2 gap-x-10 gap-y-12">
-      <div class="border-t border-hairline pt-6">
-        <i class="fas fa-passport text-lg text-cipher-blue mb-3 block"></i>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-cipher-blue to-deep-blue">
+        <i class="fas fa-passport text-2xl text-runway-gold mb-4 block"></i>
         <h3 class="text-lg font-semibold mb-2">Visa Assistance</h3>
-        <p class="text-sm text-ink/60">Comprehensive support with visa applications and documentation for studying abroad.</p>
+        <p class="text-sm text-white/75">Comprehensive support with visa applications and documentation for studying abroad.</p>
       </div>
-      <div class="border-t border-hairline pt-6">
-        <i class="fas fa-people-arrows text-lg text-cipher-blue mb-3 block"></i>
+      <div class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-runway-gold to-signal-red" style="transition-delay:.08s">
+        <i class="fas fa-people-arrows text-2xl text-white mb-4 block"></i>
         <h3 class="text-lg font-semibold mb-2">Career Counselling</h3>
-        <p class="text-sm text-ink/60">Professional guidance to choose the right career path based on skills and interests.</p>
+        <p class="text-sm text-white/80">Professional guidance to choose the right career path based on skills and interests.</p>
       </div>
-      <div class="border-t border-hairline pt-6">
-        <i class="fas fa-chalkboard-user text-lg text-cipher-blue mb-3 block"></i>
+      <div class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-deep-blue to-ink" style="transition-delay:.16s">
+        <i class="fas fa-chalkboard-user text-2xl text-runway-gold mb-4 block"></i>
         <h3 class="text-lg font-semibold mb-2">Tutoring Services</h3>
-        <p class="text-sm text-ink/60">Personalised tutoring to excel in academic pursuits and standardised tests.</p>
+        <p class="text-sm text-white/75">Personalised tutoring to excel in academic pursuits and standardised tests.</p>
       </div>
-      <div class="border-t border-hairline pt-6">
-        <i class="fas fa-laptop-code text-lg text-cipher-blue mb-3 block"></i>
+      <div class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-signal-red to-runway-gold" style="transition-delay:.24s">
+        <i class="fas fa-laptop-code text-2xl text-white mb-4 block"></i>
         <h3 class="text-lg font-semibold mb-2">Digital Skills &amp; AI Training</h3>
-        <p class="text-sm text-ink/60">Practical, in-demand digital and AI skills, preparing youth for the workforce of tomorrow.</p>
+        <p class="text-sm text-white/80">Practical, in-demand digital and AI skills, preparing youth for the workforce of tomorrow.</p>
       </div>
     </div>
   </section>
@@ -201,6 +206,15 @@ tailwind.config = {
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal-on-scroll').forEach((el) => io.observe(el));
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   menuToggle.addEventListener('click', () => {

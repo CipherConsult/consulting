@@ -46,6 +46,11 @@ tailwind.config = {
   @keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
   .pulse-dot{ animation:pulseDot 1.8s ease-in-out infinite; }
   @media (prefers-reduced-motion: reduce){ .pulse-dot{ animation:none; } }
+  .reveal-on-scroll{ opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal-on-scroll.in-view{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ .reveal-on-scroll{ opacity:1; transform:none; transition:none; } }
+  .grad-card{ transition:transform .3s ease, box-shadow .3s ease; }
+  .grad-card:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -12px rgba(18,25,43,0.25); }
 </style>
 </head>
 <body class="bg-paper text-ink">
@@ -115,18 +120,18 @@ tailwind.config = {
   </section>
 
   <!-- Mission / Vision -->
-  <section class="bg-white border-y border-hairline">
-    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-14">
-      <div>
-        <p class="eyebrow text-cipher-blue mb-4">Mission</p>
+  <section class="bg-paper">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-8">
+      <div class="grad-card reveal-on-scroll rounded-2xl p-9 md:p-10 text-white bg-gradient-to-br from-cipher-blue to-deep-blue">
+        <p class="eyebrow text-runway-gold mb-5">Mission</p>
         <p class="text-xl md:text-2xl font-display leading-snug">
           To bridge the educational and opportunity gap for young people across Nigeria and West Africa, through
           world-class guidance, practical skills, and mentorship that prepares them not just to study abroad, but
           to succeed everywhere.
         </p>
       </div>
-      <div>
-        <p class="eyebrow text-signal-red mb-4">Vision</p>
+      <div class="grad-card reveal-on-scroll rounded-2xl p-9 md:p-10 text-white bg-gradient-to-br from-signal-red to-runway-gold" style="transition-delay:.1s">
+        <p class="eyebrow text-white/80 mb-5">Vision</p>
         <p class="text-xl md:text-2xl font-display leading-snug">
           A West Africa where every young person, regardless of background or circumstance, has a genuine path to
           global education, professional growth, and lifelong impact.
@@ -145,46 +150,46 @@ tailwind.config = {
       controls
       preload="metadata"
       poster="./img/about-image.png"
-      class="w-full h-auto rounded-2xl border border-hairline mb-6">
+      class="w-full h-auto rounded-2xl border border-hairline mb-6 reveal-on-scroll">
       <source src="./img/about-video.mp4" type="video/mp4">
       Your browser doesn't support embedded video. <a href="./img/about-video.mp4">Download the video</a> instead.
     </video>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <img src="./img/project-image.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
-      <img src="./img/project-image1.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
-      <img src="./img/project-image2.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
-      <img src="./img/project-imgae3.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
-      <img src="./img/project-image5.png" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
-      <img src="./img/project-image6.png" alt="Cipher project" class="w-full h-64 object-cover rounded-xl" loading="lazy">
+      <img src="./img/project-image.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl reveal-on-scroll" loading="lazy">
+      <img src="./img/project-image1.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl reveal-on-scroll" style="transition-delay:.06s" loading="lazy">
+      <img src="./img/project-image2.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl reveal-on-scroll" style="transition-delay:.12s" loading="lazy">
+      <img src="./img/project-imgae3.jpeg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl reveal-on-scroll" style="transition-delay:.18s" loading="lazy">
+      <img src="./img/project-image5.jpg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl reveal-on-scroll" style="transition-delay:.24s" loading="lazy">
+      <img src="./img/project-image6.jpg" alt="Cipher project" class="w-full h-64 object-cover rounded-xl reveal-on-scroll" style="transition-delay:.3s" loading="lazy">
     </div>
   </section>
 
   <!-- Why work with us -->
-  <section class="bg-deep-blue text-white">
+  <section class="bg-white border-y border-hairline">
     <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
-      <p class="eyebrow text-runway-gold mb-4">Why work with us</p>
+      <p class="eyebrow text-cipher-blue mb-4">Why work with us</p>
       <h2 class="text-3xl md:text-4xl font-semibold mb-14 max-w-xl">Three things that set Cipher apart</h2>
-      <div class="grid md:grid-cols-3 gap-10">
-        <div>
-          <p class="font-mono text-white/40 text-sm mb-3">01</p>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="grad-card reveal-on-scroll rounded-2xl p-8 text-white bg-gradient-to-br from-cipher-blue to-deep-blue">
+          <p class="font-mono text-white/50 text-sm mb-4">01</p>
           <h3 class="text-xl font-semibold mb-3">Community impact</h3>
-          <p class="text-white/70 leading-relaxed text-sm">
+          <p class="text-white/75 leading-relaxed text-sm">
             Working with Cipher directly invests in communities rebuilding from conflict and disadvantage across
             Nigeria and West Africa.
           </p>
         </div>
-        <div>
-          <p class="font-mono text-white/40 text-sm mb-3">02</p>
+        <div class="grad-card reveal-on-scroll rounded-2xl p-8 text-white bg-gradient-to-br from-runway-gold to-signal-red" style="transition-delay:.08s">
+          <p class="font-mono text-white/60 text-sm mb-4">02</p>
           <h3 class="text-xl font-semibold mb-3">Personalised support</h3>
-          <p class="text-white/70 leading-relaxed text-sm">
+          <p class="text-white/85 leading-relaxed text-sm">
             No two students have the same story. We take time to understand your background and goals before we
             recommend anything.
           </p>
         </div>
-        <div>
-          <p class="font-mono text-white/40 text-sm mb-3">03</p>
+        <div class="grad-card reveal-on-scroll rounded-2xl p-8 text-white bg-gradient-to-br from-deep-blue to-ink" style="transition-delay:.16s">
+          <p class="font-mono text-white/50 text-sm mb-4">03</p>
           <h3 class="text-xl font-semibold mb-3">Global exposure</h3>
-          <p class="text-white/70 leading-relaxed text-sm">
+          <p class="text-white/75 leading-relaxed text-sm">
             We connect students to universities and career networks that open up the world, while helping them
             carry their roots as a strength, not baggage.
           </p>
@@ -231,6 +236,15 @@ tailwind.config = {
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal-on-scroll').forEach((el) => io.observe(el));
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   menuToggle.addEventListener('click', () => {

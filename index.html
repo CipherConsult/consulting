@@ -55,6 +55,11 @@ tailwind.config = {
   .reveal{ opacity:0; animation: fadeUp .7s ease forwards; }
   .reveal-1{animation-delay:.08s;} .reveal-2{animation-delay:.18s;} .reveal-3{animation-delay:.28s;}
   @media (prefers-reduced-motion: reduce){ .reveal{ animation:none; opacity:1; } }
+  .reveal-on-scroll{ opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal-on-scroll.in-view{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ .reveal-on-scroll{ opacity:1; transform:none; transition:none; } }
+  .grad-card{ transition:transform .3s ease, box-shadow .3s ease; }
+  .grad-card:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -12px rgba(18,25,43,0.25); }
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline:2px solid #1A56DB; outline-offset:2px; }
   .mobile-menu{ transform:translateY(-8px); opacity:0; visibility:hidden; transition:all .25s ease; }
   .mobile-menu.open{ transform:translateY(0); opacity:1; visibility:visible; }
@@ -168,8 +173,8 @@ tailwind.config = {
   <section class="bg-mist">
     <div class="max-w-6xl mx-auto px-6 py-20 md:py-28">
       <div class="grid md:grid-cols-2 gap-14 items-center">
-        <img src="./img/about-image.png" alt="Cipher office" class="w-full h-auto order-2 md:order-1 rounded-2xl" loading="lazy" />
-        <div class="order-1 md:order-2">
+        <img src="./img/about-image.png" alt="Cipher office" class="w-full h-auto order-2 md:order-1 rounded-2xl reveal-on-scroll" loading="lazy" />
+        <div class="order-1 md:order-2 reveal-on-scroll" style="transition-delay:.1s">
           <p class="eyebrow text-cipher-blue mb-4">Who we are</p>
           <h2 class="text-3xl md:text-4xl font-semibold mb-5">More than a study abroad agency</h2>
           <p class="text-ink/70 leading-relaxed mb-6">
@@ -191,36 +196,36 @@ tailwind.config = {
         <h2 class="text-3xl md:text-4xl font-semibold mb-5">Six ways we get you there</h2>
         <p class="text-ink/70 leading-relaxed">From first application to first day on campus, and every decision in between.</p>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-        <a href="./services.html#educational-consult" class="group">
-          <i class="fas fa-graduation-cap text-xl text-cipher-blue mb-4 block"></i>
-          <h3 class="text-lg font-semibold mb-2 group-hover:text-cipher-blue transition-colors">Educational Consultancy</h3>
-          <p class="text-sm text-ink/60">Expert guidance on school selection and application strategy.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="./services.html#educational-consult" class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-cipher-blue to-deep-blue" style="transition-delay:0s">
+          <i class="fas fa-graduation-cap text-2xl text-runway-gold mb-5 block"></i>
+          <h3 class="text-lg font-semibold mb-2">Educational Consultancy</h3>
+          <p class="text-sm text-white/75">Expert guidance on school selection and application strategy.</p>
         </a>
-        <a href="./services.html#international" class="group">
-          <i class="fas fa-globe text-xl text-cipher-blue mb-4 block"></i>
-          <h3 class="text-lg font-semibold mb-2 group-hover:text-cipher-blue transition-colors">International Admission</h3>
-          <p class="text-sm text-ink/60">Placement across Europe, Asia, and beyond, with real partnerships.</p>
+        <a href="./services.html#international" class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-runway-gold to-signal-red" style="transition-delay:.08s">
+          <i class="fas fa-globe text-2xl text-white mb-5 block"></i>
+          <h3 class="text-lg font-semibold mb-2">International Admission</h3>
+          <p class="text-sm text-white/80">Placement across Europe, Asia, and beyond, with real partnerships.</p>
         </a>
-        <a href="./services.html#financial" class="group">
-          <i class="fas fa-hand-holding-dollar text-xl text-cipher-blue mb-4 block"></i>
-          <h3 class="text-lg font-semibold mb-2 group-hover:text-cipher-blue transition-colors">Scholarship &amp; Financial Aid</h3>
-          <p class="text-sm text-ink/60">Funding should never be the reason a qualified student stays behind.</p>
+        <a href="./services.html#financial" class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-deep-blue to-ink" style="transition-delay:.16s">
+          <i class="fas fa-hand-holding-dollar text-2xl text-runway-gold mb-5 block"></i>
+          <h3 class="text-lg font-semibold mb-2">Scholarship &amp; Financial Aid</h3>
+          <p class="text-sm text-white/75">Funding should never be the reason a qualified student stays behind.</p>
         </a>
-        <a href="./services.html" class="group">
-          <i class="fas fa-passport text-xl text-cipher-blue mb-4 block"></i>
-          <h3 class="text-lg font-semibold mb-2 group-hover:text-cipher-blue transition-colors">Visa Assistance</h3>
-          <p class="text-sm text-ink/60">Documentation and process support, done right the first time.</p>
+        <a href="./services.html" class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-signal-red to-runway-gold" style="transition-delay:.24s">
+          <i class="fas fa-passport text-2xl text-white mb-5 block"></i>
+          <h3 class="text-lg font-semibold mb-2">Visa Assistance</h3>
+          <p class="text-sm text-white/80">Documentation and process support, done right the first time.</p>
         </a>
-        <a href="./services.html" class="group">
-          <i class="fas fa-people-arrows text-xl text-cipher-blue mb-4 block"></i>
-          <h3 class="text-lg font-semibold mb-2 group-hover:text-cipher-blue transition-colors">Career Counselling</h3>
-          <p class="text-sm text-ink/60">Shaping the professional path, not just the next application.</p>
+        <a href="./services.html" class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-cipher-blue to-ink" style="transition-delay:.32s">
+          <i class="fas fa-people-arrows text-2xl text-runway-gold mb-5 block"></i>
+          <h3 class="text-lg font-semibold mb-2">Career Counselling</h3>
+          <p class="text-sm text-white/75">Shaping the professional path, not just the next application.</p>
         </a>
-        <a href="./services.html" class="group">
-          <i class="fas fa-laptop-code text-xl text-cipher-blue mb-4 block"></i>
-          <h3 class="text-lg font-semibold mb-2 group-hover:text-cipher-blue transition-colors">Digital Skills &amp; AI Training</h3>
-          <p class="text-sm text-ink/60">Practical, in-demand skills for the workforce young people are entering.</p>
+        <a href="./services.html" class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-deep-blue to-cipher-blue" style="transition-delay:.4s">
+          <i class="fas fa-laptop-code text-2xl text-runway-gold mb-5 block"></i>
+          <h3 class="text-lg font-semibold mb-2">Digital Skills &amp; AI Training</h3>
+          <p class="text-sm text-white/75">Practical, in-demand skills for the workforce young people are entering.</p>
         </a>
       </div>
     </div>
@@ -233,19 +238,19 @@ tailwind.config = {
       <h2 class="text-3xl md:text-4xl font-semibold">What students and parents say</h2>
     </div>
     <div class="quote-rail" id="quote-rail">
-      <div class="quote-card card-border border border-hairline rounded-2xl p-7 bg-white">
+      <div class="quote-card card-border border border-hairline rounded-2xl p-7 bg-white reveal-on-scroll">
         <p class="text-ink/80 leading-relaxed mb-6">"Cipher guided me through every step of my university admission process. Their approach made me feel confident and prepared for my studies abroad."</p>
         <p class="font-semibold text-sm">Amina Usman</p>
       </div>
-      <div class="quote-card border border-hairline rounded-2xl p-7 bg-white">
+      <div class="quote-card border border-hairline rounded-2xl p-7 bg-white reveal-on-scroll" style="transition-delay:.08s">
         <p class="text-ink/80 leading-relaxed mb-6">"The career counselling and mentorship I received from Cipher was a game changer. They helped me discover my direction and gave me the guidance I needed."</p>
         <p class="font-semibold text-sm">David Okechukwu</p>
       </div>
-      <div class="quote-card border border-hairline rounded-2xl p-7 bg-white">
+      <div class="quote-card border border-hairline rounded-2xl p-7 bg-white reveal-on-scroll" style="transition-delay:.16s">
         <p class="text-ink/80 leading-relaxed mb-6">"As a parent, I wanted the best for my child's education. Cipher provided exceptional tutoring and helped us navigate the visa process for studying abroad."</p>
         <p class="font-semibold text-sm">Fatima Mohammed</p>
       </div>
-      <div class="quote-card border border-hairline rounded-2xl p-7 bg-white">
+      <div class="quote-card border border-hairline rounded-2xl p-7 bg-white reveal-on-scroll" style="transition-delay:.24s">
         <p class="text-ink/80 leading-relaxed mb-6">"The team at Cipher went above and beyond to help me secure admission to a top university in Germany. Their knowledge of international admissions made all the difference."</p>
         <p class="font-semibold text-sm">Samuel Adeyemi</p>
       </div>
@@ -401,6 +406,15 @@ tailwind.config = {
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal-on-scroll').forEach((el) => io.observe(el));
   const rail = document.getElementById('quote-rail');
   const dots = document.querySelectorAll('#quote-dots .dot');
   if (rail && dots.length) {

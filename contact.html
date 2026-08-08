@@ -42,6 +42,11 @@ tailwind.config = {
   @keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
   .pulse-dot{ animation:pulseDot 1.8s ease-in-out infinite; }
   @media (prefers-reduced-motion: reduce){ .pulse-dot{ animation:none; } }
+  .reveal-on-scroll{ opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal-on-scroll.in-view{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ .reveal-on-scroll{ opacity:1; transform:none; transition:none; } }
+  .grad-card{ transition:transform .3s ease, box-shadow .3s ease; }
+  .grad-card:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -12px rgba(18,25,43,0.25); }
 </style>
 </head>
 <body class="bg-paper text-ink">
@@ -84,20 +89,20 @@ tailwind.config = {
   <!-- Contact cards -->
   <section class="max-w-6xl mx-auto px-6 pb-20 md:pb-28">
     <div class="grid sm:grid-cols-3 gap-6">
-      <div class="border-t border-hairline pt-6">
-        <i class="fas fa-envelope text-lg text-cipher-blue mb-3 block"></i>
-        <h3 class="font-semibold mb-1">Email us</h3>
-        <a href="mailto:info@cipherconsult.com.ng" class="text-sm text-ink/70 hover:text-cipher-blue">info@cipherconsult.com.ng</a>
+      <div class="grad-card reveal-on-scroll rounded-2xl p-8 text-center text-white bg-gradient-to-br from-cipher-blue to-deep-blue">
+        <i class="fas fa-envelope text-2xl text-runway-gold mb-4 block"></i>
+        <h3 class="font-semibold mb-2">Email us</h3>
+        <a href="mailto:info@cipherconsult.com.ng" class="text-sm text-white/80 hover:text-white">info@cipherconsult.com.ng</a>
       </div>
-      <div class="border-t border-hairline pt-6">
-        <i class="fas fa-phone text-lg text-cipher-blue mb-3 block"></i>
-        <h3 class="font-semibold mb-1">Call us</h3>
-        <a href="tel:+2347085512480" class="text-sm text-ink/70 hover:text-cipher-blue">+234 708 551 2480</a>
+      <div class="grad-card reveal-on-scroll rounded-2xl p-8 text-center text-white bg-gradient-to-br from-runway-gold to-signal-red" style="transition-delay:.08s">
+        <i class="fas fa-phone text-2xl text-white mb-4 block"></i>
+        <h3 class="font-semibold mb-2">Call us</h3>
+        <a href="tel:+2347085512480" class="text-sm text-white/85 hover:text-white">+234 708 551 2480</a>
       </div>
-      <div class="border-t border-hairline pt-6">
-        <i class="fas fa-location-dot text-lg text-cipher-blue mb-3 block"></i>
-        <h3 class="font-semibold mb-1">Visit us</h3>
-        <p class="text-sm text-ink/70">Suite 305, Pal Mall Plaza, 4th Avenue, Gwarinpa, Abuja</p>
+      <div class="grad-card reveal-on-scroll rounded-2xl p-8 text-center text-white bg-gradient-to-br from-deep-blue to-ink" style="transition-delay:.16s">
+        <i class="fas fa-location-dot text-2xl text-runway-gold mb-4 block"></i>
+        <h3 class="font-semibold mb-2">Visit us</h3>
+        <p class="text-sm text-white/80">Suite 305, Pal Mall Plaza, 4th Avenue, Gwarinpa, Abuja</p>
       </div>
     </div>
   </section>
@@ -197,6 +202,15 @@ tailwind.config = {
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal-on-scroll').forEach((el) => io.observe(el));
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
   menuToggle.addEventListener('click', () => {
