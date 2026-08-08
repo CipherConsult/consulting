@@ -14,7 +14,7 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        ink: '#12192B', paper: '#FAFAF7', mist: '#EEF2FB', 'cipher-blue': '#1A56DB',
+        ink: '#12192B', paper: '#F5F8FC', mist: '#EEF2FB', 'cipher-blue': '#1A56DB',
         'deep-blue': '#12235C', 'signal-red': '#E11D48', 'runway-gold': '#C68A2E', hairline: '#E3E1DA',
       },
       fontFamily: {
@@ -47,6 +47,10 @@ tailwind.config = {
   @media (prefers-reduced-motion: reduce){ .reveal-on-scroll{ opacity:1; transform:none; transition:none; } }
   .grad-card{ transition:transform .3s ease, box-shadow .3s ease; }
   .grad-card:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -12px rgba(18,25,43,0.25); }
+  details summary{ list-style:none; }
+  details summary::-webkit-details-marker{ display:none; }
+  details[open] summary .icon-plus{ display:none; }
+  details:not([open]) summary .icon-minus{ display:none; }
 </style>
 </head>
 <body class="bg-paper text-ink">
@@ -166,6 +170,102 @@ tailwind.config = {
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="bg-white border-y border-hairline">
+    <div class="max-w-3xl mx-auto px-6 py-20 md:py-28">
+      <div class="max-w-xl mb-14">
+        <p class="eyebrow text-cipher-blue mb-4">Common questions</p>
+        <h2 class="text-3xl md:text-4xl font-semibold">Frequently asked questions</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-cipher-blue rounded-xl p-6">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>How do I start the process with Cipher?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            Book a consultation through the form on our homepage, or reach out by phone, email, or WhatsApp. We start
+            by understanding your background, goals, and budget before recommending a path forward.
+          </p>
+        </details>
+
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-runway-gold rounded-xl p-6" style="transition-delay:.06s">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>Do I need to already know which school or country I want?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            No. Many students come to us with no fixed idea. Part of our job is helping you narrow down the right
+            country, school, and programme based on your goals, grades, and budget.
+          </p>
+        </details>
+
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-signal-red rounded-xl p-6" style="transition-delay:.12s">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>Which countries do you place students in?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            We work across destinations including Turkiye, Italy, Germany, Georgia, Hungary, the UK, Canada, China,
+            Mauritius, and India, with direct partnerships at several universities and platform access to more.
+          </p>
+        </details>
+
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-cipher-blue rounded-xl p-6" style="transition-delay:.18s">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>Can you help me find a scholarship?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            Yes. We help students identify scholarships they genuinely qualify for and guide the application itself.
+            Not every student ends up fully funded, and we'll be honest with you about what's realistic for your
+            situation rather than promising guarantees.
+          </p>
+        </details>
+
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-runway-gold rounded-xl p-6" style="transition-delay:.24s">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>Do you help with visa applications too?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            Yes, visa documentation and process support is part of what we do once admission is secured, so you're
+            not navigating that alone after the hard part of getting in is already done.
+          </p>
+        </details>
+
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-signal-red rounded-xl p-6" style="transition-delay:.3s">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>How much does it cost to work with Cipher?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            It depends on the service and destination. Book a consultation and we'll walk you through the actual
+            costs for your specific situation rather than quoting a generic number that may not apply to you.
+          </p>
+        </details>
+
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-cipher-blue rounded-xl p-6" style="transition-delay:.36s">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>Can a parent book the consultation instead of the student?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            Yes, parents book consultations on behalf of their children regularly, particularly for younger
+            students. We're happy to work with whoever is guiding the decision.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="bg-deep-blue text-white">
     <div class="max-w-4xl mx-auto px-6 py-20 md:py-28 text-center">
@@ -186,19 +286,22 @@ tailwind.config = {
       <p class="eyebrow text-white/40 mb-4">Contact</p>
       <p class="text-sm text-white/80 mb-3 flex items-center gap-2.5"><i class="fas fa-phone text-runway-gold text-xs"></i><a href="tel:+2347085512480" class="hover:text-white">+234 708 551 2480</a></p>
       <p class="text-sm text-white/80 mb-3 flex items-center gap-2.5"><i class="fas fa-envelope text-runway-gold text-xs"></i><a href="mailto:info@cipherconsult.com.ng" class="hover:text-white">info@cipherconsult.com.ng</a></p>
-      <p class="text-sm text-white/80 flex items-start gap-2.5"><i class="fas fa-location-dot text-runway-gold text-xs mt-1"></i><span>Suite 305, Pal Mall Plaza,<br>4th Avenue, Gwarinpa, Abuja, Nigeria</span></p>
+      <p class="text-sm text-white/80 mb-3 flex items-start gap-2.5"><i class="fas fa-location-dot text-runway-gold text-xs mt-1"></i><span>Suite 305, Pal Mall Plaza,<br>4th Avenue, Gwarinpa, Abuja</span></p>
+      <p class="text-sm text-white/80 flex items-center gap-2.5"><i class="fas fa-clock text-runway-gold text-xs"></i><span>9:00 AM to 5:00 PM, Mon to Fri</span></p>
     </div>
     <div>
       <p class="eyebrow text-white/40 mb-4">Follow</p>
       <div class="flex gap-3">
         <a href="https://wa.link/alv5t4" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-blue transition-colors" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         <a href="https://www.instagram.com/ciphereducationalconsult?igsh=MXN3N2dyMjZpeWlsYw==" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-blue transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1K34fNAksX/" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-blue transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
       </div>
     </div>
   </div>
   <div class="border-t border-white/10">
     <div class="max-w-6xl mx-auto px-6 py-5 text-xs text-white/40 flex flex-col md:flex-row justify-between gap-2">
       <span>&copy; <span id="year"></span> Cipher Educational Consult Ltd. All rights reserved.</span>
+      <span>RC 7234606 &middot; SCUML SC 151508968</span>
       <span>Abuja, Nigeria</span>
     </div>
   </div>
