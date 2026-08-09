@@ -48,6 +48,7 @@ tailwind.config = {
   .grad-card{ transition:transform .3s ease, box-shadow .3s ease; }
   .grad-card:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -12px rgba(18,25,43,0.25); }
 </style>
+<script src="https://js.paystack.co/v1/inline.js"></script>
 </head>
 <body class="bg-paper text-ink">
 
@@ -176,7 +177,87 @@ tailwind.config = {
       </iframe>
     </div>
   </section>
+
+  <!-- Payment -->
+  <section class="bg-mist">
+    <div class="max-w-2xl mx-auto px-6 py-20 md:py-28">
+      <div class="text-center mb-10">
+        <p class="eyebrow text-runway-gold mb-4">Already have a quote?</p>
+        <h2 class="text-3xl md:text-4xl font-semibold mb-3">Make a payment</h2>
+        <p class="text-ink/60">Enter the amount our team quoted you and pay securely by card, bank transfer, or USSD.</p>
+      </div>
+      <form id="payment-form" class="bg-white border border-hairline border-t-4 border-t-runway-gold rounded-2xl p-8 md:p-10">
+        <div class="mb-6">
+          <label for="pay-name" class="block text-sm font-medium mb-2">Full name</label>
+          <input type="text" id="pay-name" required class="w-full px-4 py-3 border border-hairline rounded-lg focus:ring-2 focus:ring-cipher-blue outline-none">
+        </div>
+        <div class="mb-6">
+          <label for="pay-email" class="block text-sm font-medium mb-2">Email address</label>
+          <input type="email" id="pay-email" required class="w-full px-4 py-3 border border-hairline rounded-lg focus:ring-2 focus:ring-cipher-blue outline-none">
+        </div>
+        <div class="mb-6">
+          <label for="pay-what" class="block text-sm font-medium mb-2">What is this payment for?</label>
+          <input type="text" id="pay-what" placeholder="e.g. Germany placement application fee" required class="w-full px-4 py-3 border border-hairline rounded-lg focus:ring-2 focus:ring-cipher-blue outline-none">
+        </div>
+        <div class="mb-8">
+          <label for="pay-amount" class="block text-sm font-medium mb-2">Amount quoted (NGN)</label>
+          <input type="number" id="pay-amount" min="100" step="1" placeholder="e.g. 150000" required class="w-full px-4 py-3 border border-hairline rounded-lg focus:ring-2 focus:ring-cipher-blue outline-none">
+        </div>
+        <p id="pay-error" class="hidden text-signal-red text-sm mb-4"></p>
+        <p class="text-xs text-runway-gold text-center mb-4">Card payments are still being set up. If yours doesn't go through, please contact us directly to arrange payment.</p>
+        <button type="button" id="pay-btn" class="w-full btn-primary py-4 rounded-lg font-medium transition-colors">Pay now</button>
+        <p class="text-xs text-ink/40 text-center mt-4">Payments are processed securely by Paystack. We never see or store your card details.</p>
+      </form>
+    </div>
+  </section>
 </main>
+
+<script>
+  document.getElementById('pay-btn').addEventListener('click', function () {
+    const name = document.getElementById('pay-name').value.trim();
+    const email = document.getElementById('pay-email').value.trim();
+    const what = document.getElementById('pay-what').value.trim();
+    const amount = document.getElementById('pay-amount').value;
+    const errorEl = document.getElementById('pay-error');
+
+    if (!name || !email || !what || !amount || Number(amount) <= 0) {
+      errorEl.textContent = 'Please fill in every field with a valid amount before continuing.';
+      errorEl.classList.remove('hidden');
+      return;
+    }
+    errorEl.classList.add('hidden');
+
+    const handler = PaystackPop.setup({
+      key: 'pk_test_8da3348b8a901d203b75de72d4df6e370a4ba0a9',
+      email: email,
+      amount: Math.round(parseFloat(amount) * 100),
+      currency: 'NGN',
+      metadata: {
+        custom_fields: [
+          { display_name: 'Full Name', variable_name: 'full_name', value: name },
+          { display_name: 'Payment For', variable_name: 'payment_for', value: what }
+        ]
+      },
+      callback: function (response) {
+        fetch('https://formspree.io/f/xjybgewa', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            _subject: 'Payment received, Cipher website',
+            name: name,
+            email: email,
+            payment_for: what,
+            amount: amount,
+            reference: response.reference
+          })
+        });
+        alert('Payment successful. Reference: ' + response.reference + '. Please save this for your records, a confirmation has also been sent to our team.');
+      },
+      onClose: function () {}
+    });
+    handler.openIframe();
+  });
+</script>
 
 <footer class="bg-deep-blue text-white">
   <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
