@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Educational consultancy, international admissions, scholarships, visa assistance, career counselling, and digital skills training from Cipher Educational Consult Limited." />
+<title>Services | Cipher Educational Consult Limited</title>
+<link rel="icon" href="./img/logo 1.png" type="image/x-icon" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Raleway:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#12192B', paper: '#F5F8FC', mist: '#EEF2FB', 'cipher-blue': '#1A56DB',
+        'deep-blue': '#12235C', 'signal-red': '#E11D48', 'runway-gold': '#C68A2E', hairline: '#E3E1DA',
+      },
+      fontFamily: {
+        display: ['"Playfair Display"', 'serif'],
+        body: ['Raleway', 'sans-serif'],
+        mono: ['"IBM Plex Mono"', 'monospace'],
+      },
+    },
+  },
+}
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Raleway', sans-serif; background:#FAFAF7; color:#12192B; }
+  h1,h2,h3,h4 { font-family: 'Playfair Display', serif; }
+  .eyebrow { font-family:'IBM Plex Mono', monospace; letter-spacing:0.14em; text-transform:uppercase; font-size:0.72rem; }
+  a:focus-visible, button:focus-visible { outline:2px solid #1A56DB; outline-offset:2px; }
+  .mobile-menu{ transform:translateY(-8px); opacity:0; visibility:hidden; transition:all .25s ease; }
+  .mobile-menu.open{ transform:translateY(0); opacity:1; visibility:visible; }
+  .nav-link{ position:relative; }
+  .nav-link::after{ content:''; position:absolute; left:0; bottom:-4px; width:0; height:1px; background:#12192B; transition:width .25s ease; }
+  .nav-link:hover::after{ width:100%; }
+  .btn-primary{ background:#12192B; color:#FAFAF7; }
+  .btn-primary:hover{ background:#1A56DB; }
+  @keyframes pulseDot{ 0%,100%{opacity:1;} 50%{opacity:.35;} }
+  .pulse-dot{ animation:pulseDot 1.8s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce){ .pulse-dot{ animation:none; } }
+  .reveal-on-scroll{ opacity:0; transform:translateY(22px); transition:opacity .6s ease, transform .6s ease; }
+  .reveal-on-scroll.in-view{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){ .reveal-on-scroll{ opacity:1; transform:none; transition:none; } }
+  .grad-card{ transition:transform .3s ease, box-shadow .3s ease; }
+  .grad-card:hover{ transform:translateY(-4px); box-shadow:0 20px 40px -12px rgba(18,25,43,0.25); }
+  details summary{ list-style:none; }
+  details summary::-webkit-details-marker{ display:none; }
+  details[open] summary .icon-plus{ display:none; }
+  details:not([open]) summary .icon-minus{ display:none; }
+</style>
+</head>
+<body class="bg-paper text-ink">
+
+<a href="./index.html#book" class="block bg-ink text-paper text-center py-2 px-4 text-xs md:text-sm hover:bg-cipher-blue transition-colors">
+  <span class="w-1.5 h-1.5 rounded-full bg-runway-gold pulse-dot inline-block align-middle mr-2"></span>Admission application ongoing &middot; book a consultation today
+</a>
+
+<header class="sticky top-0 z-40 bg-paper/90 backdrop-blur border-b border-hairline">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between relative">
+    <a href="./index.html" class="shrink-0"><img src="./img/logo 1.png" alt="Cipher Educational Consult" class="h-9"></a>
+    <nav class="hidden md:flex items-center gap-10 text-sm">
+      <a href="./index.html" class="nav-link">Home</a>
+      <a href="./about.html" class="nav-link">About</a>
+      <a href="./services.html" class="nav-link">Services</a>
+      <a href="./blog.html" class="nav-link">Blog</a>
+      <a href="./contact.html" class="ml-4 btn-primary text-sm px-5 py-2.5 rounded-full transition-colors">Contact us</a>
+    </nav>
+    <button id="menu-toggle" class="md:hidden w-9 h-9 flex flex-col items-center justify-center gap-1.5" aria-label="Open menu" aria-expanded="false">
+      <span class="block w-6 h-px bg-ink"></span><span class="block w-6 h-px bg-ink"></span><span class="block w-6 h-px bg-ink"></span>
+    </button>
+    <div id="mobile-menu" class="mobile-menu md:hidden absolute top-full left-0 w-full bg-paper border-b border-hairline">
+      <div class="flex flex-col px-6 py-6 gap-5 text-2xl">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./services.html">Services</a>
+        <a href="./blog.html">Blog</a>
+        <a href="./contact.html" class="text-cipher-blue">Contact us</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="max-w-6xl mx-auto px-6 pt-16 md:pt-24 pb-16">
+    <p class="eyebrow text-cipher-blue mb-5"><a href="./index.html" class="hover:text-ink">Home</a> &middot; Services</p>
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-semibold max-w-3xl leading-[1.08] mb-6">
+      Every step, handled with the seriousness it deserves
+    </h1>
+    <p class="text-lg text-ink/70 max-w-2xl leading-relaxed">
+      Our services go beyond admissions processing. We work with students and young professionals to build the
+      knowledge, confidence, and credentials they need to compete globally.
+    </p>
+  </section>
+
+  <!-- Educational Consultancy -->
+  <section id="educational-consult" class="bg-mist border-y border-hairline">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-14 items-center">
+      <div class="reveal-on-scroll">
+        <span class="inline-flex items-center gap-2 bg-cipher-blue/10 text-cipher-blue text-xs font-mono uppercase tracking-wider px-4 py-2 rounded-full mb-5">01 &middot; Educational Consultancy</span>
+        <h2 class="text-3xl md:text-4xl font-semibold mb-5">Choosing right, from the start</h2>
+        <p class="text-ink/70 leading-relaxed">
+          We start by mapping your grades, budget, and goals against what schools actually require, not a generic
+          country list. That means asking hard questions early, can you afford it, will you get the visa, does the
+          programme actually lead where you want to go, so you're not discovering a mismatch after you've already
+          paid application fees.
+        </p>
+      </div>
+      <img src="./img/services-image2.png" alt="Educational consultancy" class="w-full h-auto rounded-2xl reveal-on-scroll" style="transition-delay:.1s" loading="lazy">
+    </div>
+  </section>
+
+  <!-- International Admission -->
+  <section id="international" class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-14 items-center">
+    <img src="./img/services-image3.png" alt="International admission" class="w-full h-auto rounded-2xl order-2 md:order-1 reveal-on-scroll" loading="lazy">
+    <div class="order-1 md:order-2 reveal-on-scroll" style="transition-delay:.1s">
+      <span class="inline-flex items-center gap-2 bg-signal-red/10 text-signal-red text-xs font-mono uppercase tracking-wider px-4 py-2 rounded-full mb-5">02 &middot; International Admission</span>
+      <h2 class="text-3xl md:text-4xl font-semibold mb-5">Placement, done properly</h2>
+      <p class="text-ink/70 leading-relaxed">
+        We place students directly with partner universities in Germany, Italy, Georgia, India, and Mauritius,
+        among other destinations, plus platform access to more. We know each school's actual requirements and
+        deadlines, and we handle the paperwork end to end so the student can focus on being ready.
+      </p>
+    </div>
+  </section>
+
+  <!-- Scholarship -->
+  <section id="financial" class="bg-mist border-y border-hairline">
+    <div class="max-w-6xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-14 items-center">
+      <div class="reveal-on-scroll">
+        <span class="inline-flex items-center gap-2 bg-runway-gold/10 text-runway-gold text-xs font-mono uppercase tracking-wider px-4 py-2 rounded-full mb-5">03 &middot; Scholarship &amp; Financial Aid</span>
+        <h2 class="text-3xl md:text-4xl font-semibold mb-5">Funding shouldn't be the wall</h2>
+        <p class="text-ink/70 leading-relaxed">
+          We match students against scholarships they're realistically eligible for, not a generic list scraped
+          off the internet, then manage the application itself: forms, essays, and deadlines. Funding should never
+          be the reason a qualified student stays behind.
+        </p>
+      </div>
+      <img src="./img/services-image.png" alt="Scholarship guidance" class="w-full h-auto rounded-2xl reveal-on-scroll" style="transition-delay:.1s" loading="lazy">
+    </div>
+  </section>
+
+  <!-- Additional services -->
+  <section class="max-w-6xl mx-auto px-6 py-20 md:py-28">
+    <div class="max-w-xl mb-14">
+      <p class="eyebrow text-cipher-blue mb-4">Also available</p>
+      <h2 class="text-3xl md:text-4xl font-semibold">The rest of the toolkit</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <div class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-cipher-blue to-deep-blue">
+        <i class="fas fa-passport text-2xl text-runway-gold mb-4 block"></i>
+        <h3 class="text-lg font-semibold mb-2">Visa Assistance</h3>
+        <p class="text-sm text-white/75">Comprehensive support with visa applications and documentation for studying abroad.</p>
+      </div>
+      <div class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-runway-gold to-signal-red" style="transition-delay:.08s">
+        <i class="fas fa-people-arrows text-2xl text-white mb-4 block"></i>
+        <h3 class="text-lg font-semibold mb-2">Career Counselling</h3>
+        <p class="text-sm text-white/80">Professional guidance to choose the right career path based on skills and interests.</p>
+      </div>
+      <div class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-deep-blue to-ink" style="transition-delay:.16s">
+        <i class="fas fa-chalkboard-user text-2xl text-runway-gold mb-4 block"></i>
+        <h3 class="text-lg font-semibold mb-2">Tutoring Services</h3>
+        <p class="text-sm text-white/75">Personalised tutoring to excel in academic pursuits and standardised tests.</p>
+      </div>
+      <div class="grad-card reveal-on-scroll rounded-2xl p-7 text-white bg-gradient-to-br from-signal-red to-runway-gold" style="transition-delay:.24s">
+        <i class="fas fa-laptop-code text-2xl text-white mb-4 block"></i>
+        <h3 class="text-lg font-semibold mb-2">Digital Skills &amp; AI Training</h3>
+        <p class="text-sm text-white/80">Practical, in-demand digital and AI skills, preparing youth for the workforce of tomorrow.</p>
+      </div>
+      <div class="grad-card reveal-on-scroll sm:col-span-2 rounded-2xl p-7 md:p-9 text-white bg-gradient-to-r from-deep-blue to-cipher-blue md:flex md:items-center md:justify-between md:gap-8" style="transition-delay:.32s">
+        <div class="mb-6 md:mb-0 max-w-xl">
+          <i class="fas fa-file-pen text-2xl text-runway-gold mb-4 block"></i>
+          <h3 class="text-lg font-semibold mb-2">IELTS Mock Tests &amp; Practice</h3>
+          <p class="text-sm text-white/75">Practise for IELTS with mock tests and prep material on your own Cipher account. Create your account, then practise at your own pace.</p>
+        </div>
+        <a href="https://cipherconsult.studyoverseas.ai/register?exam-code=800043" target="_blank" rel="noopener" class="shrink-0 inline-flex items-center gap-2 bg-runway-gold hover:bg-white text-deep-blue px-6 py-3 rounded-full text-sm font-semibold transition-colors">
+          Create your IELTS account <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="bg-mist border-y border-hairline">
+    <div class="max-w-3xl mx-auto px-6 py-20 md:py-28">
+      <div class="max-w-xl mb-14">
+        <p class="eyebrow text-cipher-blue mb-4">Common questions</p>
+        <h2 class="text-3xl md:text-4xl font-semibold">Frequently asked questions</h2>
+      </div>
+      <div class="space-y-4">
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-cipher-blue rounded-xl p-6 bg-cipher-blue/5">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>How do I start the process with Cipher?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            Book a consultation through the form on our homepage, or reach out by phone, email, or WhatsApp. We start
+            by understanding your background, goals, and budget before recommending a path forward.
+          </p>
+        </details>
+
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-runway-gold rounded-xl p-6 bg-runway-gold/5" style="transition-delay:.06s">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>Do I need to already know which school or country I want?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            No. Many students come to us with no fixed idea. Part of our job is helping you narrow down the right
+            country, school, and programme based on your goals, grades, and budget.
+          </p>
+        </details>
+
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-signal-red rounded-xl p-6 bg-signal-red/5" style="transition-delay:.12s">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>Which countries do you place students in?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            We work across destinations including Turkiye, Italy, Germany, Georgia, Hungary, the UK, Canada, China,
+            Mauritius, and India, with direct partnerships at several universities and platform access to more.
+          </p>
+        </details>
+
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-cipher-blue rounded-xl p-6 bg-cipher-blue/5" style="transition-delay:.18s">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>Can you help me find a scholarship?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            Yes. We help students identify scholarships they genuinely qualify for and guide the application itself.
+            Not every student ends up fully funded, and we'll be honest with you about what's realistic for your
+            situation rather than promising guarantees.
+          </p>
+        </details>
+
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-runway-gold rounded-xl p-6 bg-runway-gold/5" style="transition-delay:.24s">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>Do you help with visa applications too?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            Yes, visa documentation and process support is part of what we do once admission is secured, so you're
+            not navigating that alone after the hard part of getting in is already done.
+          </p>
+        </details>
+
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-signal-red rounded-xl p-6 bg-signal-red/5" style="transition-delay:.3s">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>How much does it cost to work with Cipher?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            It depends on the service and destination. Book a consultation and we'll walk you through the actual
+            costs for your specific situation rather than quoting a generic number that may not apply to you.
+          </p>
+        </details>
+
+        <details class="reveal-on-scroll border border-hairline border-t-4 border-t-cipher-blue rounded-xl p-6 bg-cipher-blue/5" style="transition-delay:.36s">
+          <summary class="flex items-center justify-between gap-4 cursor-pointer font-semibold">
+            <span>Can a parent book the consultation instead of the student?</span>
+            <i class="fas fa-plus text-cipher-blue icon-plus"></i>
+            <i class="fas fa-minus text-cipher-blue icon-minus"></i>
+          </summary>
+          <p class="text-ink/70 text-sm leading-relaxed mt-4">
+            Yes, parents book consultations on behalf of their children regularly, particularly for younger
+            students. We're happy to work with whoever is guiding the decision.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-deep-blue text-white">
+    <div class="max-w-4xl mx-auto px-6 py-20 md:py-28 text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold mb-5">Not sure which service you need?</h2>
+      <p class="text-white/60 mb-8 max-w-md mx-auto">Book a session and we'll map out the right path together.</p>
+      <a href="./index.html#book" class="inline-block bg-white text-deep-blue px-8 py-3.5 rounded-full text-sm font-medium hover:bg-runway-gold hover:text-white transition-colors">Book a consultation</a>
+    </div>
+  </section>
+</main>
+
+<footer class="bg-deep-blue text-white">
+  <div class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
+    <div class="md:col-span-2">
+      <img src="./img/logo 1.png" alt="Cipher Educational Consult" class="h-10 mb-4">
+      <p class="text-white/60 max-w-sm text-sm leading-relaxed">Education, career development, and youth empowerment across Nigeria and West Africa.</p>
+    </div>
+    <div>
+      <p class="eyebrow text-white/40 mb-4">Contact</p>
+      <p class="text-sm text-white/80 mb-3 flex items-center gap-2.5"><i class="fas fa-phone text-runway-gold text-xs"></i><a href="tel:+2347085512480" class="hover:text-white">+234 708 551 2480</a></p>
+      <p class="text-sm text-white/80 mb-3 flex items-center gap-2.5"><i class="fas fa-envelope text-runway-gold text-xs"></i><a href="mailto:info@cipherconsult.com.ng" class="hover:text-white">info@cipherconsult.com.ng</a></p>
+      <p class="text-sm text-white/80 mb-3 flex items-start gap-2.5"><i class="fas fa-location-dot text-runway-gold text-xs mt-1"></i><span>Suite 305, Pal Mall Plaza,<br>4th Avenue, Gwarinpa, Abuja</span></p>
+      <p class="text-sm text-white/80 flex items-center gap-2.5"><i class="fas fa-clock text-runway-gold text-xs"></i><span>9:00 AM to 5:00 PM, Mon to Fri</span></p>
+    </div>
+    <div>
+      <p class="eyebrow text-white/40 mb-4">Follow</p>
+      <div class="flex gap-3">
+        <a href="https://wa.link/alv5t4" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-blue transition-colors" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/ciphereducationalconsult?igsh=MXN3N2dyMjZpeWlsYw==" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-blue transition-colors" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1K34fNAksX/" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-deep-blue transition-colors" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 py-5 text-xs text-white/40 flex flex-col md:flex-row justify-between gap-2">
+      <span>&copy; <span id="year"></span> Cipher Educational Consult Ltd. All rights reserved.</span>
+      <span>RC 7234606 &middot; SCUML SC 151508968</span>
+      <span>Abuja, Nigeria</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal-on-scroll').forEach((el) => io.observe(el));
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuToggle.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', isOpen);
+  });
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+      mobileMenu.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  });
+</script>
+</body>
+</html>
